@@ -1,33 +1,45 @@
-<!doctype html>
-<html>
-    <meta charset=""uft-8"> 
-
-<head> <title>
-   동물
-</title>
-
-<style>
-a {
-    color: rgb(183, 117, 245);
-text-decoration: none;
-}
-h1{font-size:80px; 
-text-align:center;}
-ol{font-size:30px;}
-.bi{color: blue; }
-.active{color:gray;}
-
-</style>
-
-
-</head>
-<a href="1.html"><h1>동물</h1></a>
-<ol>
-<li><a href="2.html" style="color:brown;text-decoration:underline">강아지</a></li>
-<li><a href="3.html"class="bi">고양이</a></li>
-<li><a href="4.html"class="bi active">비둘기</a></li>
-</ol>
-<br>
-<p>In CSS, selectors <strong>are </strong>patterns <br>
-used to select the element(s) you want to <a href="https://ppss.kr/archives/100044" target="_blank" title="좀비">style</a></p>
-</html>
+<div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-bitcoin'></i>
+      <span class="logo_name">Menu</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-home'></i>
+          <span class="link_name">Home</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Home</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class='bx bx-bulb'></i>
+            <span class="link_name">Solutions</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Solutions</a></li>
+          <li><a href="#">Payments API</a></li>
+          <li><a href="#">Accounts APi</a></li>
+          <li><a href="#">Finance API</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class='bx bx-news'></i>
+            <span class="link_name">Posts</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Posts</a></li>
+          <li><a href="#">Recent</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Most Visited</a></li>
+        </ul>
+      </li>
