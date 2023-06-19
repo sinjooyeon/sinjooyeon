@@ -43,3 +43,106 @@
           <li><a href="#">Most Visited</a></li>
         </ul>
       </li>
+        <!doctype html>
+<html>
+<head> <tiltle>
+</tiltle>
+</head>
+<body>
+    <style>
+        table{ border-collapse : collapse; }
+        th,td{
+              width: 100px;
+              height: 50px;
+              text-align: center;
+              border: 1px solid #000;
+              
+              vertical-align: top;
+              vertical-align: bottom; 
+              vertical-align: middle; 
+        
+        
+        
+            
+        } 
+        
+        </style>
+        
+<table>
+<tr>
+    <td>1    </td>
+    <td>2    </td>
+    <td>3   </td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+    <td>1    </td>
+    <td>2   </td>
+    <td>3  </td>
+
+
+</tr>
+
+<tr>
+    <td>1    </td>
+    <td>2    </td>
+    <td>3   </td>
+
+
+</tr></table>
+<br>
+<table>
+	<thead>
+		<tr>
+			<th>학교</th>
+			<th>창립년도</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>서울대학교</td>
+			<td>1946</td>
+		</tr>
+		<tr>
+			<td>고려대학교</td>
+			<td>1905</td>
+		</tr>
+		<tr>
+			<td>연세대학교</td>
+			<td>1885</td>
+		</tr>
+	</tbody>
+</table>
+
+</table>
+
+<br>
+<table>
+	<tr>
+		<td>섹션1</td>
+		<td>섹션2</td>
+	</tr>
+	<tr>
+		<td>섹션3</td>
+		<td>섹션4</td>
+	</tr>
+	<tr>
+		<td>섹션4</td>
+		<td>섹션5</td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+</body>
+</html>
