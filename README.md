@@ -5,24 +5,7 @@
 </tiltle>
 </head>
 <body>
-    <style>
-        table{ border-collapse : collapse; }
-        th,td{
-              width: 100px;
-              height: 50px;
-              text-align: center;
-              border: 1px solid #000;
-              
-              vertical-align: top;
-              vertical-align: bottom; 
-              vertical-align: middle; 
-        
-        
-        
-            
-        } 
-        
-        </style>
+   
         
 <table>
 <tr>
