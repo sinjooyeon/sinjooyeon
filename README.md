@@ -8,9 +8,7 @@
 
     </title>
 </head>
-<body>
-<h1>coworkers</h1>
-    <script>
+<script>
         var coworkers = ["mindong","minseo","mingi","dongdong","ari"] ;
         var i = 0;
 
@@ -22,12 +20,18 @@ document.write('<li>'+coworkers[3]+'</li>');
 document.write('<li>'+coworkers[4]+'</li>');
         
         </script>
+
+
+
+<body>
+<h1>coworkers</h1>
+    
         
 
 
 <h1>gas</h1>
 <P>오징어는 핑크색</P>
-
+<script>
 <input type="button" value="BBung" onclick = "
 document.querySelector('body').style.backgroundColor ='pink';
 document.querySelector('body').style.color ='hotpink';
@@ -38,7 +42,7 @@ document.querySelector('body').style.color ='hotpink';
 document.querySelector('body').style.backgroundColor ='blue';
 document.querySelector('body').style.color ='beige';
 ">
-
+</script>
 
 </body>
 </html>
