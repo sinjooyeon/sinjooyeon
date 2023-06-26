@@ -31,7 +31,7 @@ document.write('<li>'+coworkers[4]+'</li>');
 
 
 <h1>gas</h1>
-<P>오징어는 핑크색</P>
+<P><span>*</span>오징어는 핑크색</P>
 
 <input type="button" value="BBung" onclick = "
 document.querySelector('body').style.backgroundColor ='pink';
