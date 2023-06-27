@@ -11,8 +11,16 @@
 
 
 <body>
+
+<style>
+ #tone {display: block;
+            width: 100px;
+            height: 100px;
+            background: powderblue;}
+
+</style>
 <h1>coworkers</h1>
-    
+  <div  id ="tone">돌맹이</div>  
 <script>
     var coworkers = ["mindong","minseo","mingi","dongdong","ari"] ;
     var i = 0;
