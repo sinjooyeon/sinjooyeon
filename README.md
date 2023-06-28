@@ -3,54 +3,36 @@
     <meta charset="utf-8">
 <head>
     <title>
-
+디지털시계
     </title>
-</head>
-
-
-
-
-<body>
-
-<style>
- #tone {display: block;
-            width: 100px;
-            height: 100px;
-            background: powderblue;}
-
-</style>
-<h1>coworkers</h1>
-  <div  id ="tone">돌맹이</div>  
-<script>
-    var coworkers = ["mindong","minseo","mingi","dongdong","ari"] ;
-    var i = 0;
-
-while (i<3 ){
-document.write('<li>'+coworkers[i]+'</li>');
-i = i+1
+    <script>
+function displayTime(){
+    var elt = document.getElementById("clock");
+    var now = new Date();
+    elt.innerHTML = now.toLocaleTimeString();
+    setTimeout(displayTime, 1000);
 }
-document.write('<li>'+coworkers[3]+'</li>');
-document.write('<li>'+coworkers[4]+'</li>');
+window.onload = displayTime;
+</script>
 
+
+</head>
+<body>
+<h1>Difital Clock</h1>
+<span id=""clock"></span>
+<style>
+
+
+
+    #clock {
+        font: bold 24pt sans;
+        background: #ddf;
+        padding: 10px;
+        border: solid black 2px;
+        border-radius: 10px;
+    }
+    </style>
     
-    </script>
-
-
-<h1>gas</h1>
-<P><span>*</span>오징어는 핑크색</P>
-
-<input type="button" value="BBung" onclick = "
-document.querySelector('body').style.backgroundColor ='pink';
-document.querySelector('body').style.color ='hotpink';
-
-">
-
-<input type="button" value="pang" onclick = "
-document.querySelector('body').style.backgroundColor ='blue';
-document.querySelector('body').style.color ='beige';
-">
-
-
 </body>
 </html>
        
