@@ -3,18 +3,49 @@
     <meta charset="utf-8">
 <head>
     <title>
-
-<h1>coworkers</h1>
-
+디지털시계
     </title>
+    <script>
+function displayTime(){
+    var elt = document.getElementById("clock");
+    var now = new Date();
+    elt.innerHTML = now.toLocaleTimeString();
+    setTimeout(displayTime, 1000);
+}
+window.onload = displayTime;
+</script>
+    
 </head>
 
 
 
 
 <body>
+<h1>Difital Clock</h1>
+<span id=""clock"></span>
+
+<style>
+
+
+
+#clock {
+    font: bold 24pt sans;
+    background: #ddf;
+    padding: 10px;
+    border: solid black 2px;
+    border-radius: 10px;
+}
+
+ #tone {display: block;
+            width: 100px;
+            height: 100px;
+            background: powderblue;}
+
+</style>
 <h1>coworkers</h1>
-    
+  <div  id ="tone">돌맹이</div>  
+
+
 <script>
     var coworkers = ["mindong","minseo","mingi","dongdong","ari"] ;
     var i = 0;
@@ -31,7 +62,7 @@ document.write('<li>'+coworkers[4]+'</li>');
 
 
 <h1>gas</h1>
-<P>오징어는 핑크색</P>
+<P><span>*</span>오징어는 핑크색</P>
 
 <input type="button" value="BBung" onclick = "
 document.querySelector('body').style.backgroundColor ='pink';
@@ -44,7 +75,7 @@ document.querySelector('body').style.backgroundColor ='blue';
 document.querySelector('body').style.color ='beige';
 ">
 
-낙지 꼴뚜기 새
+
 </body>
 </html>
        

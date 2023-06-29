@@ -14,17 +14,8 @@ function displayTime(){
 }
 window.onload = displayTime;
 </script>
-
-
-</head>
-<body>
-<h1>Difital Clock</h1>
-<span id=""clock"></span>
 <style>
-
-
-
-    #clock {
+#clock {
         font: bold 24pt sans;
         background: #ddf;
         padding: 10px;
@@ -32,6 +23,12 @@ window.onload = displayTime;
         border-radius: 10px;
     }
     </style>
+
+</head>
+<body>
+<h1>Difital Clock</h1>
+<span id="clock"></span>
+
     
 </body>
 </html>
