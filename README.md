@@ -76,7 +76,7 @@ window.onload = displayTime;
     이곳에 쓰인 문자는 인라인 스타일을 사용하여 오버라이드 했습니다.
 </span>
 
-
+time
 
    </p>
         
