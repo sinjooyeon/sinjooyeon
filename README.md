@@ -65,7 +65,7 @@ window.onload = displayTime;
  <h2>캐스케이딩 스타일 시트 데모</h2>
 <div class="WARNING">
     <h3>Warning</h3>
-    경고!
+    경고!!!
     이 경고문은 굵고 밝은 글씨로 여러분의 시선을 사로잡습니다.<br>
         머릿글 역시 가운데 정렬된 파란색 이텔릭체로 표기했습니다.<br><br></div>
         
