@@ -5,7 +5,7 @@
 
 
 <style type="text/css">
-div.sondow{
+div.window{
   position:absolute;
   width: 300px;height:200px
 ;
@@ -36,7 +36,6 @@ background-color:#fff;
 }
 div.translucent{
 opacity: .75;
-filter:alpha(opacity=75);
 
 
 }
@@ -46,18 +45,18 @@ filter:alpha(opacity=75);
 
 </head>
 <body>
-<div xlass="window" style="left: 10px; top:10px; z-index:10;">
-  <div xlass="titlebar">Test Window 창테스트</div> 
-  <div xlass="content">
+<div class="window" style="left: 10px; top:10px; z-index:10;">
+  <div class="titlebar">Test Window 창테스트</div> 
+  <div class="content">
 1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>
 1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>
 
   </div>
 </div>
-<div xlass="window" style="left: 75px; top:110px; z-index:20;">
-  <div xlass="titlebar">또다른 창</div> 
-  <div xlass="content translucent" style-"background-color:#ccc; font-weight:bold;">
-    이것은 또 다른 창입니다. 이창의 <tt>z-index</tt>는 다른 창보다 높습니다 브라우저가 지원할 수 있는 CSS스타일로 내용 영역을  반투명하게 했습니다.</div>
+<div class="window" style="left: 75px; top:110px; z-index:20;">
+  <div class="titlebar">또다른 창</div> 
+  <div class="content translucent" style="background-color:#ccc; font-weight:bold;">
+    이것은 또 다른 창입니다. 이창의<code>video</code> 는 다른 창보다 높습니다 브라우저가 지원할 수 있는 CSS스타일로 내용 영역을  반투명하게 했습니다.</div>
   </div>
 </body>
 
