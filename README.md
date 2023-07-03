@@ -1,88 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <meta charset="utf-8">
-<head>
-    <title>
-디지털시계
-    </title>
-    <script>
-function displayTime(){
-    var elt = document.getElementById("clock");
-    var now = new Date();
-    elt.innerHTML = now.toLocaleTimeString();
-    setTimeout(displayTime, 1000);
-}
-window.onload = displayTime;
-</script>
-<style>
-#clock {
-        font: bold 24pt sans;
-        background: #ddf;
-        padding: 10px;
-        border: solid black 2px;
-        border-radius: 10px;
-    }
-    </style>
+<head> <tiltle>
+</tiltle>
+
 
 <style type="text/css">
-    h2, h3 { color: blue; 
-        font-style:italic;
-        text-align:center;}
-   .WARNING { 
-    font-weight:bold;
-    font-size:150%;
-    margin:0 1in 0 1in;
-    background-color: yellow;
-    border:solid red 8px;
-    padding:10 10px;
-    text-align:center;
+div.sondow{
+  position:absolute;
+  width: 300px;height:200px
+;
+border: 3px outset gray;
+}
+ div.titlebar{
+position:absolute;
+top:0px;
+ height:18px;
+ width:290px;
+ background-color: #aaa;
+ border-bottom: groove gray 2px;
+ padding: 3px 5px 2px 5px;
+ font: bold 11pt sans-serif;
+
+
+ }
+
+div.content{
+position:absolute;
+top:25px;
+height:165px;
+width:290px;
+padding:5px;
+overflow:auto;
+background-color:#fff;
+
+}
+div.translucent{
+opacity: .75;
+filter:alpha(opacity=75);
+
+
 }
 
- .WARNING h2, .WARNING h3{text-align:center;}
-#special{
-    text-align:center;
-    text-transform:uppercase;
-    }
 
 </style>
 
 </head>
-
-
-
-
-
 <body>
- <h1>Difital Clock</h1></div>
+<div xlass="window" style="left: 10px; top:10px; z-index:10;">
+  <div xlass="titlebar">Test Window 창테스트</div> 
+  <div xlass="content">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>0<br>
+
+  </div>
+</div>
+<div xlass="window" style="left: 75px; top:110px; z-index:20;">
+  <div xlass="titlebar">또다른 창</div> 
+  <div xlass="content translucent" style-"background-color:#ccc; font-weight:bold;">
+    이것은 또 다른 창입니다. 이창의 <tt>z-index</tt>는 다른 창보다 높습니다 브라우저가 지원할 수 있는 CSS스타일로 내용 영역을  반투명하게 했습니다.</div>
+  </div>
+</body>
 
 
- <span id="clock"></span>
- <br>
- <br>
- <br>
- <br>
 
- <h2>캐스케이딩 스타일 시트 데모</h2>
-<div class="WARNING">
-    <h3>Warning</h3>
-    경고!!!
-    이 경고문은 굵고 밝은 글씨로 여러분의 시선을 사로잡습니다.<br>
-        머릿글 역시 가운데 정렬된 파란색 이텔릭체로 표기했습니다.<br><br></div>
-        
-   <p id="special">
-이 문단은 가운데로 정렬되어 있습니다. <br>
-그리고, 영어로 쓰일경우 대문자로 표시됩니다.<br>
-<span stule="text-transform:none">
-    이곳에 쓰인 문자는 인라인 스타일을 사용하여 오버라이드 했습니다.
-</span>
-
-time
-
-   </p>
-        
-    </body>
-    </html>
-
-
- 
 
