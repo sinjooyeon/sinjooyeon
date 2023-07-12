@@ -51,3 +51,31 @@ console.log(`name +"님"+classroom +"으로 입장하시길바랍니다"`)
 
 
 
+
+ function add(a, b, c, d, e){
+ console.log ("첫번째 값",a)
+ console.log ("두번째 값",b)
+ console.log ("세번째 값",c)
+ 
+ let g = d + c ;
+
+console.log("d더하기 c는",g);
+let p = e + b ;
+
+console.log("e나누기 b는",p);
+return (g,p);
+
+ }
+let result =add(1,2,3,5,6);
+console.log('결과는?',result);
+
+
+function add(a,b) {
+    console.log('a의값은 :',a);
+    console.log('b의값은 :',b);
+  var 신주연 = a+b;
+  console.log('a+b = ',신주연);
+  return 신주연;
+}
+var result = add(4,5);
+console.log("결과",result);;
