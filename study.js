@@ -191,6 +191,15 @@ function test_for() {
   }
   console.log('끗');
 }
+
+
+
+
+
+
+
+
+
 function test_while() {
   var i = Math.random() * 100;
   while (i < 90) {
@@ -200,6 +209,15 @@ function test_while() {
   }
   console.log('끗');
 }
+
+
+
+
+
+
+
+
+
 function test_switch() {
   var i = Math.random() < 0.5 ? 'a' : 'b';
   while (true) {
@@ -222,6 +240,23 @@ function test_switch() {
   }
   console.log('끗');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function test_for_same_while() {
   var i = Math.random() < 0.5 ? 'a' : 'b';
   for (; true;) {
