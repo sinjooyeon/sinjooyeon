@@ -10,8 +10,7 @@ function add(a,b){
 let epu= add(o9,o8);
 console.log (epu);
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 
 
@@ -23,9 +22,7 @@ function add(a,b){
 }
 let epw= add(w1,w2);
 console.log (epw);
-
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 
 
@@ -39,9 +36,7 @@ g.charAt(0)
 function for01(){
   for(   )
 }
-
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 function calcSum(){
 let sum = 0;
@@ -53,8 +48,7 @@ console.log (`1부터 10까지 더하면 ${sum}입니다`);
 
 calcSum();
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 function calcSum() {
   let sum = 0;
@@ -65,8 +59,7 @@ function calcSum() {
 }
  calcSum();
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 
 
@@ -79,8 +72,7 @@ function calcSum(){
 }
 calcSum();
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 
 
@@ -93,8 +85,7 @@ function calcSum(){
 }
 calcSum();
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 
 
@@ -112,8 +103,7 @@ console.log(`난 ${sum}이야`)
 calcSum();
 
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
+// -------------------------------------------------------------------
 
 
 
@@ -127,9 +117,7 @@ console.log(`난 1부터 ${n}까지 더하믄 ${sum}이징`);
 }
 calcSum(8);
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
-
+// -------------------------------------------------------------------
 
 
 function calcSum(n){
@@ -145,9 +133,7 @@ console.log(`1부터 ${num}까지 더해쥼 ${calcSum(num)}이다`)
 
 
 
-// practice  practice  practice   practice   practice   practice
-// practice  practice  practice   practice   practice   practice
-
+// -------------------------------------------------------------------
 
 let num1 = parseInt(prompt("나이?"));
 let num2 = parseInt(prompt("생일 몇월?"));
@@ -371,15 +357,23 @@ bttn.addEventListener("click",display);
 
 
 
+// -------------------------------------------------------------------
 
 
+function showData(name,age){
+  alert(`안녕하십니깡 ${name}님. 나이가 ${age}살이군요`);
+}
+
+function getData(callback){
+  let userName= prompt("이름을 입력하시오");
+  let userAge= prompt("나이를 입력하시오");
+callback(userName, userAge);
+}
+
+getData(showData)
 
 
-
-
-
-
-
+// -------------------------------------------------------------------
 
 
 
