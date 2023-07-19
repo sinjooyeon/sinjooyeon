@@ -64,26 +64,20 @@ function add(a, b) {
 }
 let h1 = parseInt(prompt('오징어다리 몇개?'));
 let h2 = parseInt(prompt('문어다리 몇개?'));
-let y=add(h1,h2);
+let y = add(h1, h2);
 console.log(y);
 
 
+/**
+ * 메서드호출
+ */
+var calculator = {
+  operand1: 1,
+  operand2: 1,
+  add: function () {
+    this.result = this.operand1 + this.operand2;
+  }
+};
+calculator.add();
+calculator.result
 
-var result = add(1, add(1, add(1, add(1, add(1, add(calcSum3(232323), add(1, 2)))))));
-
-var val1 = add(calcSum3(232323), add(1, 2));
-var val2 = add(1, val1);
-
-var val3 = add(1, val2);
-
-var val4 = add(1, val3);
-
-var val5 = add(1, val4);
-
-var val6 = add(1, val5);
-
-
-function insane(arr=[]) {
-  return arr.map(num=>num % 100).filter(num=>num > 10)
-}
-insane();
