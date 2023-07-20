@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<head>
+    
+</head>
+<body>
+<style>
+    #dbutton{padding:20px;
+    font-size:20px;}
+</style>
+
+
+    <form><button id="dbutton"> 새로 고침해 보세요</button></form>
+  <script>
+   function random(number) {
+    return Math.floor(Math.random()*number);
+   }
+   function bgChange(){
+    const rndCol='rgb('+random(255)+','+random(255)+','+random(255)+')';
+    document.body.style.backgroundColor=rndCol;
+   }
+ bgChange();
+ let stars=parseInt(prompt("별의 개수:"));
+
+while(stars>0){document.write('*');
+stars--;
+}
+
+function greeting() {
+  console.log("안녕하셈?");
+
+}
+setInterval(greeting,2000);
+  </script>
+
+
+</body>
