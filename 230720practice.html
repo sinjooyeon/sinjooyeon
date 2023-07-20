@@ -23,6 +23,14 @@
 
   <h1>키보드의 아무 키나 눌러보세요</h1>
 
+  <h1>Web Programming</h1>
+  <ul id="items">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Javascript</li>
+  </ul>
+
+
   <style>
     .dark {
       background-color: #222;
@@ -101,7 +109,7 @@
 
 
 
-    
+
     //타이머 실행했따가 종료하기
     let counter = 0;
 
@@ -171,6 +179,17 @@
         container.style.backgroundImage = `url(images/${pics[i]})`;  // 현재 이미지 표시
       });
     });
+
+
+
+  const items = document.querySelectorAll("li"); 
+
+  for (let item of items) {
+    item.addEventListener("click", function () {     
+      this.parentNode.removeChild(this);      
+    });
+  }
+
 
 
 
