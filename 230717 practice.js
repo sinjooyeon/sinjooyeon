@@ -405,7 +405,7 @@ function test() {
  * @param {Number} b 숫자2
  
  */
-function test33(a,b) {
+function test33(a, b) {
 
   function showData(name, age) {
     alert(`안녕하십니깡 ${name}님. 나이가 ${age}살이군요`);
@@ -418,7 +418,7 @@ function test33(a,b) {
   }
 
   getData(showData);
-  return true
+  return true;
 }
 
 // -------------------------------------------------------------------
@@ -427,11 +427,9 @@ function test33(a,b) {
 
 
 
-const resultString =test33(1,1)
+const resultString = test33(1, 1);
 
-testCalculater()
-
-
+testCalculater();
 
 
 
@@ -439,6 +437,27 @@ testCalculater()
 
 
 
+
+
+
+var result = add(1, add(1, add(1, add(1, add(1, add(calcSum3(232323), add(1, 2)))))));
+
+var val1 = add(calcSum3(232323), add(1, 2));
+var val2 = add(1, val1);
+
+var val3 = add(1, val2);
+
+var val4 = add(1, val3);
+
+var val5 = add(1, val4);
+
+var val6 = add(1, val5);
+
+
+function insane(arr = []) {
+  return arr.map(num => num % 100).filter(num => num > 10);
+}
+insane();
 
 
 
