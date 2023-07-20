@@ -1,33 +1,7 @@
-<!doctype html>
-<html>
-    <meta charset=""uft-8"> 
+![header](https://capsule-render.vercel.app/api?type=Waving&color=auto&height=300&section=header&text=jjangdol~!&fontSize=90)
+<div style="display:flex; justify-content:center; align-items:center;"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white"/><br></div>
 
-<head> <title>
-   동물
-</title>
+  [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=sinjooyeon&langs_count=8)](https://github.com/sinjooyeon/github-readme-stats)<br>
 
-<style>
-a {
-    color: rgb(183, 117, 245);
-text-decoration: none;
-}
-h1{font-size:80px; 
-text-align:center;}
-ol{font-size:30px;}
-.bi{color: blue; }
-.active{color:gray;}
-
-</style>
-
-
-</head>
-<a href="1.html"><h1>동물</h1></a>
-<ol>
-<li><a href="2.html" style="color:brown;text-decoration:underline">강아지</a></li>
-<li><a href="3.html"class="bi">고양이</a></li>
-<li><a href="4.html"class="bi active">비둘기</a></li>
-</ol>
-<br>
-<p>In CSS, selectors <strong>are </strong>patterns <br>
-used to select the element(s) you want to <a href="https://ppss.kr/archives/100044" target="_blank" title="좀비">style</a></p>
-</html>
+[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=sinjooyeon)](https://solved.ac/sinjooyeon0)<br>
+<div>신주연!!!</div>

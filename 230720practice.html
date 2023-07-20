@@ -20,6 +20,9 @@
 
 <body>
   <button>클릭</button>
+
+  <h1>키보드의 아무 키나 눌러보세요</h1>
+
   <style>
     .dark {
       background-color: #222;
@@ -27,6 +30,10 @@
 
     }
   </style>
+
+
+
+
   <script>
 
     /**
@@ -92,6 +99,9 @@
       console.log("안녕하세요?");
     }, 2000);
 
+
+
+    
     //타이머 실행했따가 종료하기
     let counter = 0;
 
@@ -119,24 +129,62 @@
 
 
 
+    /**
+     * 키보드에서 키값찾기
+    */
+
+    const body = document.body;
+    const result = document.querySelector("#result");
+
+    body.addEventListener("keydown", (e) => {
+      result.innerText = `
+      code :${e.code}, 
+      key : ${e.key}`;
+    });
+
+
+
+    //캐러셀만들기??????????잘 읽어보기
+
+    const container = document.querySelector("#container"); // 캐러셀 영역
+    const pics = [`aaa01.jpg`, "aaa02.jpg", "aaa03.jpg", "aaa04.jpg", "aaa05.jpg"];  // 이미지 배열
+
+    container.style.backgroundImage = `url(images/${pics[0]})`;  // 첫번째 이미지 기본으로 표시
+
+    const arrows = document.querySelectorAll(".arrow");  // 화살표
+    let i = 0;  // 배열 인덱스
+
+    arrows.forEach(arrow => {
+      arrow.addEventListener("click", (e) => {
+        if (e.target.id === "left") {  // 왼쪽 화살표 클릭?
+          i--; // 이전 이미지로 이동
+          if (i < 0) {  // 첫번째 이미지?
+            i = pics.length - 1;  // 맨 마지막 이미지로 이동
+          }
+        }
+        else if (e.target.id == "right") {  // 오른쪽 화살표 클릭?
+          i++;  // 다음 이미지로 이동
+          if (i >= pics.length) {  // 마지막 이미지?
+            i = 0;  // 첫번째 이미지로 이동
+          }
+        }
+        container.style.backgroundImage = `url(images/${pics[i]})`;  // 현재 이미지 표시
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
