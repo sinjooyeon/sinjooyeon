@@ -57,6 +57,7 @@
 
 
 
+
     /**
      * 사용자 입력값이 홀수인지 짝수인지 구분
     */
@@ -182,14 +183,13 @@
 
 
 
-  const items = document.querySelectorAll("li"); 
+    const items = document.querySelectorAll("li");
 
-  for (let item of items) {
-    item.addEventListener("click", function () {     
-      this.parentNode.removeChild(this);      
-    });
-  }
-
+    for (let item of items) {
+      item.addEventListener("click", function () {
+        this.parentNode.removeChild(this);
+      });
+    }
 
 
 
