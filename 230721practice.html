@@ -10,11 +10,43 @@
 </head>
 
 <body>
+  <button>버튼</button><br>
+
+
+  <span><a class="col"> 색상바꾸기</a></span>
+
+
+  <style>
+    .col {
+      font-size: 200px;
+    }
+
+    .rain {
+      background-Color: #5ddfa2;
+      color: yellow;
+    }
+  </style>
+
+
+
+
 
   <script>
     /**
+     * span영역불러와서 온클릭시(토글) CSS효과로 배경색 글씨색을 바꾸기
+     */
+    const lol = document.querySelector("span")
+
+    lol.onclick = function () {
+      document.body.classList.toggle("rain");
+    }
+
+
+
+
+    /**
      * 프롬프트에서 취소를 했는지 체크
-      */
+     */
     let userInput = prompt("이름을입력하세요");
     if (userInput === null) {
       alert("취소했습니다.");
@@ -24,7 +56,7 @@
 
     /**
      * 프롬프트에서 아무값도 입력안했을떄 궁금
-     * */
+     */
     let user5 = prompt("이름을입력해봐");
     if (user5 === null) {
       alert("취소했따");
@@ -34,26 +66,35 @@
       alert(user5);
     }
 
+
+
     /**
      * 조건문 연습
-     * */
+     */
     let hh = prompt("숫자입력해볼래?");
     if (hh !== null) {
       hh = parseInt(hh);
       hh % 2 === 0 ? alert(`${hh}쪽수임다`) : alert(`${hh}홀쭉입니다`)
+    }
 
 
 
+    /**
+     * 루프문 연습
+     */
+    let yy = parseInt(prompt("달러 몇개 갖고 싶어?"))
 
-      let yy = parseInt(prompt("달러 몇개 갖고 싶어?"))
-
-      while (yy > 0) {
-        document.write("$");
-        yy--;
-      }
+    while (yy > 0) {
+      document.write("$");
+      yy--;
+    }
 
 
 
+    /**
+     *버튼요소 불러와서 클릭했을때 배경색 바꾸기 
+     */
+    document.querySelector("button").onclick = () => document.body.style.backgroundColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
 
 
 
