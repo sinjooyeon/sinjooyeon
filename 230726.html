@@ -6,50 +6,305 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Hi!</title>
+  <title>todo list</title>
 
 </head>
 
 <body>
+  <header>
+    <h1>오늘의 할일</h1>
+  </header>
+  <form>
+    <label for="todo-input">할일</label>
+    <input type="text" id="todo-input" placeholder="할일을 입력하세요" required>
+    <button type="button" id="add-button">추가</button>
+  </form>
+  <div id="container">
+    <ul id="todo-list">
 
-
-
-<script>
-/**
- * switch문으로 입력값 체크하기
- */ 
-let subject = prompt("신청할 과목 번호를 선택하시오. 1 영어, 2 수학, 3 과학");
-if (subject!== null){
-  switch(subject){
-    case "1" : document.write("영어를 신청하였습니다");
-    break;
-     case "2": document.write("수학을 신청하였습니다");
-      break;
-      case "3": document.write("과학을 신청하였습니다");
-      break;
-      default:document.write("잘못입력하였습니다 다시 입력해주세요");
-  }
-}
+    </ul>
+  </div>
 
 
 
 
 
+  <!-- <h1>노드리스트 살펴보기</h1>
+  <p>HTML</p>
+  <p>CSS</p>
+  <p>javascript</p> -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    header {
+      font-size: 1.5em;
+    }
+
+    header,
+    form {
+      min-height: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form label {
+      display: none;
+    }
+
+    form input,
+    form button {
+      padding: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #todo-list {
+      min-width: 30%;
+      list-style: none;
+    }
 
 
 
 
-   
+
+
+
+
+    .todo {
+      margin: 0.5rem;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .todo.todo-content {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px dotted #c93737;
+    }
+
+    .todo button {
+      padding: 0.5rem;
+      margin-right: 0.2rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: #df25c6;
+      opacity: 0.5;
+    }
+  </style>
+
+  <script>
+
+    const todoInput = document.querySelector('#todo-input');
+    const addButton = document.querySelector('#add-button');
+    const todoList = document.querySelector('#todo-list');
+
+    addButton.addEventListener('click', addTodo);
+
+    function addTodo(e) {
+      e.preventDefault();
+      const newDiv = document.createElement('div');
+      newDiv.classList.add('todo');
+      const newTodo = document.createElement('li');
+      newTodo.innerText = todoInput.value;
+      newTodo.classList.add('todo-content');
+      newDiv.appendChild(newTodo);
+
+
+      const completeButton = document.createElement('button');
+      completeButton.innerText = '완료';
+      completeButton.classList.add('complete-button');
+      newDiv.appendChild(completeButton);
+
+
+      const deleteButton = document.createElement('button');
+      deleteButton.innerText = '삭제';
+      deleteButton.classList.add('delete-button');
+      newDiv.appendChild(deleteButton);
+
+      todoList.appendChild(newDiv);
+      todoInput.value = "";
+
+    }
+
+    function saveToLocal(todo) {
+      let todos;
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+
+      todos.push(todo);
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    function getLocal() {
+      let todos;
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+      todos.forEach(function (todo) {  // todos 요소마다 반복
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('todo');
+        const newTodo = document.createElement('li');
+        newTodo.innerText = todo; // 로컬 스토리지의 값 표시
+        newTodo.classList.add('todo-content');
+        newDiv.appendChild(newTodo);
+
+        const completeButton = document.createElement('button');
+        completeButton.innerText = '완료';
+        completeButton.classList.add('complete-button');
+        newDiv.appendChild(completeButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = '삭제';
+        deleteButton.classList.add('delete-button');
+        newDiv.appendChild(deleteButton);
+
+        todoList.appendChild(newDiv);   // ul 요소의 자식 요소로 추가
+
+        todoInput.value = "";   // 입력 창 초기화
+      });
+    }
+
+    function manageTodo(e) {
+      const whichButton = e.target.classList[0];  // 클릭한 부분의 class명 가져오기 
+      if (whichButton === 'complete-button') {
+        const todo = e.target.parentElement;
+        todo.children[0].classList.toggle('completed');  // 내용 부분에 .completed 클래스 토글
+      } else if (whichButton === 'delete-button') {
+        const todo = e.target.parentElement;
+        removeLocal(todo);
+        todo.remove();
+      }
+    }
+
+    function removeLocal(todo) {
+      let todos;     // 로컬 스토리지에서 가져온 할 일들
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+
+      const index = todos.indexOf(todo.children[0].innerText);  // 삭제할 할 일의 인덱스
+      todos.splice(index, 1);    // index번째 요소 삭제
+      localStorage.setItem('todos', JSON.stringify(todos));    // 변경된 todos 저장
+    }
+
+
+
+    
+
+
+
+
+    // /**
+    //  * switch문으로 입력값 체크하기
+    //  */
+    // let subject = prompt("신청할 과목 번호를 선택하시오. 1 영어, 2 수학, 3 과학");
+    // if (subject !== null) {
+    //   switch (subject) {
+    //     case "1": document.write("영어를 신청하였습니다");
+    //       break;
+    //     case "2": document.write("수학을 신청하였습니다");
+    //       break;
+    //     case "3": document.write("과학을 신청하였습니다");
+    //       break;
+    //     default: document.write("잘못입력하였습니다 다시 입력해주세요");
+    //   }
+    // }
+
+
+    // /**
+    //  * forEach문으로 배열값 가져오기
+    //  */
+    // const students = ["kim", "lee", "park", "jo"];
+    // students.forEach(function (student) {
+    //   document.write(`${student}.`)
+    // })
+
+
+    // /**
+    //  * do...while문으로 조건에 따른 별 표시하기
+    //  */
+    // let stars = parseInt(prompt("원하는 별의 갯수를 적으시오"));
+
+    // do {
+    //   document.write("*");
+    //   stars--;
+    // } while (stars > 0)
+
+
+    // /**
+    //  * 소수인지여부 확인하기
+    //  */
+    // const number = parseInt(prompt("숫자를 입력합니다"));
+    // let isPrime;
+    // if (number === 1) {
+    //   document.write(`${number}는 소수도 합성수도 아닙니다`);
+    // } else if (number === 2) {
+    //   isPrime = true;
+    // } else {
+    //   for (let i = 2; i < number; i++) {
+    //     if (number % i === 0) {
+    //       isPrime = false;
+    //       break;
+    //     }
+    //     else {
+    //       isPrime = true;
+    //     }
+    //   }
+    // }
+    // if (isPrime) {
+    //   document.write(`${number}는 소수입니다.`);
+    // } else {
+    //   document.write(`${number}는 소수가 아닙니다`);
+    // }
+
+
+    // /**
+    //  * 웹문서에 새로운 노드 추가하기
+    //  */
+    // let newp = document.createElement("p");
+    // let textNode = document.createTextNode("Typescript");
+    // newp.appendChild(textNode);
+    // document.body.appendChild(newp);
+
+
+    // /**
+    //  * 제목 클릭해서 삭제하기
+    //  */
+    // const title2 = document.querySelector("h1");
+    // title2.addEventListener("click", () => {
+    //   title2.remove();
+    // });
+
 
   </script>
-
- 
-
-
-
-
-
-
 
 
 
