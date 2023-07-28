@@ -28,152 +28,152 @@
 
   <script>
 
-    /**
-     * 변수선언 실습예제
-     */
-    let r
-    r = 10
-    console.log(`넓이 =${3.14 * r * r}`)
-    console.log(`넓이 =${3.14 * 2 * r}`)
+    // /**
+    //  * 변수선언 실습예제
+    //  */
+    // let r
+    // r = 10
+    // console.log(`넓이 =${3.14 * r * r}`)
+    // console.log(`넓이 =${3.14 * 2 * r}`)
 
 
 
-    /**
-     * 오전오후 구분 실습예제
-     */
-    const date = new Date()
-    const hour = date.getHours()
-    if (hour < 12) {
-      alert('오전입니다')
-    } if (hour >= 12) {
-      alert('오후입니다')
-    }
+    // /**
+    //  * 오전오후 구분 실습예제
+    //  */
+    // const date = new Date()
+    // const hour = date.getHours()
+    // if (hour < 12) {
+    //   alert('오전입니다')
+    // } if (hour >= 12) {
+    //   alert('오후입니다')
+    // }
 
 
 
-    /**
-     * 중첩조건문
-     */
-    const date2 = new Date()
-    const hour2 = date2.getHours()
+    // /**
+    //  * 중첩조건문
+    //  */
+    // const date2 = new Date()
+    // const hour2 = date2.getHours()
 
-    if (hour2 < 11) {
-      alert('아침먹을시간입니다')
-    } else {
-      if (hour2 < 15) {
-        alert('점심먹을 시간입니다')
-      } else {
-        alert('저녁먹을 시간입니다')
-      }
-    }
-
-
-
-    /**
-     * 현재가 몇월인지 확인하고 계절을 구분하는 프로그램만들기
-     */
-    const a = Number(prompt('월을 입력해주세요', ''))
-
-    if (a < 7) {
-      if (a < 4) {
-        alert('봄이닷!!')
-      } else {
-        alert('여름이얏~!!!')
-      }
-    } else {
-      if (a < 10) {
-        alert('가을이군..')
-      } else {
-        alert('춥따~')
-      }
-    }
+    // if (hour2 < 11) {
+    //   alert('아침먹을시간입니다')
+    // } else {
+    //   if (hour2 < 15) {
+    //     alert('점심먹을 시간입니다')
+    //   } else {
+    //     alert('저녁먹을 시간입니다')
+    //   }
+    // }
 
 
 
+    // /**
+    //  * 현재가 몇월인지 확인하고 계절을 구분하는 프로그램만들기
+    //  */
+    // const a = Number(prompt('월을 입력해주세요', ''))
 
-
-    /**
-     * switch조건문
-     */
-    const date3 = new Date()
-    const hour3 = date3.getHours()
-
-    switch (true) {
-      case hour3 < 11:
-        alert('아침먹을 시간입니다')
-        break
-      case hour3 < 15:
-        alert('점심먹을 시간입니다')
-        break
-      default:
-        alert('저녁먹을시간입니다')
-        break
-    }
+    // if (a < 7) {
+    //   if (a < 4) {
+    //     alert('봄이닷!!')
+    //   } else {
+    //     alert('여름이얏~!!!')
+    //   }
+    // } else {
+    //   if (a < 10) {
+    //     alert('가을이군..')
+    //   } else {
+    //     alert('춥따~')
+    //   }
+    // }
 
 
 
 
 
-    /**
-     * if else조건문 사용하기
-     */
-    const rawInput = prompt('태어난해를 입력하시요', '');
-    const year = Number(rawInput);
-    const e = year % 12;
+    // /**
+    //  * switch조건문
+    //  */
+    // const date3 = new Date()
+    // const hour3 = date3.getHours()
 
-    let result
-    if (e === 0) {result = '원숭이'}
-    else if (e === 1) {result = '닭'}
-    else if (e === 2) {result = '개'}
-    else if (e === 3) {result = '돼지'}
-    else if (e === 4) {result = '쥐'}
-    else if (e === 5) {result = '소'}
-    else if (e === 6) {result = '호랑이'}
-    else if (e === 7) {result = '토끼'}
-    else if (e === 8) {result = '용'}
-    else if (e === 9) {result = '뱀'}
-    else if (e === 10) {result = '말'}
-    else if (e === 11) {result = '양'}
-    alert(`${year}년에 태어났다면 ${result}띠입니다`)
-
-
-
-
-    /**
-     * 지저분한코드 깔끔하게 split 문자열로 잘라서 배열 효율적인 코드예제
-     */
-    const rawInput2 = prompt("태어난 해를 입력하시오~", "");
-    const year2 = Number(rawInput2);
-    const tti = '원숭이,닭,개,돼지,쥐,소,호랑이,토끼,용,뱀,말,양'.split(',');
-
-    alert(`${year2}에 태어났다면 ${tti[year2 % 12]}띠입니다.`);
-
-
-
-
-    /**
-     * for 반복문과 배열
-     */
-    const todos = ['우유구매', '업무메일 확인하기', '필라테스 수업']
-
-    for (let i = 0; i < todos.length; i++) {
-      console.log(`${todos[i]}`)
-    }
+    // switch (true) {
+    //   case hour3 < 11:
+    //     alert('아침먹을 시간입니다')
+    //     break
+    //   case hour3 < 15:
+    //     alert('점심먹을 시간입니다')
+    //     break
+    //   default:
+    //     alert('저녁먹을시간입니다')
+    //     break
+    // }
 
 
 
 
 
-    /**
-     * while반복문과 함께 배열사용하기
-     */
-    let i = 0
-    const array = [1, 2, 3, 4, 5]
+    // /**
+    //  * if else조건문 사용하기
+    //  */
+    // const rawInput = prompt('태어난해를 입력하시요', '');
+    // const year = Number(rawInput);
+    // const e = year % 12;
 
-    while (i < array.length) {
-      console.log(`${i} : ${array[i]}`)
-      i++
-    }
+    // let result
+    // if (e === 0) {result = '원숭이'}
+    // else if (e === 1) {result = '닭'}
+    // else if (e === 2) {result = '개'}
+    // else if (e === 3) {result = '돼지'}
+    // else if (e === 4) {result = '쥐'}
+    // else if (e === 5) {result = '소'}
+    // else if (e === 6) {result = '호랑이'}
+    // else if (e === 7) {result = '토끼'}
+    // else if (e === 8) {result = '용'}
+    // else if (e === 9) {result = '뱀'}
+    // else if (e === 10) {result = '말'}
+    // else if (e === 11) {result = '양'}
+    // alert(`${year}년에 태어났다면 ${result}띠입니다`)
+
+
+
+
+    // /**
+    //  * 지저분한코드 깔끔하게 split 문자열로 잘라서 배열 효율적인 코드예제
+    //  */
+    // const rawInput2 = prompt("태어난 해를 입력하시오~", "");
+    // const year2 = Number(rawInput2);
+    // const tti = '원숭이,닭,개,돼지,쥐,소,호랑이,토끼,용,뱀,말,양'.split(',');
+
+    // alert(`${year2}에 태어났다면 ${tti[year2 % 12]}띠입니다.`);
+
+
+
+
+    // /**
+    //  * for 반복문과 배열
+    //  */
+    // const todos = ['우유구매', '업무메일 확인하기', '필라테스 수업']
+
+    // for (let i = 0; i < todos.length; i++) {
+    //   console.log(`${todos[i]}`)
+    // }
+
+
+
+
+
+    // /**
+    //  * while반복문과 함께 배열사용하기
+    //  */
+    // let i = 0
+    // const array = [1, 2, 3, 4, 5]
+
+    // while (i < array.length) {
+    //   console.log(`${i} : ${array[i]}`)
+    //   i++
+    // }
 
 
 
@@ -213,6 +213,7 @@
 
 
 
+
     let cherry = document.createElement("P");
     let textNode2 = document.createTextNode("체리");
     cherry.appendChild(textNode2);
@@ -234,6 +235,27 @@
     document.write(output);
 
 
+    /**
+         * 타이머취소하기
+         */
+    let id
+    let count = 0
+    id = setInterval(() => {
+      document.write(`1초마다 실행됩니다.(${count}번째)`)
+      count++;
+    }, 1 * 1000)
+
+    setTimeout(() => {
+      document.write(`타이머를 종료합니다.`)
+      clearInterval(id)
+    }, 5 * 1000)
+
+
+
+    let count2 = ['신', '주', '연', '짱']
+    for (let i = 0; i < count2.length; i++) {
+      document.write(count2[i])
+    }
 
 
 
