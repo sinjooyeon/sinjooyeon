@@ -11,6 +11,10 @@
 </head>
 
 <body>
+  <h1>과일</h1>
+  <p>사과</p>
+  <p>배</p>
+  <p>바나나</p>
 
   <style>
 
@@ -61,6 +65,53 @@
     }
     const array = [3, 4, 5, 6]
     console.log(sample.apply(null, array))
+
+
+
+
+
+    let year3 = parseInt(prompt("윤년인지 궁금한해를 입력해보시요"));
+
+    function isLeapYear(year) {
+      return (year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)
+    }
+    console.log(`${year3}는 윤년인가요?  ${isLeapYear(year3)}`)
+
+
+
+
+
+    /**
+     * 중첩반복문 *만들기
+     */
+    let output = '';
+    for (let i = 0; i < 15; i++) {
+      for (let p = 15; p > i; p--) {
+        output += '\u00a0'
+      }
+      for (let m = 0; m < i * 2 - 1; m++) {
+        output += '*'
+      }
+      output += '<br>'
+    }
+    document.write(output)
+
+
+    /**
+     * 영단어 첫번째 단어 대문자로 바꾸기
+     */
+    const string = prompt('소문자 단어를 입력하시요')
+
+    let firstSt = string[0].toUpperCase();
+    let remainSt = string.slice(1);
+    let result = firstSt + remainSt;
+    document.write(result)
+
+
+    let pp = document.createElement('p');
+    let textNode = document.createTextNode('오징어');
+    pp.appendChild(textNode);
+    document.body.appendChild(pp);
 
 
 
