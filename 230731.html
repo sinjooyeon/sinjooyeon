@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hello World!</title>
+
+</head>
+
+<body>
+
+  <style>
+
+  </style>
+  <script>
+
+    /**
+     * 기본매개변수의 활용
+     */
+    function earning(name, wage = 9000, hour = 40) {
+      document.write(` # ${name}님의 급여내역<br>`)
+      document.write(`- 일한시간 :  ${hour}<br>`)
+      document.write(`- 시급 :  ${wage}<br>`)
+      document.write(`- 급여 : ${wage * hour}원<br>`)
+    }
+
+
+    /**
+     * 기본매개변수를 추가한 윤년확인 함수
+     */
+    function isLeapYear(year = new Date().getFullYear()) {
+      console.log(`매개변수 : ${year}`)
+      return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+    }
+    console.log(`올해는 윤년 이다 : ${isLeapYear()}`)
+
+
+
+    /**
+     * arguments를 사용한 가변매개변수
+     */
+    function sample() {
+      console.log(arguments);
+      for (let i = 0; i < arguments.length; i++) {
+        console.log(`${i}번째 요소 : ${arguments[i]}`)
+      }
+    }
+
+    sample(1, 2)
+    sample(5, 8, 9, 0)
+
+
+    /**
+     * 전개연산자가 없던 구 버전에서 apply()함수사용하기
+     */
+    function sample(...items) {
+      console.log(items)
+    }
+    const array = [3, 4, 5, 6]
+    console.log(sample.apply(null, array))
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
