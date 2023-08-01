@@ -15,7 +15,6 @@
   <p>사과</p>
   <p>배</p>
   <p>바나나</p>
-
   <style>
 
   </style>
@@ -81,20 +80,6 @@
 
 
 
-    /**
-     * 중첩반복문 *만들기
-     */
-    let output = '';
-    for (let i = 0; i < 15; i++) {
-      for (let p = 15; p > i; p--) {
-        output += '\u00a0'
-      }
-      for (let m = 0; m < i * 2 - 1; m++) {
-        output += '*'
-      }
-      output += '<br>'
-    }
-    document.write(output)
 
 
     /**
@@ -122,7 +107,46 @@
 
 
 
-    
+    function sample() {
+      document.write(arguments)
+      for (let i = 0; i < arguments.length; i++) {
+        document.write(`${i}번째요소 :  ${arguments[i]}이다`)
+      }
+
+    }
+
+
+    sample[3, 4, 5, 6]
+
+    function sample() {
+      console.log(arguments);
+      for (let i = 0; i < arguments.length; i++) {
+        console.log(`${i}번째 요소 : ${arguments[i]}`)
+      }
+    }
+
+    sample(1, 2)
+    sample(5, 8, 9, 0)
+
+
+
+    function min(array) {
+      let output = array[0]
+      for (const item of array) {
+        if (output > item) {
+          output = item;
+        }
+      }
+      return output;
+    }
+    let array3 = [23, 41, 56, 44, 67, 87]
+    console.log(`배열안에 제일작은수 ${min(array3)}`)
+
+
+
+
+
+
 
 
 
