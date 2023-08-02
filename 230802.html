@@ -12,6 +12,9 @@
 
 <body>
   <button type="button"> 버튼임~!!</button>
+  <button onclick="window.close()">닫기</button>
+
+
   <h1>생선</h1>
   <p>꽁치</p>
   <p>갈치</p>
@@ -48,17 +51,33 @@
 
 
 
-  
+
+    // const bttn3 = document.querySelector("button");
+    // function display() {
+    //   document.write("클릭했꾸나");
+    // }
+    // bttn3.addEventListener("click", display);
+
+
+    function openPopup() {
+      window.open("230802.html", "이벤트팝업", "width=600 height=500 left=1000 top=1000");
+    }
+    const bttn4 = document.querySelector("button");
+    bttn4.onclick = openPopup;
 
 
 
-
-
-
-
-
-
-
+    /**
+     * 속성과 메소드 구분 
+     * 메소드 내부에서 this키워드 사용하기
+     */
+    const pet = {
+      name: '구름',
+      eat: function (food) {
+        alert(this.name + '은/는' + food + '을/를 먹습니다.')
+      }
+    }
+    pet.eat('개똥')
 
 
 
