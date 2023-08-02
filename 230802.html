@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hello World!</title>
+
+</head>
+
+<body>
+  <button type="button"> 버튼임~!!</button>
+  <h1>생선</h1>
+  <p>꽁치</p>
+  <p>갈치</p>
+  <p>고등어</p>
+
+
+  <style>
+
+  </style>
+  <script>
+    let pp = document.createElement('p');
+    let text = document.createTextNode('오징어');
+    pp.appendChild(text);
+    document.body.appendChild(pp);
+
+
+
+    let pp2 = document.createElement('p');
+    let text2 = document.createTextNode('꼴뚜기');
+    pp2.appendChild(text2);
+    document.body.appendChild(pp2);
+
+
+    function earning(name, wage = 10000, hours = 45) {
+      document.write(`* ${name} 급여내역 <br><br>`);
+      document.write(`--시급 : ${wage}원<br> `);
+      document.write(`--일한시간 : ${hours}시간<br>`);
+      document.write(`--총금액 : ${wage * hours}<br><br><br>`);
+    }
+
+    earning('꼴뚜기');
+    earning('캔디', 12000);
+    earning('똥파리', 8000, 67);
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

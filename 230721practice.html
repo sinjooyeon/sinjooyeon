@@ -29,7 +29,7 @@
     }
 
     .rain {
-      background-Color: #c51e72;
+      background-Color: #f8e092;
       color: rgb(83, 53, 131);
     }
   </style>
@@ -103,57 +103,57 @@
 
 
 
-    // /**
-    //  * 프롬프트에서 취소를 했는지 체크
-    //  */
-    // let userInput = prompt("이름을입력하세요");
-    // if (userInput === null) {
-    //   alert("취소했습니다.");
-    // } else {
-    //   alert(userInput);
-    // }
+    /**
+     * 프롬프트에서 취소를 했는지 체크
+     */
+    let userInput = prompt("이름을입력하세요");
+    if (userInput === null) {
+      alert("취소했습니다.");
+    } else {
+      alert(userInput);
+    }
 
-    // /**
-    //  * 프롬프트에서 아무값도 입력안했을떄 궁금
-    //  */
-    // let user5 = prompt("이름을입력해봐");
-    // if (user5 === null) {
-    //   alert("취소했따");
-    // } else if (user5 === "") {
-    //   alert("입력하라궁!")
-    // } else {
-    //   alert(user5);
-    // }
-
-
-
-    // /**
-    //  * 조건문 연습
-    //  */
-    // let hh = prompt("숫자입력해볼래?");
-    // if (hh !== null) {
-    //   hh = parseInt(hh);
-    //   hh % 2 === 0 ? alert(`${hh}쪽수임다`) : alert(`${hh}홀쭉입니다`)
-    // }
+    /**
+     * 프롬프트에서 아무값도 입력안했을떄 궁금
+     */
+    let user5 = prompt("이름을입력해봐");
+    if (user5 === null) {
+      alert("취소했따");
+    } else if (user5 === "") {
+      alert("입력하라궁!")
+    } else {
+      alert(user5);
+    }
 
 
 
-    // /**
-    //  * 루프문 연습
-    //  */
-    // let yy = parseInt(prompt("달러 몇개 갖고 싶어?"))
-
-    // while (yy > 0) {
-    //   document.write("$");
-    //   yy--;
-    // }
-
+    /**
+     * 조건문 연습
+     */
+    let hh = prompt("숫자입력해볼래?");
+    if (hh !== null) {
+      hh = parseInt(hh);
+      hh % 2 === 0 ? alert(`${hh}쪽수임다`) : alert(`${hh}홀쭉입니다`)
+    }
 
 
-    // /**
-    //  *버튼요소 불러와서 클릭했을때 배경색 바꾸기
-    //  */
-    // document.querySelector("button").onclick = () => document.body.style.backgroundColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+
+    /**
+     * 루프문 연습
+     */
+    let yy = parseInt(prompt("달러 몇개 갖고 싶어?"))
+
+    while (yy > 0) {
+      document.write("$");
+      yy--;
+    }
+
+
+
+    /**
+     *버튼요소 불러와서 클릭했을때 배경색 바꾸기
+     */
+    document.querySelector("button").onclick = () => document.body.style.backgroundColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
 
 
 
