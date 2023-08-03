@@ -38,8 +38,28 @@
     document.body.appendChild(pp2);
 
 
+    let pp3 = document.createElement('p');
+    let text3 = document.createTextNode('명태');
+    pp3.appendChild(text3);
+    document.body.appendChild(pp3);
+
+
+    /**
+     * 속성값이 있는 노드 추가하기
+     */
+    let newImg = document.createElement("img");
+    let srcNode = document.createAttribute("src");
+    srcNode.value = "images/wall.jpg";
+    newImg.setAttributeNode(srcNode);
+    document.body.appendChild(newImg);
+
+
+
+
+
+
     function earning(name, wage = 10000, hours = 45) {
-      document.write(`* ${name} 급여내역 <br><br>`);
+      document.write(`<br>* ${name} 급여내역 <br><br>`);
       document.write(`--시급 : ${wage}원<br> `);
       document.write(`--일한시간 : ${hours}시간<br>`);
       document.write(`--총금액 : ${wage * hours}<br><br><br>`);
@@ -59,31 +79,40 @@
     // bttn3.addEventListener("click", display);
 
 
-    function openPopup() {
-      window.open("230802.html", "이벤트팝업", "width=600 height=500 left=1000 top=1000");
-    }
-    const bttn4 = document.querySelector("button");
-    bttn4.onclick = openPopup;
+    // function openPopup() {
+    //   window.open("230802.html", "이벤트팝업", "width=600 height=500 left=1000 top=1000");
+    // }
+    // const bttn4 = document.querySelector("button");
+    // bttn4.onclick = openPopup;
+
+
+
+    // /**
+    //  * 속성과 메소드 구분 
+    //  * 메소드 내부에서 this키워드 사용하기
+    //  */
+    // const pet = {
+    //   name: '구름',
+    //   eat: function (food) {
+    //     alert(this.name + '은/는' + food + '을/를 먹습니다.')
+    //   }
+    // }
+    // pet.eat('개똥')
 
 
 
     /**
-     * 속성과 메소드 구분 
-     * 메소드 내부에서 this키워드 사용하기
+     * 화면의 중양에서 팝업창 열기
      */
-    const pet = {
-      name: '구름',
-      eat: function (food) {
-        alert(this.name + '은/는' + food + '을/를 먹습니다.')
-      }
-    }
-    pet.eat('개똥')
+    const bttn5 = document.querySelector("button");
+    const popWidth = 600;
+    const popHeight = 500;
 
-
-
-
-
-
+    bttn5.addEventListener("click", function () {
+      let left = (screen.availWidth - popWidth) / 2;
+      let top = (screen.availHeight - popHeight) / 2;
+      window.open("bbb.jpg", "이벤트팝업", `width=${popWidth} height=${popHeight} left=${left} top=${top}`);
+    });
 
 
 
