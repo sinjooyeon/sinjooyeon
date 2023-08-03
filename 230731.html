@@ -98,6 +98,8 @@
     let result = firstSt + remainSt;
     document.write(result)
 
+
+    
     /**
      * 자식 노드 연결
      */
@@ -184,7 +186,7 @@
     }
     let gyeonggang = train();
     const button = document.querySelector("button");
-    const result = document.querySelector("#result");
+    const result3 = document.querySelector("#result");
     button.addEventListener("click", () => { });
 
 
@@ -192,9 +194,9 @@
     button.addEventListener("click", () => {
       let current = gyeonggang.next();
       if (current.done !== true) {
-        result.innerHTML = current.value;
+        result3.innerHTML = current.value;
       } else {
-        result.innerHTML = "종점!";
+        result3.innerHTML = "종점!";
 
         button.setAttribute("disabled", "disabled");
       }

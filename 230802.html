@@ -14,9 +14,9 @@
   <button type="button"> 버튼임~!!</button>
   <button onclick="window.close()">닫기</button><br>
   <br>
-
-  <span id="clock"></span>
-
+  <div class="wrapper">
+    <span id="clock"></span>
+  </div>
   <h1>생선</h1>
   <p>꽁치</p>
   <p>갈치</p>
@@ -24,10 +24,20 @@
 
 
   <style>
+    .wrapper {
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 400px;
+
+      justify-content: center;
+      align-items: center;
+    }
+
     #clock {
-      color: #424242;
-      font-size: 100px;
-      background-color: aqua;
+      text-align: center;
+      color: #5c1231;
+      font-size: 45px;
+      background-color: rgb(247, 209, 138);
 
     }
   </style>
@@ -51,16 +61,27 @@
     document.body.appendChild(pp3);
 
 
+    let pp4 = document.createElement('p');
+    let text4 = document.createTextNode('생태');
+    pp4.appendChild(text4);
+    document.body.appendChild(pp4);
+
+
+    let newImg2 = document.createElement('img');
+    let srcNode2 = document.createAttribute('src');
+    srcNode2.value = "images/morning.jpg";
+    newImg2.setAttributeNode(srcNode2);
+    document.body.appendChild(newImg2)
+
+
     /**
      * 속성값이 있는 노드 추가하기
      */
     let newImg = document.createElement("img");
     let srcNode = document.createAttribute("src");
-    srcNode.value = "images/wall.jpg";
+    srcNode.value = "images/afternoon.jpg";
     newImg.setAttributeNode(srcNode);
     document.body.appendChild(newImg);
-
-
 
 
 
@@ -118,7 +139,7 @@
     bttn5.addEventListener("click", function () {
       let left = (screen.availWidth - popWidth) / 2;
       let top = (screen.availHeight - popHeight) / 2;
-      window.open("bbb.jpg", "이벤트팝업", `width=${popWidth} height=${popHeight} left=${left} top=${top}`);
+      window.open("images/wall.jpg", "이벤트팝업", `width=${popWidth} height=${popHeight} left=${left} top=${top}`);
     });
 
 
@@ -151,6 +172,50 @@
 
 
     setInterval(clock, 1000);
+
+
+
+    /**
+     * 생성자 함수정의하기
+     */
+    function Book(title, pages, done = false) {
+      this.title = title;
+      this.pages = pages;
+      this.done = done;
+      this.finish = function () {
+        let str = "";
+        this.done === false ? str = "읽는 중" : str = "완독";
+        return str;
+      }
+    }
+
+    /**
+     * 생성자 함수로 객체만들기
+     */
+    let book1 = new Book("웹 표준의 정석", 648, false);
+    let book2 = new Book("점프 투 파이썬", 360, true);
+
+    document.write(`${book1.title} - ${book1.pages}쪽 - ${book1.finish()}<br>`)
+    document.write(`${book2.title} - ${book2.pages}쪽 - ${book2.finish()}<br>`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
