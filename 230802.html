@@ -12,8 +12,10 @@
 
 <body>
   <button type="button"> 버튼임~!!</button>
-  <button onclick="window.close()">닫기</button>
+  <button onclick="window.close()">닫기</button><br>
+  <br>
 
+  <span id="clock"></span>
 
   <h1>생선</h1>
   <p>꽁치</p>
@@ -22,7 +24,12 @@
 
 
   <style>
+    #clock {
+      color: #424242;
+      font-size: 100px;
+      background-color: aqua;
 
+    }
   </style>
   <script>
     let pp = document.createElement('p');
@@ -116,9 +123,34 @@
 
 
 
+    /**
+     * 디지탈시계만들기
+     */
+    const displayTime = document.querySelector("#clock");
+
+    let clock = () => {
+      let current = new Date();
+      let hrs = current.getHours();
+      let mins = current.getMinutes();
+      let secs = current.getSeconds();
 
 
+      let period = "AM";
+      if (hrs === 0) {
+        hrs = 12;
+      } else if (hrs > 12) {
+        hrs = hrs - 12;
+        period = "PM";
+      }
+      hrs = (hrs < 10) ? "0" + hrs : hrs;
+      mins = (mins < 10) ? "0" + mins : mins;
+      secs = (secs < 10) ? "0" + secs : secs;
 
+      displayTime.innerText = `${period} ${hrs} : ${mins} : ${secs} `;
+    }
+
+
+    setInterval(clock, 1000);
 
 
 
