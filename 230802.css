@@ -1,0 +1,16 @@
+.wrapper {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 400px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#clock {
+  text-align: center;
+  color: #3a0408;
+  font-size: 45px;
+  background-color: rgb(247, 209, 138);
+
+}
