@@ -12,7 +12,7 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const rests2 = document.querySelectorAll('.rect');
+  const rects2 = document.querySelectorAll('.rect');
 
   rects2.forEach((rect, index) => {
     const width = (index + 1) * 100;
@@ -34,7 +34,9 @@ for (student of students) {
   console.log(`${student}`);
 }
 
-
+/**
+ * 고양이 사진 토글효과
+ */
 const cat01 = document.querySelector('#cat1');
 const cat02 = document.querySelector('#cat2');
 const cat03 = document.querySelector('#cat3');
@@ -50,3 +52,33 @@ cat02.onclick = function() {
 cat03.onclick = function() {
   document.body.classList.toggle('pink');
 };
+
+
+/**
+ * 사진클릭시 고앵이 사진 사라지는효과
+ */
+const cat04 = document.querySelector('#cat4');
+
+cat04.onclick = function() {
+  cat04.classList.toggle('hidden');
+};
+
+const catmustache = document.querySelector('#catmustache');
+const price = '고앵이 콧수염 2개 만원';
+catmustache.addEventListener('click', () => {
+  const newp = document.createElement('p');
+  const Text = document.createTextNode(price);
+  newp.appendChild(Text);
+  newp.style.fontSize = '5em';
+  newp.style.color = 'pink';
+  document.body.appendChild(newp);
+}, {once: true});
+
+
+
+
+
+
+
+
+
