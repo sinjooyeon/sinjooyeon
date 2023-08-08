@@ -29,4 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // });
 
 
+const students = ['개똥', '소똥', '말똥', '비둘기똥'];
+for (student of students) {
+  console.log(`${student}`);
+}
 
+
+const cat01 = document.querySelector('#cat1');
+const cat02 = document.querySelector('#cat2');
+const cat03 = document.querySelector('#cat3');
+
+cat01.onclick = function() {
+  document.body.classList.toggle('dark');
+};
+
+cat02.onclick = function() {
+  document.body.classList.toggle('blue');
+};
+
+cat03.onclick = function() {
+  document.body.classList.toggle('pink');
+};
