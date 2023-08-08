@@ -69,16 +69,19 @@ catmustache.addEventListener('click', () => {
   const newp = document.createElement('p');
   const Text = document.createTextNode(price);
   newp.appendChild(Text);
-  newp.style.fontSize = '5em';
+  newp.style.fontSize = '3em';
   newp.style.color = 'pink';
   document.body.appendChild(newp);
 }, {once: true});
 
+// price.onclick = offDisplay();
 
+// function offDisplay() {
+//   document.getElementById('offDistplay').style.display = 'none';
+// }
 
-
-
-
-
+price.onclick = function() {
+  price.classList.toggle('hidden');
+};
 
 
