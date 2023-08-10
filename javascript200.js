@@ -1,3 +1,8 @@
+
+/**
+ * 반복문배우기
+ */
+
 var hometown = [
   {name: '진', city: '과천'},
   {name: '남준', place: '일산', city: '고양'},
@@ -36,3 +41,43 @@ do {
 } while (i < 4);
 
 console.log(hometown);
+
+
+
+/**
+ * 객체 속성 접근/추가/수정/삭제
+ */
+
+var family = {
+  'address': 'Seoul',
+  members:   {},
+  addFamily: function(age, name, role) {
+    this.members[role] = {
+      age:  age,
+      name: name
+    };
+  },
+  getHeadcount: function() {
+    return Object.keys(this.members).length;
+  }
+};
+
+family.addFamily(30, 'chloe', 'aunt');
+family.addFamily(3, 'lyn', 'niece');
+family.addFamily(10, 'dangdangi', 'dog');
+
+var printMembers = function() {
+  var members = family.members;
+  for (role in members) {
+    console.log('role => ' + role + ', name => ' + members[role].name +
+     ', age => ' + members[role].age);
+  }
+};
+printMembers();
+
+var members = family.members;
+members.nephew = {age: 3, name: 'hyun'};
+members.niece = {age: 5, name: 'lyn'};
+delete members.aunt;
+delete members.dog;
+printMembers();
