@@ -142,3 +142,15 @@ while (names.length) {
   i = names.shift();
   console.log(i);
 }
+
+
+
+fruit = ['cherry', 'orange', 'kiwi', 'apple', 'strowberry'];
+
+fruit.shift();
+fruit.pop();
+fruit.splice(1, 0, 'banana', 'tomato', 'melon', 'watermelon', 'peach', 'grape');
+
+fruit.splice(3, 2);
+
+
