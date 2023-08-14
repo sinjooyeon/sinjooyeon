@@ -80,8 +80,65 @@ catmustache.addEventListener('click', () => {
 //   document.getElementById('offDistplay').style.display = 'none';
 // }
 
-price.onclick = function() {
-  price.classList.toggle('hidden');
-};
+// price.onclick = function() {
+//   price.classList.toggle('hidden');
+// };
 
 
+function test() {
+  const a = '안뇽';
+  const b = '신난다';
+  const c = `${a}
+${b}   
+
+
+
+
+
+
+
+`;
+  console.log(c);
+}
+test();
+
+
+if (true) {
+  console.log('ohooyeah!!!');
+  console.log('ohooyeah!!!');
+}
+const b = 1624453355000 < Date.now();
+const a = 1624453355000 < Date.now() ? 1624453355000 < Date.now() ? true : (b) : false;
+
+
+
+
+a = 'orange';
+
+switch (a) {
+  case 'orange':
+    console.log('이게 뭔짓이냐!!!!!!');
+    break;
+  case 'melon':
+  case 'banana':
+    console.log('오랑캐!');
+    break;
+  default:
+    console.log('오란다!');
+}
+
+if (['orange', 'melon', 'banana'].includes(a)) {
+  console.log('오랑캐!');
+} else {
+  console.log('오란다!');
+}
+
+
+
+
+var names = ['Andrew', undefined, null, 0, '', false, 'Edward', 'Paul', 'Chris', 'John'];
+
+while (names.length) {
+  i = names.shift();
+  console.log(i);
+}
