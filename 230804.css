@@ -12,5 +12,14 @@
 
 .pink{
   background-color: rgb(145, 75, 75);
-    color: rgb(141, 2, 141));
+    color: rgb(141, 2, 141);
+}
+
+
+.hidden{
+  display: none;
+}
+
+.text{
+  font-size: 13px;
 }
