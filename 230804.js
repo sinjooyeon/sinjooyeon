@@ -88,16 +88,7 @@ catmustache.addEventListener('click', () => {
 function test() {
   const a = '안뇽';
   const b = '신난다';
-  const c = `${a}
-${b}   
-
-
-
-
-
-
-
-`;
+  const c = `${a}${b}`;
   console.log(c);
 }
 test();
@@ -205,3 +196,26 @@ Object.setPrototypeOf(Textbook.prototype, book.prototype);
 const book2 = new Textbook('알고리즘', 5000, '컴퓨터공학');
 book2.buyTextbook();
 book2.buy();
+
+
+/**
+ * 클래스를 사용해 객체만들기
+ */
+class fruit9 {
+  constructor(taste, color, condition) {
+    this.taste = taste;
+    this.color = color;
+    this.condition = condition;
+  }
+
+  appearance() {
+    let con = '';
+    this.condition === false ? con = '못난이 과일' : con = '최고급';
+    return con;
+  }
+}
+const fruit8 = new fruit9('sour', 'red', false);
+const fruit7 = new fruit9('daldal', 'yellow', true);
+
+console.log(`${fruit8.taste}한 맛의 색상은 ${fruit8.color}이고 상품의 상태는${fruit8.appearance()}입니다`);
+console.log(`${fruit7.taste}한 맛의 색상은 ${fruit7.color}이고 상품의 상태는${fruit7.appearance()}입니다`);
