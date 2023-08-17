@@ -219,3 +219,25 @@ const fruit7 = new fruit9('daldal', 'yellow', true);
 
 console.log(`${fruit8.taste}한 맛의 색상은 ${fruit8.color}이고 상품의 상태는${fruit8.appearance()}입니다`);
 console.log(`${fruit7.taste}한 맛의 색상은 ${fruit7.color}이고 상품의 상태는${fruit7.appearance()}입니다`);
+
+
+
+
+str = '안녕 바보 똥꼬야';
+str.startsWith('바');
+str.startsWith('안');
+str.endsWith('꼬야');
+str.includes('바보');
+
+array1 = str.split('');
+
+array2 = str.split(' ');
+
+const index = array1.indexOf(' ');
+array1.splice(2, 1);
+
+/^안/.test(str);
+
+/야$/.test(str);
+
+
