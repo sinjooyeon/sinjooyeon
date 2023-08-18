@@ -63,16 +63,6 @@ cat04.onclick = function() {
   cat04.classList.toggle('hidden');
 };
 
-const catmustache = document.querySelector('#catmustache');
-const price = '고앵이 콧수염 2개 만원';
-catmustache.addEventListener('click', () => {
-  const newp = document.createElement('p');
-  const Text = document.createTextNode(price);
-  newp.appendChild(Text);
-  newp.style.fontSize = '3em';
-  newp.style.color = 'pink';
-  document.body.appendChild(newp);
-}, {once: true});
 
 // price.onclick = offDisplay();
 
@@ -83,6 +73,18 @@ catmustache.addEventListener('click', () => {
 // price.onclick = function() {
 //   price.classList.toggle('hidden');
 // };
+
+
+
+const catmustache = document.querySelector('#catmustache');
+catmustache.addEventListener('click', () => {
+  const picture = 5;
+  const rdNumber = Math.floor(Math.random() * picture) + 1;
+  document.body.style.backgroundImage = `url(images/pic-${rdNumber}.jpg)`;
+});
+
+
+
 
 
 function test() {
@@ -239,5 +241,44 @@ array1.splice(2, 1);
 /^안/.test(str);
 
 /야$/.test(str);
+
+
+candy = ['mandarin', '알사탕', 'kiwi', 'squid', '딸기', '머스캣', '라임', 'octopus', 'apple', 'orange', '멜론맛', '콩가루맛'];
+const array1 = candy.entries();
+for (const [index, element] of candy.entries()) {
+  console.log(index, element);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
