@@ -304,7 +304,7 @@ array.forEach(function(currentElement, index, array) { /* ... */ }, thisValue);
 
 
 const bo = ['mandarin', '알사탕', 'kiwi', 'squid', '딸기', '머스캣', '라임', 'octopus', 'apple', 'orange', '멜론맛', '콩가루맛', 'tomato', 'potato'];
-bo.shift(2);
+bo.shift();
 bo.splice(6, 3, '멸치', '꽁치');
 bo.slice(1, 10);
 bo.splice(5, 0, '고등어', '오징어', '꼴뚜기');
@@ -338,9 +338,9 @@ bo.forEach((element) => console.log(element));
 
 bo.every((element) => element.length < 7);
 bo.some((element) => element.length < 2);
-
-
-
+bo.sort();
+bo.at(1);
+bo.filter((element) => element.length == 3);
 
 
 
