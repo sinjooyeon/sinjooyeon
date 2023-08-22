@@ -269,20 +269,75 @@ console.log(family.getHeadcount());
 
 
 
+const staffsDetails = [
+  {name: 'Jam Josh', age: 44, salary: 4000, currency: 'USD'},
+  {name: 'Justina Kap', age: 34, salary: 3000, currency: 'USD'},
+  {name: 'Chris Colt', age: 37, salary: 3700, currency: 'USD'},
+  {name: 'Jane Doe', age: 24, salary: 4200, currency: 'USD'}
+];
+
+
+staffsDetails.forEach((staffDetail) => {
+  const sentence = `I am ${staffDetail.name}.`;
+  console.log(sentence);
+});
+
+
+// 현재 요소만 사용
+array.forEach((currentElement) => { /* ... */ });
+array.forEach(function(currentElement) { /* ... */ });
+
+// 현재 요소와 인덱스 사용
+array.forEach((currentElement, index) => { /* ... */ });
+array.forEach(function(currentElement, index) { /* ... */ });
+
+// 현재 요소와 인덱스, 전체 배열 사용
+array.forEach((currentElement, index, array) => { /* ... */ });
+array.forEach(function(currentElement, index, array) { /* ... */ });
+
+// 모든 인수와 this 까지 사용
+array.forEach((currentElement, index, array) => { /* ... */ }, thisValue);
+array.forEach(function(currentElement, index, array) { /* ... */ }, thisValue);
 
 
 
 
 
+const bo = ['mandarin', '알사탕', 'kiwi', 'squid', '딸기', '머스캣', '라임', 'octopus', 'apple', 'orange', '멜론맛', '콩가루맛', 'tomato', 'potato'];
+bo.shift(2);
+bo.splice(6, 3, '멸치', '꽁치');
+bo.slice(1, 10);
+bo.splice(5, 0, '고등어', '오징어', '꼴뚜기');
+
+bo.slice(0, 10);
+
+bo.find((element) => element.length == 3);
+bo.findIndex((element) => element.length == 3);
+
+bo.findLast((element) => element.length == 3);
+
+bo.findLastIndex((element) => element.length == 3);
+bo.shift();
+bo.pop();
+bo.indexOf('꼴뚜기');
+
+bo.splice(3, 0, ['사탕', '생선조림', '닭강정']);
+bo.flat(1);
+bo.copyWithin(0, 12, 16);
+bo.reverse();
+bo.includes('고등어');
+bo.indexOf('고등어');
 
 
+const aa = bo.entries();
+console.log(aa.next().value);
 
+bo.fill('불가사리', 7, 9);
 
+bo.forEach((element) => console.log(element));
 
-
-
-
-
+bo.every((element) => element.length < 7);
+bo.some((element) => element.length < 2);
 
 
 
