@@ -342,8 +342,10 @@ bo.sort();
 bo.at(1);
 bo.filter((element) => element.length == 3);
 
-
-
+const iterator = bo.values();
+for (const value of iterator) {
+  console.log(value);
+}
 
 
 
