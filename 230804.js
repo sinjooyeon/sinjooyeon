@@ -369,6 +369,18 @@ getData().then(function(data) {
 });
 
 
+async function prepareOneFish() {
+  const start = await new Date().getTime();
+  while (new Date().getTime() < start + 1000) {
+    // preparing fish
+  }
+  return 'finished';
+}
 
+console.log('Start!');
+prepareOneFish().then(console.log);
+prepareOneFish().then(console.log);
+prepareOneFish().then(console.log);
+console.log('Finish!');
 
 
