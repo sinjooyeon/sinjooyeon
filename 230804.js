@@ -361,6 +361,7 @@ function getData() {
   });
 }
 
+
 // 위 $.get() 호출 결과에 따라 'response' 또는 'Error' 출력
 getData().then(function(data) {
   console.log(data); // response 값 출력
