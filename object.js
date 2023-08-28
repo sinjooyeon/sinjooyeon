@@ -34,4 +34,57 @@ person2.fullName2 = 'Bob Smith';
 console.log(person2.firstName2); // 출력: Bob
 console.log(person2.lastName2); // 출력: Smith
 
+/**
+ * getter setter예문
+ */
+const student = {
+  _age: 0,
+  set age(value) {
+    if (value >= 0 && value <= 120) {
+      this._age = value;
+    } else {
+      console.error('Invalid age value');
+    }
+  },
+  get age() {
+    return this._age;
+  }
+};
+
+student.age = 18;
+console.log(student.age);// 출력: 18
+
+student.age = 150; // 유효하지 않은 값 설정 시 에러 출력
+
+/**
+ * 생성자 체이닝
+ */
+class Calculator {
+  constructor(value = 0) {
+    this.value = value;
+  }
+
+  add(num) {
+    this.value += num;
+    return this; // 생성자 체이닝을 위해 자기 자신을 반환
+  }
+
+  subtract(num) {
+    this.value -= num;
+    return this;
+  }
+}
+
+const calc = new Calculator(10);
+calc.add(5).subtract(3);
+console.log(calc.value); // 출력: 12
+
+
+
+
+
+
+
+
+
 
