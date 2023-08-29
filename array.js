@@ -32,19 +32,19 @@ for (const [index, element] of candy.entries()) {
 
 // 현재 요소만 사용
 array.forEach((currentElement) => { /* ... */});
-array.forEach(function (currentElement) { /* ... */});
+array.forEach(function(currentElement) { /* ... */ });
 
 // 현재 요소와 인덱스 사용
-array.forEach((currentElement, index) => { /* ... */});
-array.forEach(function (currentElement, index) { /* ... */});
+array.forEach((currentElement, index) => { /* ... */ });
+array.forEach(function(currentElement, index) { /* ... */ });
 
 // 현재 요소와 인덱스, 전체 배열 사용
-array.forEach((currentElement, index, array) => { /* ... */});
-array.forEach(function (currentElement, index, array) { /* ... */});
+array.forEach((currentElement, index, array) => { /* ... */ });
+array.forEach(function(currentElement, index, array) { /* ... */ });
 
 // 모든 인수와 this 까지 사용
-array.forEach((currentElement, index, array) => { /* ... */}, thisValue);
-array.forEach(function (currentElement, index, array) { /* ... */}, thisValue);
+array.forEach((currentElement, index, array) => { /* ... */ }, thisValue);
+array.forEach(function(currentElement, index, array) { /* ... */ }, thisValue);
 
 
 
