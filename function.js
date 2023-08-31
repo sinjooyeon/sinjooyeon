@@ -146,6 +146,14 @@ body.addEventListener('keydown', (e) => {
 
 
 
+/**
+ * 사진클릭시 고앵이 사진 사라지는효과
+ */
+const cat04 = document.querySelector('#cat4');
+
+cat04.onclick = function () {
+  cat04.classList.toggle('hidden');
+};
 
 
 
