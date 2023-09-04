@@ -9,9 +9,9 @@
 
 // callThreeTimes(print);
 
-$(document).ready(function () {
+$(document).ready(function() {
   // 버튼 클릭 시 <p> 요소의 스타일 변경
-  $('#highlight-button').click(function () {
+  $('#highlight-button').click(function() {
     $('p').addClass('highlight');
   });
 });
@@ -46,15 +46,15 @@ const cat01 = document.querySelector('#cat1');
 const cat02 = document.querySelector('#cat2');
 const cat03 = document.querySelector('#cat3');
 
-cat01.onclick = function () {
+cat01.onclick = function() {
   document.body.classList.toggle('dark');
 };
 
-cat02.onclick = function () {
+cat02.onclick = function() {
   document.body.classList.toggle('blue');
 };
 
-cat03.onclick = function () {
+cat03.onclick = function() {
   document.body.classList.toggle('pink');
 };
 
@@ -64,7 +64,7 @@ cat03.onclick = function () {
  */
 const cat04 = document.querySelector('#cat4');
 
-cat04.onclick = function () {
+cat04.onclick = function() {
   cat04.classList.toggle('hidden');
 };
 
@@ -163,7 +163,7 @@ function Book(title, price) {
   this.title = title;
   this.price = price;
 }
-Book.prototype.buy = function () {
+Book.prototype.buy = function() {
   console.log(`${this.title}을 (를) ${this.price}원에 구입하였습니다`);
 };
 
@@ -177,7 +177,7 @@ function Textbook(title, price, major) {
   this.major = major;
 }
 
-Textbook.prototype.buyTextbook = function () {
+Textbook.prototype.buyTextbook = function() {
   console.log(`${this.major}전공서적, ${this.title}을 구매하였습니다`);
 };
 
@@ -238,10 +238,10 @@ array1.splice(2, 1);
 
 var address = 'Seoul';
 var members = {};
-var addFamily = function (age, name, role) {
+var addFamily = function(age, name, role) {
   this.members[role] = {age: age, name: name};
 };
-var getHeadcount = function () {
+var getHeadcount = function() {
   return Object.keys(this.members).length;
 };
 
@@ -273,8 +273,8 @@ staffsDetails.forEach((staffDetail) => {
 
 
 function getData() {
-  return new Promise(function (resolve, reject) {
-    $.get('url 주소/products/1', function (response) {
+  return new Promise(function(resolve, reject) {
+    $.get('url 주소/products/1', function(response) {
       if (response) {
         resolve(response);
       }
@@ -285,9 +285,9 @@ function getData() {
 
 
 // 위 $.get() 호출 결과에 따라 'response' 또는 'Error' 출력
-getData().then(function (data) {
+getData().then(function(data) {
   console.log(data); // response 값 출력
-}).catch(function (err) {
+}).catch(function(err) {
   console.error(err); // Error 출력
 });
 
