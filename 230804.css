@@ -36,3 +36,20 @@
 * {
   margin: 10px;
 }
+
+
+#cat4{
+  transition:1s ease-in;
+}
+
+#cat4:hover{
+  transform:rotate(270deg);
+}
+
+#catmustache:hover {
+  transform: rotate(360deg);
+}
+
+#catmustache{
+  transition: 1s ease-in;
+}
