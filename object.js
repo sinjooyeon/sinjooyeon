@@ -96,7 +96,16 @@ console.log(returnedTarget === target);
 
 
 
+// 생성자함수 이름의 첫 글자는 대문자로 시작합니다.반드시 new 연산자를 붙여 실행합니다.
+function User(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
 
+const user6 = new User('보라');
+
+alert(user.name); // 보라
+alert(user.isAdmin); // false
 
 
 
