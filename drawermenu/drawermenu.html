@@ -5,7 +5,8 @@
 
  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <script defer src="./drawermenu.js"></script>
+  <link rel="stylesheet" href="./drawermenu.css">
 
 
 
@@ -24,16 +25,17 @@
   <script>
     function Drawer(el, open = false) {
         this.el = el;
+        this.isOpen = open;
         Object.assign(this.el.style, {
           display: 'block',
           position: 'fixed',
           top: 0,
           bottom: 0,
           right: 0,
-          width: '200px',
+          width: '400px',
           padding: '10px',
-          backgroundColor: 'white',
-          boxShadow: '0 0 36px 0 rgba(0,0,0,0.1)',
+          backgroundColor: 'pink',
+          boxShadow: '0 0 100px 0 rgba(0,0,0,0.5)',
           transition: 'all 0.4s ease-out',
         });
 
