@@ -4,11 +4,11 @@ function Drawer(el, open = false) {
 
   (this.isOpen) ? this.open() : this.close();
 }
-Drawer.prototype.open = function () {
+Drawer.prototype.open = function() {
   this.isOpen = true;
   this.el.style.transform = 'translate(0px)';
 };
-Drawer.prototype.close = function () {
+Drawer.prototype.close = function() {
   this.isOpen = false;
   this.el.style.transform = 'translate(220px)';
 };
