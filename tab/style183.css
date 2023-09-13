@@ -5,7 +5,8 @@ h1 {
 .tabs {
 	width: 700px;
 	margin: 0 auto;
-  padding: 0;
+  padding: 10px;
+	background-color: #ffffff;
 }
 .tabs ul {
 	height: 80px;
@@ -25,11 +26,11 @@ h1 {
 	padding: 10px 0 0 0;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
-	text-align: center;	
+	text-align: center;
 	text-decoration: none;
 	color: white;
-	background: #aaa;
-  border-right: 1px solid #ddd;	
+	background: #f79d16;
+	border-right: 5px solid #f2f7fa;
 }
 .tabs li a:hover {
 	margin: 35px 0 0 0;
@@ -37,15 +38,38 @@ h1 {
 }
 .tabs li a.active {
 	margin:35px 0 0 0;
-	padding: 10px 0 10px 0;
-	background: #6e1010;
-	color: rgb(250, 136, 6);
+	padding: 5px 0 10px 0;
+	background: #eb798c;
+	color: rgb(247, 246, 245);
 }
 .tab_content {
   height: 200px;
   color: #ffffff;
-  background: #555;
+  background: #eb798c;
   line-height: 26px;
   font-size: 18px;
-  padding: 2px 20px;
+  padding: 10px 20px;
 }
+
+.side_right{
+	float:right;
+	width:30%
+}
+
+
+.input {
+	display: flex;
+	align-items: center;
+	/* 세로 중앙 정렬 */
+	margin-bottom: 10px;
+	/* 아래로의 간격 조절 (선택 사항) */
+}
+
+label {
+	flex: 1;
+	/* 레이블이 화면의 1/2 너비를 차지하도록 설정 (선택 사항) */
+}
+/* 
+*{
+	background-color: rgb(223, 248, 223);
+} */

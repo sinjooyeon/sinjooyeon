@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>탭메뉴 만들기 예제</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style183.css">
 </head>
+
 <body>
-  <h1>여행지 설명</h1>
-  <div class="tabs">
+<fieldset class="tabs">
+  <h1 class="tabs">여행지 설명</h1>
+  <div>
     <ul>
       <li><a href="#czech">체코</a></li>
       <li><a href="#germany">독일</a></li>
-      <li><a href="#british">영국</a></li>   
+      <li><a href="#british">영국</a></li>
       <li><a href="#british2">징국</a></li>
       <li><a href="#british3">방국</a></li>
-      
+
     </ul>
     <div class="tab_content">
       <div id="czech">
@@ -25,7 +29,7 @@
         <h3>독일</h3>
         <p>독일은 맥주가 유명한 유럽의 나라입니다.</p>
       </div>
-      <div id="british">
+      <div id="british3">
         <h3>영국</h3>
         <p>영국은 유럽의 서북쪽에 위치한 섬나라입니다.</p>
       </div>
@@ -33,47 +37,77 @@
         <h3>징국</h3>
         <p>오징어 튀김이 유행인 나라입니다.</p>
       </div>
-      <div id="british3">
+      <div id="british">
         <h3>덩국</h3>
         <p>잘 모르겠따.</p>
       </div>
     </div>
   </div>
-<script>
-function createTabs(selector) {
-  const el = document.querySelector(selector);
-  const liEls = el.querySelectorAll('ul li');
-  const tabContentEl = el.querySelector('.tab_content');
-  const firstTabEl = liEls.item(0).firstElementChild
 
-  function activate(target) {
-    const hash = target.hash;
-    const anchors =
-      target.closest('ul').querySelectorAll('li a');
-    
-    Array.from(anchors)
-      .forEach(v => v.className = '');  
-    Array.from(tabContentEl.children)
-      .forEach(v => v.style.display = 'none');
-    tabContentEl.querySelector(hash).style.display = '';
-    target.className = 'active';
-  }
+  </fieldset>
 
-  const handleHash = () => {
-    if (location.hash) {
-      const selector = `a[href="${location.hash}"]`;
-      activate(document.querySelector(selector));
-    } else {
-      activate(firstTabEl);
+</span>
+  <p class="tabs">세계여행지 <ruby>괌<rt>동남아 여행지</rt></ruby></p>
+
+
+  <span><img src="./cynicalcat.jpg" alt="고양이" usemap="#event"></span>
+  <map name="event">
+    <area shape="circle" coords="405,490,50" href="http://127.0.0.1:5500/drawermenu.html" alt="메뉴이미지로 가기" target="blank">
+  </map>
+<fieldset class="side_right">
+  <legend>개인정보</legend>
+  <ul >
+    <li class="input">
+      <label for="user-id">아이디(6자이상)</label>
+      <input type="text" id="user-id">
+    </li>
+    <li class="input">
+      <label for="mail">메일주소</label>
+      <input type="text" id="mail">
+    </li>
+
+  </ul>
+  </fieldset>
+  <script>
+    debugger;
+    function createTabs(selector) {
+      debugger;
+      const el = document.querySelector(selector);
+      const liEls = el.querySelectorAll('ul li');
+      const tabContentEl = el.querySelector('.tab_content');
+      const firstTabEl = liEls.item(0).firstElementChild
+
+      function activate(target) {
+        debugger;
+        const hash = target.hash;
+        const anchors =
+          target.closest('ul').querySelectorAll('li a');
+
+        Array.from(anchors)
+          .forEach(v => v.className = '');
+        Array.from(tabContentEl.children)
+          .forEach(v => v.style.display = 'none');
+        tabContentEl.querySelector(hash).style.display = '';
+        target.className = 'active';
+      }
+
+      const handleHash = () => {
+        debugger;
+        if (location.hash) {
+          const selector = `a[href="${location.hash}"]`;
+          activate(document.querySelector(selector));
+        } else {
+          activate(firstTabEl);
+        }
+      }
+
+      window.addEventListener('hashchange', handleHash);
+
+      handleHash();
     }
-  }
 
-  window.addEventListener('hashchange', handleHash);
-  
-  handleHash();
-}
-
-createTabs('.tabs');
-</script>
+    createTabs('.tabs');
+  </script>
 </body>
+
 </html>
