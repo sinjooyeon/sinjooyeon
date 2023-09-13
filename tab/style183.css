@@ -73,3 +73,10 @@ label {
 *{
 	background-color: rgb(223, 248, 223);
 } */
+
+
+#gomenu {
+	cursor: pointer;
+	/* 커서 모양을 손가락 모양으로 변경 */
+}
+

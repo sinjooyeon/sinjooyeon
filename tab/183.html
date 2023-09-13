@@ -52,7 +52,8 @@
 
   <span><img src="./cynicalcat.jpg" alt="고양이" usemap="#event"></span>
   <map name="event">
-    <area shape="circle" coords="405,490,50" href="http://127.0.0.1:5500/drawermenu.html" alt="메뉴이미지로 가기" target="blank">
+   
+      <area id="gomenu" shape="circle" coords="405,490,50" >
   </map>
 <fieldset class="side_right">
   <legend>개인정보</legend>
@@ -107,6 +108,15 @@
     }
 
     createTabs('.tabs');
+
+
+function openPopup(){
+  window.open("http://127.0.0.1:5500/drawermenu.html","이벤트팝업","width=1000,height=1000,left=300,top=200")
+}
+const bttn =document.querySelector("#gomenu");
+bttn.onclick = openPopup;
+
+
   </script>
 </body>
 
