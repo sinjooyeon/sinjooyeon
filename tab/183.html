@@ -9,66 +9,66 @@
 </head>
 
 <body>
-<fieldset class="tabs">
-  <h1 class="tabs">여행지 설명</h1>
-  <div>
-    <ul>
-      <li><a href="#czech">체코</a></li>
-      <li><a href="#germany">독일</a></li>
-      <li><a href="#british">영국</a></li>
-      <li><a href="#british2">징국</a></li>
-      <li><a href="#british3">방국</a></li>
+  <fieldset class="tabs">
+    <h1 class="tabs">여행지 설명</h1>
+    <div>
+      <ul>
+        <li><a href="#czech">체코</a></li>
+        <li><a href="#germany">독일</a></li>
+        <li><a href="#british">영국</a></li>
+        <li><a href="#british2">징국</a></li>
+        <li><a href="#british3">방국</a></li>
 
-    </ul>
-    <div class="tab_content">
-      <div id="czech">
-        <h3>체코</h3>
-        <p>체코는 아름다운 동유럽의 나라입니다.</p>
-      </div>
-      <div id="germany">
-        <h3>독일</h3>
-        <p>독일은 맥주가 유명한 유럽의 나라입니다.</p>
-      </div>
-      <div id="british3">
-        <h3>영국</h3>
-        <p>영국은 유럽의 서북쪽에 위치한 섬나라입니다.</p>
-      </div>
-      <div id="british2">
-        <h3>징국</h3>
-        <p>오징어 튀김이 유행인 나라입니다.</p>
-      </div>
-      <div id="british">
-        <h3>덩국</h3>
-        <p>잘 모르겠따.</p>
+      </ul>
+      <div class="tab_content">
+        <div id="czech">
+          <h3>체코</h3>
+          <p>체코는 아름다운 동유럽의 나라입니다.</p>
+        </div>
+        <div id="germany">
+          <h3>독일</h3>
+          <p>독일은 맥주가 유명한 유럽의 나라입니다.</p>
+        </div>
+        <div id="british3">
+          <h3>영국</h3>
+          <p>영국은 유럽의 서북쪽에 위치한 섬나라입니다.</p>
+        </div>
+        <div id="british2">
+          <h3>징국</h3>
+          <p>오징어 튀김이 유행인 나라입니다.</p>
+        </div>
+        <div id="british">
+          <h3>덩국</h3>
+          <p>잘 모르겠따.</p>
+        </div>
       </div>
     </div>
-  </div>
 
   </fieldset>
 
-</span>
+  </span>
   <p class="tabs">세계여행지 <ruby>괌<rt>동남아 여행지</rt></ruby></p>
 
 
-  <span><img src="./cynicalcat.jpg" alt="고양이" usemap="#event"></span>
+  <span><img id="cynicalcat" src="./cynicalcat.jpg" alt="고양이" usemap="#event"></span>
   <map name="event">
-   
-      <area class="gomenu" shape="circle" coords="405,490,50" >
-      <area class="gomenu" shape="circle" coords="619,491,50" >
-  </map>
-<fieldset class="side_right">
-  <legend>개인정보</legend>
-  <ul >
-    <li class="input">
-      <label for="user-id">아이디(6자이상)</label>
-      <input type="text" id="user-id">
-    </li>
-    <li class="input">
-      <label for="mail">메일주소</label>
-      <input type="text" id="mail">
-    </li>
 
-  </ul>
+    <area class="gomenu" shape="circle" coords="405,490,50">
+    <area class="gomenu" shape="circle" coords="619,491,50">
+  </map>
+  <fieldset class="side_right">
+    <legend>개인정보</legend>
+    <ul>
+      <li class="input">
+        <label for="user-id">아이디(6자이상)</label>
+        <input type="text" id="user-id">
+      </li>
+      <li class="input">
+        <label for="mail">메일주소</label>
+        <input type="text" id="mail">
+      </li>
+
+    </ul>
   </fieldset>
   <script>
     debugger;
@@ -111,13 +111,612 @@
     createTabs('.tabs');
 
 
-function openPopup(){
-  window.open("http://127.0.0.1:5500/drawermenu.html","이벤트팝업","width=1000,height=1000,left=300,top=200")
-}
-const bttn =document.querySelectorAll(".gomenu");
-  bttn.forEach(btn => {
-    btn.addEventListener("click", openPopup);
-  });
+
+
+
+
+
+  // function openPopup() {
+  //   window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=1000,height=1000,left=300,top=200");
+  // }
+
+  // // 모든 .gomenu 요소를 선택합니다.
+  // const btns = document.querySelectorAll(".gomenu");
+
+  // // 각 .gomenu 요소에 대해 클릭 이벤트 리스너를 등록합니다.
+  // btns.forEach(btn => {
+  //   btn.addEventListener("click", openPopup);
+  // });
+
+
+  //     // 이미지 크기 조절 함수
+  //     function adjustImageSize() {
+  //       // 현재 창의 크기를 가져오기
+  //       const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  //       const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+  //       // 이미지 요소 가져오기
+  //       const img = document.getElementById("cynicalcat");
+
+  //       // 이미지 원래 가로 및 세로 크기 가져오기
+  //       const originalWidth = img.naturalWidth;
+  //       const originalHeight = img.naturalHeight;
+
+  //       // 이미지 크기 조정 (고정 비율로 계산)
+  //       let newWidth, newHeight;
+  //       if (originalWidth / windowWidth > originalHeight / windowHeight) {
+  //         newWidth = windowWidth;
+  //         newHeight = (originalHeight / originalWidth) * windowWidth;
+  //       } else {
+  //         newHeight = windowHeight;
+  //         newWidth = (originalWidth / originalHeight) * windowHeight;
+  //       }
+
+  //       img.style.width = newWidth + "px";
+  //       img.style.height = newHeight + "px";
+
+  //       // 이미지와 이미지 맵 요소 가져오기
+  //       const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+  //       const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+  //       // 이미지 맵 좌표 조정
+  //       areas.forEach(area => {
+  //         const coords = area.getAttribute("coords").split(",");
+  //         for (let i = 0; i < coords.length; i++) {
+  //           if (i % 2 === 0) {
+  //             coords[i] = Math.round(parseInt(coords[i]) * (newWidth / originalWidth));
+  //           } else {
+  //             coords[i] = Math.round(parseInt(coords[i]) * (newHeight / originalHeight));
+  //           }
+  //         }
+  //         area.setAttribute("coords", coords.join(","));
+  //       });
+  //     }
+
+  //     // 페이지 로딩 시 이미지 크기 조절
+  //     window.addEventListener("load", adjustImageSize);
+
+  //     // 창 크기 변경 시 이미지 크기 조절과 좌표 조정
+  //     window.addEventListener("resize", () => {
+  //       adjustImageSize();
+  //       updatePopupCoords();
+  //     });
+
+
+  // let popupWindow = null; // 팝업 창 객체 저장 변수
+
+
+
+  // // 팝업 창 열기 함수
+  // function openPopup() {
+  //   if (popupWindow === null || popupWindow.closed) {
+  //     popupWindow = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+  //     updatePopupCoords(); // 팝업 열릴 때 이미지 맵 좌표 업데이트
+  //   }
+  // }
+
+
+
+
+  // function updatePopupCoords() {
+  //   const popup = popupWindow;
+  //   if (popup) {
+  //     const img = document.getElementById("cynicalcat");
+  //     const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+  //     const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+  //     const windowWidth = popup.innerWidth;
+  //     const windowHeight = popup.innerHeight;
+
+  //     areas.forEach(area => {
+  //       const coords = area.getAttribute("coords").split(",");
+  //       for (let i = 0; i < coords.length; i++) {
+  //         if (i % 2 === 0) {
+  //           coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / img.width));
+  //         } else {
+  //           coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / img.height));
+  //         }
+  //       }
+  //       area.setAttribute("coords", coords.join(","));
+  //     });
+  //   }
+  // }
+
+
+  // // 팝업 창 열기 이벤트 리스너 등록
+  // const bttn = document.querySelectorAll(".gomenu");
+  // bttn.forEach(btn => {
+  //   btn.addEventListener("click", openPopup);
+  // });
+
+
+
+
+
+
+
+
+
+
+
+    //   function adjustImageSize() {
+    //     // 현재 창의 크기를 가져오기
+    //     const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+
+
+
+    //     // 팝업 창 열기 및 크기 설정
+    //     const popup = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+
+    //     // 이미지 크기 조정
+    //     img.style.width = windowWidth + "px";
+    //     img.style.height = windowHeight + "px";
+
+
+    //     // 이미지와 이미지 맵 요소 가져오기
+    //     const img = document.getElementById("cynicalcat");
+    //     const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+
+
+
+    //     // 이미지 맵 좌표 조정
+    //     const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+
+    //     areas.forEach(area => {
+    //       const coords = area.getAttribute("coords").split(",");
+    //       for (let i = 0; i < coords.length; i++) {
+    //         if (i % 2 === 0) {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / popup.innerWidth));
+    //         } else {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / popup.innerHeight));
+    //         }
+    //       }
+    //       area.setAttribute("coords", coords.join(","));
+    //     });
+    //   }
+
+
+    //   // 페이지 로딩 시 이미지 크기 조절
+    //   window.addEventListener("load", adjustImageSize);
+    //     window.addEventListener("resize", adjustImageSize);
+
+
+    // function openPopup(){
+    //   window.open("http://127.0.0.1:5500/drawermenu.html","이벤트팝업","width=1000,height=1000,left=300,top=200")
+    // }
+    // const bttn =document.querySelectorAll(".gomenu");
+    //   bttn.forEach(btn => {
+    //     btn.addEventListener("click", openPopup);
+    //   });
+
+    // // 이미지 크기 조절 함수
+    // function adjustImageSize() {
+    //   // 현재 창의 크기를 가져오기
+    //   const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //   const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //   // 이미지 요소 가져오기
+    //   const img = document.getElementById("cynicalcat");
+
+    //   // 이미지 크기 조정
+    //   img.style.width = windowWidth + "px";
+    //   img.style.height = windowHeight + "px";
+
+    //   // 이미지와 이미지 맵 요소 가져오기
+    //   const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+    //   const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+    //   // 이미지 맵 좌표 조정
+    //   areas.forEach(area => {
+    //     const coords = area.getAttribute("coords").split(",");
+    //     for (let i = 0; i < coords.length; i++) {
+    //       if (i % 2 === 0) {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / window.innerWidth));
+    //       } else {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / window.innerHeight));
+    //       }
+    //     }
+    //     area.setAttribute("coords", coords.join(","));
+    //   });
+    // }
+
+    // // 페이지 로딩 시 이미지 크기 조절
+    // window.addEventListener("load", adjustImageSize);
+
+    // function openPopup() {
+    //   // 팝업 창 열기 및 크기 설정
+    //   const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //   const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //   const popup = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+
+    //   // 이미지와 이미지 맵 요소 가져오기
+    //   const img = document.getElementById("cynicalcat");
+    //   const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+
+    //   // 이미지 맵 좌표 조정
+    //   const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+    //   areas.forEach(area => {
+    //     const coords = area.getAttribute("coords").split(",");
+    //     for (let i = 0; i < coords.length; i++) {
+    //       if (i % 2 === 0) {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / popup.innerWidth));
+    //       } else {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / popup.innerHeight));
+    //       }
+    //     }
+    //     area.setAttribute("coords", coords.join(","));
+    //   });
+    // }
+
+    // const bttn = document.querySelectorAll(".gomenu");
+    // bttn.forEach(btn => {
+    //   btn.addEventListener("click", openPopup);
+    // });
+
+
+    //  // 이미지 크기 조절 함수
+    //   function adjustImageSize() {
+    //     // 현재 창의 크기를 가져오기
+    //     const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //     // 이미지 요소 가져오기
+    //     const img = document.getElementById("cynicalcat");
+
+    //     // 이미지 원래 가로 및 세로 크기 가져오기
+    //     const originalWidth = img.naturalWidth;
+    //     const originalHeight = img.naturalHeight;
+
+    //     // 이미지 크기 조정 (고정 비율로 계산)
+    //     let newWidth, newHeight;
+    //     if (originalWidth / windowWidth > originalHeight / windowHeight) {
+    //       newWidth = windowWidth;
+    //       newHeight = (originalHeight / originalWidth) * windowWidth;
+    //     } else {
+    //       newHeight = windowHeight;
+    //       newWidth = (originalWidth / originalHeight) * windowHeight;
+    //     }
+
+
+
+
+
+    //     // 이미지 크기 조정
+    //     img.style.width = windowWidth + "px";
+    //     img.style.height = windowHeight + "px";
+
+    //     // 이미지와 이미지 맵 요소 가져오기
+    //     const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+    //     const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+    //     // 이미지 맵 좌표 조정
+    //     areas.forEach(area => {
+    //       const coords = area.getAttribute("coords").split(",");
+    //       for (let i = 0; i < coords.length; i++) {
+    //         if (i % 2 === 0) {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / img.width));
+    //         } else {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / img.height));
+    //         }
+    //       }
+    //       area.setAttribute("coords", coords.join(","));
+    //     });
+    //   }
+
+    //   // 페이지 로딩 시 이미지 크기 조절
+    //   window.addEventListener("load", adjustImageSize);
+
+    //   function openPopup() {
+    //     // 팝업 창 열기 및 크기 설정
+    //     const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //     const popup = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+
+    //     // 이미지와 이미지 맵 요소 가져오기
+    //     const img = document.getElementById("cynicalcat");
+    //     const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+
+    //     // 이미지 맵 좌표 조정
+    //     const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+    //     areas.forEach(area => {
+    //       const coords = area.getAttribute("coords").split(",");
+    //       for (let i = 0; i < coords.length; i++) {
+    //         if (i % 2 === 0) {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / popup.innerWidth));
+    //         } else {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / popup.innerHeight));
+    //         }
+    //       }
+    //       area.setAttribute("coords", coords.join(","));
+    //     });
+    //   }
+
+    //   const bttn = document.querySelectorAll(".gomenu");
+    //   bttn.forEach(btn => {
+    //     btn.addEventListener("click", openPopup);
+    //   });
+
+    // let popupWindow = null; 
+    // // 이미지 크기 조절 함수
+    // function adjustImageSize() {
+    //   // 현재 창의 크기를 가져오기
+    //   const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //   const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //   // 이미지 요소 가져오기
+    //   const img = document.getElementById("cynicalcat");
+
+    //   // 이미지 원래 가로 및 세로 크기 가져오기
+    //   const originalWidth = img.naturalWidth;
+    //   const originalHeight = img.naturalHeight;
+
+    //   // 이미지 크기 조정 (고정 비율로 계산)
+    //   let newWidth, newHeight;
+    //   if (originalWidth / windowWidth > originalHeight / windowHeight) {
+    //     newWidth = windowWidth;
+    //     newHeight = (originalHeight / originalWidth) * windowWidth;
+    //   } else {
+    //     newHeight = windowHeight;
+    //     newWidth = (originalWidth / originalHeight) * windowHeight;
+    //   }
+
+    //   img.style.width = newWidth + "px";
+    //   img.style.height = newHeight + "px";
+
+    //   // 이미지와 이미지 맵 요소 가져오기
+    //   const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+    //   const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+    //   // 이미지 맵 좌표 조정
+    //   areas.forEach(area => {
+    //     const coords = area.getAttribute("coords").split(",");
+    //     for (let i = 0; i < coords.length; i++) {
+    //       if (i % 2 === 0) {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (newWidth / originalWidth));
+    //       } else {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (newHeight / originalHeight));
+    //       }
+    //     }
+    //     area.setAttribute("coords", coords.join(","));
+    //   });
+    // }
+
+    // // 페이지 로딩 시 이미지 크기 조절
+    // window.addEventListener("load", adjustImageSize);
+    // window.addEventListener("resize", adjustImageSize);
+
+    // function openPopup() {
+    //   // 팝업 창 열기 및 크기 설정
+    //   const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //   const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //   if (popupWindow === null || popupWindow.closed) {
+    //     // 팝업 창이 없거나 닫혔을 때만 새로운 팝업 창 열기
+    //     popupWindow = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+    //   }
+
+
+
+    //   // const popup = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+
+    //   // 이미지와 이미지 맵 요소 가져오기
+    //   const img = document.getElementById("cynicalcat");
+    //   const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+
+    //   // 이미지 맵 좌표 조정
+    //   const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+    //   areas.forEach(area => {
+    //     const coords = area.getAttribute("coords").split(",");
+    //     for (let i = 0; i < coords.length; i++) {
+    //       if (i % 2 === 0) {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / popup.innerWidth));
+    //       } else {
+    //         coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / popup.innerHeight));
+    //       }
+    //     }
+    //     area.setAttribute("coords", coords.join(","));
+    //   });
+    // }
+
+    // const bttn = document.querySelectorAll(".gomenu");
+    // bttn.forEach(btn => {
+    //   btn.addEventListener("click", openPopup);
+    // });
+
+
+
+    //   let popupWindow = null; // 팝업 창 객체 저장 변수
+
+    //   // 이미지 크기 조절 함수
+    //   function adjustImageSize() {
+    //     // 현재 창의 크기를 가져오기
+    //     const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //     // 이미지 요소 가져오기
+    //     const img = document.getElementById("cynicalcat");
+
+    //     // 이미지 원래 가로 및 세로 크기 가져오기
+    //     const originalWidth = img.naturalWidth;
+    //     const originalHeight = img.naturalHeight;
+
+    //     // 이미지 크기 조정 (고정 비율로 계산)
+    //     let newWidth, newHeight;
+    //     if (originalWidth / windowWidth > originalHeight / windowHeight) {
+    //       newWidth = windowWidth;
+    //       newHeight = (originalHeight / originalWidth) * windowWidth;
+    //     } else {
+    //       newHeight = windowHeight;
+    //       newWidth = (originalWidth / originalHeight) * windowHeight;
+    //     }
+
+    //     img.style.width = newWidth + "px";
+    //     img.style.height = newHeight + "px";
+
+    //     // 이미지와 이미지 맵 요소 가져오기
+    //     const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+    //     const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+    //     // 이미지 맵 좌표 조정
+    //     areas.forEach(area => {
+    //       const coords = area.getAttribute("coords").split(",");
+    //       for (let i = 0; i < coords.length; i++) {
+    //         if (i % 2 === 0) {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (newWidth / originalWidth));
+    //         } else {
+    //           coords[i] = Math.round(parseInt(coords[i]) * (newHeight / originalHeight));
+    //         }
+    //       }
+    //       area.setAttribute("coords", coords.join(","));
+    //     });
+    //   }
+
+    //   // 페이지 로딩 시 이미지 크기 조절
+    //   window.addEventListener("load", adjustImageSize);
+
+
+    //   // 창 크기 변경 시 이미지 크기 조절과 좌표 조정
+    //   window.addEventListener("resize", () => {
+    //     adjustImageSize();
+    //     updatePopupCoords();
+    //   });
+
+
+
+
+    //     // 팝업 창 열기 이벤트 리스너 등록
+    //     const bttn = document.querySelectorAll(".gomenu");
+    //     bttn.forEach(btn => {
+    //       btn.addEventListener("click", openPopup);
+    //     });
+
+    //     // 팝업 창 좌표 업데이트 함수
+    // function openPopup() {
+    //     // 이미지 크기 및 좌표를 현재 설정값으로 가져오기
+    //     const img = document.getElementById("cynicalcat");
+    //     const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+    //     const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+    //     const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    //     if (popupWindow === null || popupWindow.closed) {
+    //       popupWindow = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+
+    //       // 이미지 맵 좌표를 현재 설정값으로 업데이트
+    //       areas.forEach(area => {
+    //         const coords = area.getAttribute("coords").split(",");
+    //         for (let i = 0; i < coords.length; i++) {
+    //           if (i % 2 === 0) {
+    //             coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / img.width));
+    //           } else {
+    //             coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / img.height));
+    //           }
+    //         }
+    //         area.setAttribute("coords", coords.join(","));
+    //       });
+    //     }
+    //   }
+
+    // 이미지 크기 조절 함수
+    function adjustImageSize() {
+      // 현재 창의 크기를 가져오기
+      const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+      // 이미지 요소 가져오기
+      const img = document.getElementById("cynicalcat");
+
+      // 이미지 원래 가로 및 세로 크기 가져오기
+      const originalWidth = img.naturalWidth;
+      const originalHeight = img.naturalHeight;
+
+      // 이미지 크기 조정 (고정 비율로 계산)
+      let newWidth, newHeight;
+      if (originalWidth / windowWidth > originalHeight / windowHeight) {
+        newWidth = windowWidth;
+        newHeight = (originalHeight / originalWidth) * windowWidth;
+      } else {
+        newHeight = windowHeight;
+        newWidth = (originalWidth / originalHeight) * windowHeight;
+      }
+
+      img.style.width = newWidth + "px";
+      img.style.height = newHeight + "px";
+
+      // 이미지와 이미지 맵 요소 가져오기
+      const imageMap = img.getAttribute("usemap").slice(1); // usemap 속성 값에서 # 제거
+      const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+      // 이미지 맵 좌표 조정
+      areas.forEach(area => {
+        const coords = area.getAttribute("coords").split(",");
+        for (let i = 0; i < coords.length; i++) {
+          if (i % 2 === 0) {
+            coords[i] = Math.round(parseInt(coords[i]) * (newWidth / originalWidth));
+          } else {
+            coords[i] = Math.round(parseInt(coords[i]) * (newHeight / originalHeight));
+          }
+        }
+        area.setAttribute("coords", coords.join(","));
+      });
+    }
+
+    // 페이지 로딩 시 이미지 크기 조절
+    window.addEventListener("load", adjustImageSize);
+
+    // 창 크기 변경 시 이미지 크기 조절과 좌표 조정
+    window.addEventListener("resize", () => {
+      adjustImageSize();
+      updatePopupCoords();
+    });
+
+    let popupWindow = null; // 팝업 창 객체 저장 변수
+
+    // 팝업 창 열기 함수
+    function openPopup() {
+      
+      if (popupWindow === null || popupWindow.closed) {
+        popupWindow = window.open("http://127.0.0.1:5500/drawermenu.html", "이벤트팝업", "width=" + windowWidth + ",height=" + windowHeight);
+        updatePopupCoords(); // 팝업 열릴 때 이미지 맵 좌표 업데이트
+      }
+    }
+
+    // 팝업 창 열기 이벤트 리스너 등록
+    const bttn = document.querySelectorAll(".gomenu");
+    bttn.forEach(btn => {
+      btn.addEventListener("click", openPopup);
+    });
+
+    // 팝업 창 좌표 업데이트 함수
+    function updatePopupCoords() {
+      const popup = popupWindow;
+      if (popup) {
+      const windowWidth = popup.innerWidth;
+        const windowHeight = popup.innerHeight;
+
+        areas.forEach(area => {
+          const coords = area.getAttribute("coords").split(",");
+          for (let i = 0; i < coords.length; i++) {
+            if (i % 2 === 0) {
+              coords[i] = Math.round(parseInt(coords[i]) * (windowWidth / img.width));
+            } else {
+              coords[i] = Math.round(parseInt(coords[i]) * (windowHeight / img.height));
+            }
+          }
+          area.setAttribute("coords", coords.join(","));
+        });
+      }
+    }
+
+
+
+
+
+
 
   </script>
 </body>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./fish.css">
+  <title>Resizable Image</title>
+
+</head>
+
+<body>
+
+  <span class="container">
+    <img id="fish" src="./fish.jpg" alt="생선" usemap="#event">
+    <map name="event">
+
+      <area id="gomenu" shape="rect" coords="21,206,318,481">
+    </map>
+  </span>
+
+
+
+  <script>
+  
+  function openPopup() {
+    const popupWidth = 500; // 팝업 창의 가로 크기
+    const popupHeight = 500; // 팝업 창의 세로 크기
+    const leftOffset = 300; // 팝업 창의 왼쪽 위치
+    const topOffset = 200; // 팝업 창의 위쪽 위치
+
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    const img = document.getElementById("fish");
+    const imageMap = img.getAttribute("usemap").slice(1);
+
+    const widthRatio = popupWidth / windowWidth;
+    const heightRatio = popupHeight / windowHeight;
+
+    img.width = originalImageWidth;
+    img.height = originalImageHeight;
+
+    const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+    areas.forEach(area => {
+      const coords = area.getAttribute("coords").split(",");
+      for (let i = 0; i < coords.length; i++) {
+        if (i % 2 === 0) {
+          coords[i] = Math.round(parseInt(coords[i]) * widthRatio);
+        } else {
+          coords[i] = Math.round(parseInt(coords[i]) * heightRatio);
+        }
+      }
+      area.setAttribute("coords", coords.join(","));
+    });
+  
+    window.open("http://127.0.0.1:5500/text.html", "이벤트팝업", "width=" + popupWidth + ",height=" + popupHeight + ",left=" + leftOffset + ",top=" + topOffset);
+  }
+
+  const bttn = document.querySelector("#gomenu");
+  bttn.addEventListener("click", openPopup);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function openPopup() {
+    // window.open("http://127.0.0.1:5500/text.html", "이벤트팝업", "width=500,height=500,left=300,top=200");
+    // }
+
+    // const bttn = document.querySelector("#gomenu");
+
+    // bttn.addEventListener("click",openPopup);
+
+
+
+
+
+
+
+    // // 모든 .gomenu 요소를 선택합니다.
+    // const btns = document.querySelectorAll(".gomenu");
+
+    // // 각 .gomenu 요소에 대해 클릭 이벤트 리스너를 등록합니다.
+    // btns.forEach(btn => {
+    // btn.addEventListener("click", openPopup);
+    // });
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
