@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="layout.css">
+  <title>레이아웃만들기</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>오징어튀김</h1>
+      <p>바삭한 오징어 튀김 만들기</p>
+    </div>
+    <div id="sidebar">
+      <h2>사이드바</h2>
+      <p>엄마가 껍질벗겨서 예쁘게 손질해주신 오징어 해동해 놨어요. 동그랗게 링으로 만들면 더 예쁘지만~ 어쩔수 없지용 ~~전 몸통보다 다리를 더 좋아해서 다리도 다 튀겼어요</p>
+
+    </div>
+    <div id="contents">
+      <h2>본문</h2>
+      <p>오징어 3마리 다 튀겨도 기름이 깨끗하지요? 기름 아까워서 생선까스랑 만두도 튀겨줬어요~ 기름을 재 사용하시는분들도 많으실텐데요~~재사용하면 암걸릴 확률과 비만될 확률이 높아지겠지요...</p>
+
+
+    </div>
+    <div id="footer">
+      <h2>푸터</h2>
+      <p>짜자잔~ 노릇노릇 바삭바삭한 오징어튀김 완성!! 튀김옷이 두껍지 않고 바삭바삭 너무 맛있어요!!</p>
+
+    </div>
+  </div>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+  <div class="carousel-wrapper">
+    <div class="carousel">
+    
+      <img src="./painting/01.jpg" alt="숫자">
+   
+      <img src="./painting/02.jpg" alt="숫자">
+    
+      <img src="./painting/03.jpg"  alt="숫자">
+    
+      <img src="./painting/04.jpg"  alt="숫자">
+    
+      <img src="./painting/05.jpg"  alt="숫자">
+    </div>
+  </div>
+  <img id="back" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcK32wf%2FbtqEBnQ2bSV%2FRUnYwxbL6CANymmbJNtVk0%2Fimg.png" alt="" width="100">
+  <img id="next" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FTWq2J%2FbtqEBdA2ene%2FhGRW5eH7EFHllWqfIGDFr1%2Fimg.png" alt="" width="100">
+
+<script>
+  const prevButton = document.querySelector('#back');
+    const nextButton = document.querySelector('#next');
+    const carousel = document.querySelector('.carousel');
+
+  let index = 0;
+
+  prevButton.addEventListener('click', () => {
+    if (index === 0) return;
+    index -= 1;
+
+    carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (index === 4) return;
+    index += 1;
+
+    carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
