@@ -32,52 +32,47 @@
 
     </div>
   </div>
-<br>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-<br>
+  <br>
+<div class="container">
   <div class="carousel-wrapper">
     <div class="carousel">
-    
       <img src="./painting/01.jpg" alt="숫자">
-   
       <img src="./painting/02.jpg" alt="숫자">
-    
-      <img src="./painting/03.jpg"  alt="숫자">
-    
-      <img src="./painting/04.jpg"  alt="숫자">
-    
-      <img src="./painting/05.jpg"  alt="숫자">
+      <img src="./painting/03.jpg" alt="숫자">
+      <img src="./painting/04.jpg" alt="숫자">
+      <img src="./painting/05.jpg" alt="숫자">
     </div>
-  </div>
-  <img id="back" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcK32wf%2FbtqEBnQ2bSV%2FRUnYwxbL6CANymmbJNtVk0%2Fimg.png" alt="" width="100">
-  <img id="next" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FTWq2J%2FbtqEBdA2ene%2FhGRW5eH7EFHllWqfIGDFr1%2Fimg.png" alt="" width="100">
 
-<script>
-  const prevButton = document.querySelector('#back');
+    <img id="back" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcK32wf%2FbtqEBnQ2bSV%2FRUnYwxbL6CANymmbJNtVk0%2Fimg.png" alt="" width="100">
+    <img id="next" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FTWq2J%2FbtqEBdA2ene%2FhGRW5eH7EFHllWqfIGDFr1%2Fimg.png" alt="" width="100">
+  </div>
+</div>
+  <script>
+    const prevButton = document.querySelector('#back');
     const nextButton = document.querySelector('#next');
     const carousel = document.querySelector('.carousel');
 
-  let index = 0;
-
-  prevButton.addEventListener('click', () => {
-    if (index === 0) return;
-    index -= 1;
-
-    carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
-  });
-
-  nextButton.addEventListener('click', () => {
-    if (index === 4) return;
-    index += 1;
-
-    carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
-  });
+    let index = 0;
 
 
+    prevButton.addEventListener('click', () => {
+      if (index === 0) return;
+      index -= 1;
 
+      carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (index === 4) return;
+      index += 1;
+
+      carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
+    });
 
 
 
@@ -87,7 +82,10 @@
 
 
 
-</script>
+
+
+
+  </script>
 
 
 
