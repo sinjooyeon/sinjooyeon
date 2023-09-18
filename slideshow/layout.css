@@ -67,6 +67,27 @@ div {
   box-shadow:5px 5px 10px rgb(192, 192, 192); ;
 }
 
+.container2 {
+  border: 0;
+  margin: 0 auto;
+  position: relative;
+  width: 800px;
+  height: 400px;
+  box-shadow: 5px 5px 10px rgb(192, 192, 192);
+  ;
+}
+
+.container3 {
+  border: 0;
+  margin: 0 auto;
+  position: relative;
+  width: 800px;
+  height: 400px;
+  box-shadow: 5px 5px 10px rgb(192, 192, 192);
+  ;
+}
+
+
 
 
 .carousel-wrapper {
@@ -74,12 +95,44 @@ div {
   overflow: hidden;
 }
 
+.carousel-wrapper2 {
+  border: 0;
+  overflow: hidden;
+}
+
+.carousel-wrapper3 {
+  border: 0;
+  overflow: hidden;
+}
+
+
+
 .carousel {
   border: 0;
   display: flex;
   transform: translate3d(0, 0, 0);
   transition: transform 0.4s;
 }
+
+
+#carousel2 {
+  border: 0;
+  display: flex;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#carousel3 {
+  border: 0;
+  display: flex;
+ 
+ 
+}
+
+
+
+
 
 #back {
   overflow: visible;
@@ -97,4 +150,53 @@ div {
   right: -100px;
   cursor: pointer;
   transform: translateY(-50%);
+}
+
+
+
+#back2 {
+  overflow: visible;
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+#next2 {
+  overflow: visible;
+  position: absolute;
+  top: 50%;
+  right: -100px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+
+
+/* 기본 슬라이드 스타일 */
+.slide {
+  display: none;
+  /* 슬라이드 숨기기 */
+}
+
+/* 활성 슬라이드 스타일 */
+.slide.active {
+  display: block;
+  /* 활성 슬라이드 보이기 */
+  animation: fadeIn 1s ease-in-out;
+  /* 페이드 인 애니메이션 적용 */
+}
+
+/* 페이드 인 애니메이션 키프레임 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    /* 투명도 0%로 시작 */
+  }
+
+  100% {
+    opacity: 1;
+    /* 투명도 100%로 끝 */
+  }
 }

@@ -38,20 +38,65 @@
   <br>
 
   <br>
-<div class="container">
-  <div class="carousel-wrapper">
-    <div class="carousel">
-      <img src="./painting/01.jpg" alt="숫자">
-      <img src="./painting/02.jpg" alt="숫자">
-      <img src="./painting/03.jpg" alt="숫자">
-      <img src="./painting/04.jpg" alt="숫자">
-      <img src="./painting/05.jpg" alt="숫자">
-    </div>
+  <div class="container">
+    <div class="carousel-wrapper">
+      <div class="carousel">
+        <img src="./painting/01.jpg" alt="숫자">
+        <img src="./painting/02.jpg" alt="숫자">
+        <img src="./painting/03.jpg" alt="숫자">
+        <img src="./painting/04.jpg" alt="숫자">
+        <img src="./painting/05.jpg" alt="숫자">
+      </div>
 
-    <img id="back" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FcK32wf%2FbtqEBnQ2bSV%2FRUnYwxbL6CANymmbJNtVk0%2Fimg.png" alt="" width="100">
-    <img id="next" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FTWq2J%2FbtqEBdA2ene%2FhGRW5eH7EFHllWqfIGDFr1%2Fimg.png" alt="" width="100">
+      <img id="back" src="./images/leftarrow.png" alt="" width="100">
+      <img id="next" src="./images/rightarrow.png" alt="" width="100">
+    </div>
   </div>
-</div>
+  <br>
+  <br>
+  <br>
+
+  <div class="container2">
+    <div class="carousel-wrapper2">
+      <div id="carousel2">
+        <img src="./painting/01.jpg" alt="숫자">
+        <img src="./painting/02.jpg" alt="숫자">
+        <img src="./painting/03.jpg" alt="숫자">
+        <img src="./painting/04.jpg" alt="숫자">
+        <img src="./painting/05.jpg" alt="숫자">
+      </div>
+
+      <img id="back2" src="./images/leftarrow.png" alt="" width="100">
+      <img id="next2" src="./images/rightarrow.png" alt="" width="100">
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <div class="container3">
+    <div class="carousel-wrapper3">
+      <div id="carousel3">
+        <img class="slide" src="./images/001.jpg" alt="숫자">
+        <img class="slide" src="./images/002.jpg" alt="숫자">
+        <img class="slide" src="./images/003.jpg" alt="숫자">
+        <img class="slide" src="./images/004.jpg" alt="숫자">
+        <img class="slide" src="./images/005.jpg" alt="숫자">
+      </div>
+
+
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+ 
+
+
+
+
+
+
   <script>
     const prevButton = document.querySelector('#back');
     const nextButton = document.querySelector('#next');
@@ -63,16 +108,47 @@
     prevButton.addEventListener('click', () => {
       if (index === 0) return;
       index -= 1;
-
       carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
     });
 
     nextButton.addEventListener('click', () => {
       if (index === 4) return;
       index += 1;
-
       carousel.style.transform = `translate3d(-${800 * index}px, 0, 0)`;
     });
+
+
+
+
+    const carousel2 = document.getElementById('carousel2');
+    const preButton2 = document.getElementById('back2');
+    const nextButton2 = document.getElementById('next2');
+    let index2 = 0;
+    nextButton2.addEventListener('click', () => {
+      index2 = (index2 + 1) % 5;
+      carousel2.style.transform = `translateX(-${index2 * 100}%)`;
+    });
+
+    preButton2.addEventListener('click', () => {
+      index2 = (index2 - 1 + 5) % 5;
+      carousel2.style.transform = `translateX(-${index2 * 100}%)`;
+    });
+
+
+
+
+    const carousel3 = document.getElementById('carousel3');
+    let index3 = 0;
+    const slides = document.querySelectorAll('.slide');
+    function nextSlide() {
+      slides[index3].classList.remove('active');
+      index3 = (index3 + 1) % 5;
+      slides[index3].classList.add('active');
+    }
+
+    setInterval(nextSlide, 2000);
+
+
 
 
 
