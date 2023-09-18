@@ -90,9 +90,25 @@
   <br>
   <br>
   <br>
- 
 
 
+  <div class="container4">
+    <div class="carousel-wrapper4">
+      <div id="carousel4">
+        <img class="slide4" src="./images/001.jpg" alt="숫자">
+        <img class="slide4" src="./painting/02.jpg" alt="숫자">
+        <img class="slide4" src="./painting/03.jpg" alt="숫자">
+        <img class="slide4" src="./painting/04.jpg" alt="숫자">
+        <img class="slide4" src="./painting/05.jpg" alt="숫자">
+      </div>
+
+      <img id="back4" src="./images/leftarrow.png" alt="" width="100">
+      <img id="next4" src="./images/rightarrow.png" alt="" width="100">
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
 
 
 
@@ -147,6 +163,62 @@
     }
 
     setInterval(nextSlide, 2000);
+
+
+
+
+
+  const carousel4 = document.querySelector('#carousel4');
+  const slides4 = document.querySelectorAll('.slide4');
+  const prevButton4 = document.getElementById('back4');
+  const nextButton4 = document.getElementById('next4');
+
+  let currentIndex4 = 0;
+
+  function showSlide(index) {
+    slides4.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.add('active4');
+      } else {
+        slide.classList.remove('active4');
+      }
+    });
+  }
+
+  prevButton4.addEventListener('click', () => {
+    currentIndex4 = (currentIndex4 - 1 + slides4.length) % slides4.length;
+    showSlide(currentIndex4);
+  });
+
+  nextButton4.addEventListener('click', () => {
+    currentIndex4 = (currentIndex4 + 1) % slides4.length;
+    showSlide(currentIndex4);
+  }); 
+
+  // 초기 슬라이드 표시
+  showSlide(currentIndex4);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
