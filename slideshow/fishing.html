@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./fishing.css">
+  <title>Resizable Image</title>
+
+</head>
+
+<body>
+
+
+
+  <div class="container2">
+    <div class="con"> <img src="./images/fishing.jpg" alt="생선" width="500" height="500">
+    </div>
+  </div>
+
+<div class="container3">
+  <div class="con"></div>> <img src="./images/fish2.jpg" alt="생선" width="500" height="500">
+  </div>
+</div>
+
+
+
+  <div class="container4">
+    <div class="con"><img src="./images/fish3.jpg" alt="생선" width="500" height="500">
+    </div>
+  </div>
+
+<div class="container5">
+  <div> <img src="./images/fish4.jpg" alt="생선" width="500" height="500">
+  </div>
+</div>
+
+
+
+
+
+
+  <button id='btn' type="button">물고기잡기</button>
+
+
+<div class="container">
+  <img id="fish" src="./fish.jpg" alt="생선" usemap="#event" usemap="#event2">
+  <map name="event">
+    <area id="gomenu" shape="rect" coords="21,206,318,481" rawcoords="21,206,318,481">
+  </map>
+  
+</div>
+
+
+
+<script>
+
+  const img = document.getElementById("fish");
+  const imageMap = img.getAttribute("usemap").slice(1);
+  const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+
+  window.addEventListener('load', resize, false);
+  window.addEventListener('resize', resize, false);
+
+  function resize(ev) {
+
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    console.log('resize', windowWidth, windowHeight);
+
+    const widthRatio = img.naturalWidth / parseInt(img.width, 10);
+    const heightRatio = widthRatio;
+
+    // img.width = originalImageWidth;
+    // img.height = originalImageHeight;
+
+
+    areas.forEach(area => {
+      const coords = area.getAttribute("rawcoords").split(",");
+      for (let i = 0; i < coords.length; i++) {
+        if (i % 2 === 0) {
+          coords[i] = Math.round(parseInt(coords[i], 10) / widthRatio);
+        } else {
+          coords[i] = Math.round(parseInt(coords[i], 10) / heightRatio);
+        }
+      }
+      area.setAttribute("coords", coords.join(","));
+    });
+  }
+
+
+  function openPopup() {
+    const popupWidth = 500; // 팝업 창의 가로 크기
+    const popupHeight = 500; // 팝업 창의 세로 크기
+    const leftOffset = 300; // 팝업 창의 왼쪽 위치
+    const topOffset = 200; // 팝업 창의 위쪽 위치
+    window.open("http://127.0.0.1:5500/text.html", "이벤트팝업", "width=" + popupWidth + ",height=" + popupHeight + ",left=" + leftOffset + ",top=" + topOffset);
+  }
+
+  const bttn = document.querySelector("#gomenu");
+  bttn.addEventListener("click", openPopup);
+
+
+
+    function Drawer(el, open = false) {
+      this.el = el;
+      this.isOpen = open;
+      (this.isOpen) ? this.open() : this.close();
+    };
+
+    Drawer.prototype.open = function () {
+      this.isOpen = true;
+      this.el.style.transform = 'translate(0px)';
+    }
+    Drawer.prototype.close = function () {
+      this.isOpen = false;
+      this.el.style.transform = 'translate(-500px)';
+    }
+    const btn = document.getElementById('btn');
+    const sidemenu = new Drawer(document.querySelector('.container2'));
+
+
+
+
+
+    btn.addEventListener('click', e => {
+      if (!sidemenu.isOpen) {
+        sidemenu.open();
+      } else {
+        sidemenu.close();
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

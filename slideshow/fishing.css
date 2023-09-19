@@ -1,0 +1,86 @@
+img {
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+
+
+#gomenu {
+  cursor: pointer;
+
+}
+
+
+#btn {
+  color: white;
+  border: 0;
+  font-size: 20px;
+  border-radius: 70%;
+  width: 200px;
+  height: 100px;
+  background-image: linear-gradient(145deg, #abdcf3 0%, #2f9ad8 100%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+
+.container2 {
+  display: block;
+  position: fixed;
+  /* right: 0; */
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  transition: all 0.4s ease-out;
+}
+
+
+
+.container3 {
+  display: block;
+  position: fixed;
+  /* right: 0; */
+ top: 0;
+  left: 0;
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  transition: all 0.4s ease-out;
+}
+
+
+
+.container4 {
+  display: block;
+  position: fixed;
+  right: 0;
+  /* bottom: 0; */
+  top: 0;
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  transition: all 0.4s ease-out;
+}
+
+
+.container5{
+  display: block;
+  position: fixed;
+  /* top: 0; */
+  bottom: 0;
+right: 0;
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  transition: all 0.4s ease-out;
+}
