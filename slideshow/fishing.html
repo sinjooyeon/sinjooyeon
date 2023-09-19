@@ -12,29 +12,27 @@
 
 <body>
 
-
-
-  <div class="container2">
-    <div class="con"> <img src="./images/fishing.jpg" alt="생선" width="500" height="500">
+  <div class="con">
+    <div class="container2"> <img src="./images/fishing.jpg" alt="생선" width="500" height="500">
     </div>
   </div>
 
-<div class="container3">
-  <div class="con"></div>> <img src="./images/fish2.jpg" alt="생선" width="500" height="500">
-  </div>
-</div>
-
-
-
-  <div class="container4">
-    <div class="con"><img src="./images/fish3.jpg" alt="생선" width="500" height="500">
+  <div class="con">
+    <div class="container3"><img src="./images/fish2.jpg" alt="생선" width="500" height="500">
     </div>
   </div>
 
-<div class="container5">
-  <div> <img src="./images/fish4.jpg" alt="생선" width="500" height="500">
+
+
+  <div class="con">
+    <div class="container4"><img src="./images/fish3.jpg" alt="생선" width="500" height="500">
+    </div>
   </div>
-</div>
+
+  <div class="con">
+    <div class="container5"><img src="./images/fish4.jpg" alt="생선" width="500" height="500">
+    </div>
+  </div>
 
 
 
@@ -44,62 +42,62 @@
   <button id='btn' type="button">물고기잡기</button>
 
 
-<div class="container">
-  <img id="fish" src="./fish.jpg" alt="생선" usemap="#event" usemap="#event2">
-  <map name="event">
-    <area id="gomenu" shape="rect" coords="21,206,318,481" rawcoords="21,206,318,481">
-  </map>
-  
-</div>
+  <div class="container">
+    <img id="fish" src="./fish.jpg" alt="생선" usemap="#event" usemap="#event2">
+    <map name="event">
+      <area id="gomenu" shape="rect" coords="21,206,318,481" rawcoords="21,206,318,481">
+    </map>
+
+  </div>
 
 
 
-<script>
+  <script>
 
-  const img = document.getElementById("fish");
-  const imageMap = img.getAttribute("usemap").slice(1);
-  const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
+    const img = document.getElementById("fish");
+    const imageMap = img.getAttribute("usemap").slice(1);
+    const areas = document.querySelectorAll("map[name='" + imageMap + "'] area");
 
-  window.addEventListener('load', resize, false);
-  window.addEventListener('resize', resize, false);
+    window.addEventListener('load', resize, false);
+    window.addEventListener('resize', resize, false);
 
-  function resize(ev) {
+    function resize(ev) {
 
-    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    console.log('resize', windowWidth, windowHeight);
+      const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      console.log('resize', windowWidth, windowHeight);
 
-    const widthRatio = img.naturalWidth / parseInt(img.width, 10);
-    const heightRatio = widthRatio;
+      const widthRatio = img.naturalWidth / parseInt(img.width, 10);
+      const heightRatio = widthRatio;
 
-    // img.width = originalImageWidth;
-    // img.height = originalImageHeight;
+      // img.width = originalImageWidth;
+      // img.height = originalImageHeight;
 
 
-    areas.forEach(area => {
-      const coords = area.getAttribute("rawcoords").split(",");
-      for (let i = 0; i < coords.length; i++) {
-        if (i % 2 === 0) {
-          coords[i] = Math.round(parseInt(coords[i], 10) / widthRatio);
-        } else {
-          coords[i] = Math.round(parseInt(coords[i], 10) / heightRatio);
+      areas.forEach(area => {
+        const coords = area.getAttribute("rawcoords").split(",");
+        for (let i = 0; i < coords.length; i++) {
+          if (i % 2 === 0) {
+            coords[i] = Math.round(parseInt(coords[i], 10) / widthRatio);
+          } else {
+            coords[i] = Math.round(parseInt(coords[i], 10) / heightRatio);
+          }
         }
-      }
-      area.setAttribute("coords", coords.join(","));
-    });
-  }
+        area.setAttribute("coords", coords.join(","));
+      });
+    }
 
 
-  function openPopup() {
-    const popupWidth = 500; // 팝업 창의 가로 크기
-    const popupHeight = 500; // 팝업 창의 세로 크기
-    const leftOffset = 300; // 팝업 창의 왼쪽 위치
-    const topOffset = 200; // 팝업 창의 위쪽 위치
-    window.open("http://127.0.0.1:5500/text.html", "이벤트팝업", "width=" + popupWidth + ",height=" + popupHeight + ",left=" + leftOffset + ",top=" + topOffset);
-  }
+    function openPopup() {
+      const popupWidth = 500; // 팝업 창의 가로 크기
+      const popupHeight = 500; // 팝업 창의 세로 크기
+      const leftOffset = 300; // 팝업 창의 왼쪽 위치
+      const topOffset = 200; // 팝업 창의 위쪽 위치
+      window.open("http://127.0.0.1:5500/text.html", "이벤트팝업", "width=" + popupWidth + ",height=" + popupHeight + ",left=" + leftOffset + ",top=" + topOffset);
+    }
 
-  const bttn = document.querySelector("#gomenu");
-  bttn.addEventListener("click", openPopup);
+    const bttn = document.querySelector("#gomenu");
+    bttn.addEventListener("click", openPopup);
 
 
 
@@ -109,18 +107,39 @@
       (this.isOpen) ? this.open() : this.close();
     };
 
+    function Drawer2(el, open = false) {
+      this.el = el;
+      this.isOpen = open;
+      (this.isOpen) ? this.open2() : this.close2();
+    };
+
+
     Drawer.prototype.open = function () {
       this.isOpen = true;
       this.el.style.transform = 'translate(0px)';
     }
+     Drawer2.prototype.open2 = function () {
+        this.isOpen = true;
+        this.el.style.transform = 'translate(0px)';
+     }
     Drawer.prototype.close = function () {
       this.isOpen = false;
       this.el.style.transform = 'translate(-500px)';
     }
+    Drawer2.prototype.close2 = function () {
+      this.isOpen = false;
+      this.el.style.transform = 'translate(1000px)';
+    }
+
+
+
+
+
     const btn = document.getElementById('btn');
     const sidemenu = new Drawer(document.querySelector('.container2'));
-
-
+    const sidemenu2 = new Drawer(document.querySelector('.container3'));
+    const sidemenu3 = new Drawer2(document.querySelector('.container4'));
+    const sidemenu4 = new Drawer2(document.querySelector('.container5'));
 
 
 
@@ -133,7 +152,30 @@
     });
 
 
+    btn.addEventListener('click', e => {
+      if (!sidemenu2.isOpen) {
+        sidemenu2.open();
+      } else {
+        sidemenu2.close();
+      }
+    });
 
+    btn.addEventListener('click', e => {
+      if (!sidemenu3.isOpen) {
+        sidemenu3.open2();
+      } else {
+        sidemenu3.close2();
+      }
+    });
+
+
+    btn.addEventListener('click', e => {
+      if (!sidemenu4.isOpen) {
+        sidemenu4.open2();
+      } else {
+        sidemenu4.close2();
+      }
+    });
 
 
 
