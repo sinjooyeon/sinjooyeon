@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+
+
+  <title>Carousel</title>
+</head>
+
+<body>
+  <style>
+    .items {
+      position: relative;
+      width: 1000px;
+      height: 800px;
+      border: 1px solid grey;
+      overflow: hidden;
+      margin: 100px auto;
+    }
+
+    .item {
+      position: absolute;
+      display: none;
+
+      width: 1000px;
+      height: 800px;
+      font-size: 20px;
+    }
+
+    .active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: appear 3s;
+    }
+
+    .inactive {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: disappear 3s;
+    }
+
+
+    @keyframes appear {
+      from {
+        transform: translateX(1000px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes disappear {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-1000px);
+      }
+    }
+
+    .menu {
+      border: 1px solid #ccc;
+
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      margin: 50px;
+      display: inline-block;
+      line-height: 50px;
+    }
+
+    .bigmenu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+  </style>
+
+
+  <div class="items">
+    <div class="item red active"><img src="./images/squirrel01.jpg" alt="Image 1"></div>
+    <div class="item green"><img src="./images/squirrel02.jpg" alt="Image 1"></div>
+    <div class="item yellow"><img src="./images/squirrel03.jpg" alt="Image 1"></div>
+    <div class="item blue"> <img src="./images/squirrel04.jpg" alt="Image 1"></div>
+    <div class="item orange"><img src="./images/squirrel05.jpg" alt="Image 1"></div>
+    <div class="item orange"><img src="./images/squirrel06.jpg" alt="Image 1"></div>
+  </div>
+
+
+  <div class="bigmenu">
+    <div class="menu">메뉴</div>
+    <div class="menu">메뉴</div>
+    <div class="menu">메뉴</div>
+    <div class="menu">메뉴</div>
+  </div>
+
+
+  <script>
+    let index = 0;
+    const firstElement = document.querySelector(".item:first-child");
+    const lastElement = document.querySelector(".item:last-child");
+
+    setInterval(() => {
+      const currentElement = document.querySelector(".active");
+      const dispearedElement = currentElement.previousElementSibling;
+      const appearedElemnt = currentElement.nextElementSibling;
+
+      currentElement.classList.remove("active");
+      currentElement.classList.add("inactive");
+
+      if (dispearedElement) {
+        dispearedElement.classList.remove("inactive");
+      } else {
+        lastElement.classList.remove("inactive");
+      }
+
+      if (appearedElemnt) {
+        appearedElemnt.classList.add("active");
+      } else {
+        firstElement.classList.add("active");
+      }
+    }, 3000);
+
+  </script>
+
+</body>
+
+</html>
