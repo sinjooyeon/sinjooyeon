@@ -118,10 +118,10 @@
       this.isOpen = true;
       this.el.style.transform = 'translate(0px)';
     }
-     Drawer2.prototype.open2 = function () {
-        this.isOpen = true;
-        this.el.style.transform = 'translate(0px)';
-     }
+    Drawer2.prototype.open2 = function () {
+      this.isOpen = true;
+      this.el.style.transform = 'translate(0px)';
+    }
     Drawer.prototype.close = function () {
       this.isOpen = false;
       this.el.style.transform = 'translate(-500px)';
@@ -143,39 +143,48 @@
 
 
 
-    btn.addEventListener('click', e => {
-      if (!sidemenu.isOpen) {
-        sidemenu.open();
-      } else {
-        sidemenu.close();
-      }
-    });
+    function oo(mm) {
+      btn.addEventListener('click', e => {
+        if (!mm.isOpen) {
+          mm.open();
+        } else {
+          mm.close();
+        }
+      })
+    };
+    oo(sidemenu);
+    oo(sidemenu2);
 
 
-    btn.addEventListener('click', e => {
-      if (!sidemenu2.isOpen) {
-        sidemenu2.open();
-      } else {
-        sidemenu2.close();
-      }
-    });
 
-    btn.addEventListener('click', e => {
-      if (!sidemenu3.isOpen) {
-        sidemenu3.open2();
-      } else {
-        sidemenu3.close2();
-      }
-    });
+    // btn.addEventListener('click', e => {
+    //   if (!sidemenu2.isOpen) {
+    //     sidemenu2.open();
+    //   } else {
+    //     sidemenu2.close();
+    //   }
+    // });
+
+    function pp(uu) {
+      btn.addEventListener('click', e => {
+        if (!uu.isOpen) {
+          uu.open2();
+        } else {
+          uu.close2();
+        }
+      })
+    };
+    pp(sidemenu3);
+    pp(sidemenu4);
 
 
-    btn.addEventListener('click', e => {
-      if (!sidemenu4.isOpen) {
-        sidemenu4.open2();
-      } else {
-        sidemenu4.close2();
-      }
-    });
+    // btn.addEventListener('click', e => {
+    //   if (!sidemenu4.isOpen) {
+    //     sidemenu4.open2();
+    //   } else {
+    //     sidemenu4.close2();
+    //   }
+    // });
 
 
 
