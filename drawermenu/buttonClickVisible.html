@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹 페이지</title>
+
+
+<body>
+
+  <style>
+    .container {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+
+    .hidden {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 나타남 */
+    .visible {
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #content {
+      font-size: 200px;
+
+    }
+
+    button {
+      width: 300px;
+      height: 100px;
+      margin: 100px;
+
+    }
+  </style>
+
+
+  <div class="container">
+    <button id="showButton">Show</button>
+    <button id="hideButton">Hide</button>
+  </div>
+  <div id="content" class="hidden">
+    <img src="./images/white03.jpg" alt="Image 1">
+  </div>
+
+
+
+
+  <script>
+
+    const showButton = document.getElementById('showButton');
+    const hideButton = document.getElementById('hideButton');
+    const content = document.getElementById('content');
+
+    showButton.addEventListener('click', () => {
+      content.classList.add('visible');
+      content.classList.remove('hidden');
+    });
+
+    hideButton.addEventListener('click', () => {
+      content.classList.remove('visible');
+      content.classList.add('hidden');
+    });
+
+
+  </script>
+
+
+
+</body>
+
+</html>
