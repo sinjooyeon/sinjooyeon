@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>openCloseCarousel</title>
+</head>
+
+<body>
+
+  <style>
+    *{
+      background-color: rgb(221, 221, 221);
+    }
+    
+    .items {
+      position: relative;
+      width: 1000px;
+      height: 700px;
+      border: 0;
+      overflow: hidden;
+      margin: 100px auto;
+      box-shadow: 12px 12px 24px #070707;
+    }
+
+    .item {
+      position: absolute;
+      display: none;
+      width: 1000px;
+      height: 700px;
+      
+
+    }
+
+    .active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: appear 2s;
+    }
+
+    /* .inactive {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: disappear 3s;
+    } */
+
+
+    @keyframes appear {
+      from {
+        transform: translateX(1000px);
+      }
+
+      to {
+        transform: translateX(0px);
+      }
+    }
+
+    /* @keyframes disappear {
+      from {
+        transform: translateX(450px);
+      }
+
+      to {
+        transform: translateX(1000px);
+      }
+    } */
+
+
+    #text {
+      font-size: 30px;
+      color: gray;
+      text-shadow: 2px 2px 4px #e4e3e3;
+    }
+
+
+
+
+    .letter {
+
+      display: none;
+    }
+
+    .textcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+    }
+
+    #button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+
+    }
+
+    /* .hidden {
+      opacity: 0;
+      transform: translateY(25%);
+
+      visibility: hidden;
+      transition: 0.6s all ease-in-out
+    } */
+
+    .visible {
+      opacity: 1;
+      transform: translateY(50%);
+
+
+      transition: 0.7s all ease-in-out
+    }
+
+    #prev-button,
+    #next-button {
+      border-radius: 70%;
+      border: 0;
+      margin: 10px;
+      width: 70px;
+      height: 35px;
+      font-size: 20px;
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+
+  <div class="items">
+    <div class="item red active"><img src="./images/ch01.jpg" alt="Image 1"></div>
+    <div class="item green"><img src="./images/ch02.jpg" alt="Image 1"></div>
+    <div class="item yellow"><img src="./images/ch03.jpg" alt="Image 1"></div>
+    <div class="item blue"> <img src="./images/ch04.jpg" alt="Image 1"></div>
+    <div class="item orange"><img src="./images/ch05.jpg" alt="Image 1"></div>
+
+  </div>
+
+
+
+
+
+  <div class="textcon">
+    <div id="text-container">
+      <p id="text">첫 번째 글자</p>
+      <div id="button-container">
+        <button id="prev-button">←</button>
+        <button id="next-button">→</button>
+      </div>
+    </div>
+
+
+    <p class="letter">Canadian coffee brand Tim Hortons </p>
+    <p class="letter">is opening its first Korean branch in Gangnam District, </p>
+
+    <p class="letter">southern Seoul, with an anticipated launch later this year. </p>
+    <p class="letter">Following its announcement for its debut in Korea made in May, </p>
+    <p class="letter">screens on the building's facade located at the Sinnonhyeon </p>
+
+    <p class="letter">Station intersection on Tuesday. The forthcoming establishment </p>
+    <p class="letter">will encompass a 335-square-meter (3,605-square-feet)</p>
+    <p class="letter">space and is scheduled to open within the year.</p>
+
+  </div>
+
+
+  <script>
+
+  let index = 0;
+  const images = document.querySelectorAll(".item"); // 모든 이미지 요소들을 선택합니다.
+  const prevButton = document.getElementById("prev-button");
+  const nextButton = document.getElementById("next-button");
+
+  // 초기 이미지 설정
+  images[index].classList.add("active");
+
+  // "이전" 버튼 클릭 이벤트 핸들러
+  prevButton.addEventListener("click", function () {
+    images[index].classList.remove("active");
+    index--;
+    if (index < 0) {
+      index = images.length - 1;
+    }
+    images[index].classList.add("active");
+  });
+
+  // "다음" 버튼 클릭 이벤트 핸들러
+  nextButton.addEventListener("click", function () {
+    images[index].classList.remove("active");
+    index++;
+    if (index >= images.length) {
+      index = 0;
+    }
+    images[index].classList.add("active");
+  });
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const textContainer = document.getElementById('text-container');
+      const textElement = document.getElementById('text');
+      const prevButton = document.getElementById('prev-button');
+      const nextButton = document.getElementById('next-button');
+      const textArray = document.querySelectorAll(".letter");
+
+      let currentIndex = 0; // 현재 표시 중인 글자의 인덱스
+
+      // 초기 텍스트 설정
+      textElement.textContent = textArray[currentIndex].textContent;
+
+      // 이전 버튼 클릭 이벤트 핸들러
+      prevButton.addEventListener('click', function () {
+        currentIndex--;
+
+        if (currentIndex < 0) {
+          currentIndex = textArray.length - 1; // 처음 글자로 순환
+        }
+        textElement.classList.remove('visible');
+        setTimeout(function () {
+          textElement.textContent = textArray[currentIndex].textContent;
+          textElement.classList.add('visible');
+        }, 100); // 지연을 추가하여 효과가 적용되도록 함
+      });
+
+      // 다음 버튼 클릭 이벤트 핸들러
+      nextButton.addEventListener('click', function () {
+        currentIndex++;
+        if (currentIndex >= textArray.length) {
+          currentIndex = 0; // 처음 글자로 순환
+        }
+        textElement.classList.remove('visible');
+        setTimeout(function () {
+          textElement.textContent = textArray[currentIndex].textContent;
+          textElement.classList.add('visible');
+        }, 100); // 지연을 추가하여 효과가 적용되도록 함
+      });
+    });
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
