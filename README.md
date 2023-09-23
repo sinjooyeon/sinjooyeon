@@ -4,4 +4,4 @@
   [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=sinjooyeon&langs_count=8)](https://github.com/sinjooyeon/github-readme-stats)<br>
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=sinjooyeon)](https://solved.ac/sinjooyeon0)<br>
-<div>*신주연!**</div>
+<div>*신주연!***</div>
