@@ -4,17 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>buttonClickVisible  </title>
+  <title>buttonClickVisible </title>
 
 
 <body>
 
   <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 수직 가운데 정렬 */
+      justify-content: center;
+      /* 수평 가운데 정렬 */
+      height: 100vh;
+      /* 뷰포트 높이의 100%로 설정하여 화면 전체를 차지 */
+      margin: 0;
+      /* 기본 마진 제거 */
+      padding: 0;
+      /* 기본 패딩 제거 */
+    }
+
     .container {
-      text-align: center;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
     }
 
 
@@ -41,19 +57,20 @@
 
     #content {
       font-size: 200px;
-
+      margin-bottom: 20px
     }
 
     button {
       width: 300px;
       height: 100px;
-      margin: 100px;
+      margin: 50px;
 
     }
 
     .back .hover-img .chicken {
       display: block;
       margin: 0 auto;
+
     }
 
     .hover-img {
@@ -72,8 +89,10 @@
       height: 600px;
       background: rgb(181, 218, 243);
       transition: 1s;
+
     }
-    .back:hover{
+
+    .back:hover {
       background: yellowgreen;
     }
   </style>
@@ -89,11 +108,13 @@
 
   <div class="back">
     <div class="hover-img">
-    
+
       <img class="chicken" src="./images/chick02.jpg" alt="" width="500px" height="500px">
     </div>
   </div>
-
+  <div class="container">
+    <button id="toggleButton">Toggle</button> <!-- 토글 버튼 추가 -->
+  </div>
 
   <script>
 
@@ -110,6 +131,32 @@
       content.classList.remove('visible');
       content.classList.add('hidden');
     });
+
+    const toggleButton = document.getElementById("toggleButton");
+    const chickenImage = document.querySelector(".chicken");
+
+    // toggleButton.addEventListener("click", function () {
+    //   // 이미지의 가시성을 토글
+    //   if (chickenImage.style.display === "none" || chickenImage.style.display === "") {
+    //     chickenImage.style.display = "block";
+    //   } else {
+    //     chickenImage.style.display = "none";
+    //   }
+    // });
+
+      toggleButton.addEventListener("click", function () {
+        if (chickenImage.classList.contains("hidden")) {
+          chickenImage.classList.remove("hidden");
+          chickenImage.classList.add("visible");
+        } else {
+          chickenImage.classList.remove("visible");
+          chickenImage.classList.add("hidden");
+        }
+      });
+
+
+
+
 
 
   </script>
