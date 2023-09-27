@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Flipper</title>
+</head>
+
+<body>
+
+  <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.color {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+</style>
+
+
+
+
+<div class="container">
+  <h1>Color Flipper</h1>
+  <p class="color" id="color">Click the button to change color</p>
+  <button class="btn" id="btn">Change Color</button>
+</div>
+
+
+
+
+
+
+
+<script>
+
+  // 색상 배열
+  const colors = ["#FF5733", "#FF33A0", "#33FFB7", "#33B7FF", "#C633FF", "#FF33E3", "#33FF71", "#FFC733", "#A033FF", "#FF3333"];
+
+  // HTML 요소 가져오기
+  const colorText = document.getElementById("color");
+  const btn = document.getElementById("btn");
+
+  // 버튼 클릭 이벤트 처리
+  btn.addEventListener("click", function () {
+    // 무작위 색상 선택
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    const randomColor = colors[randomIndex];
+
+    // 색상 변경
+    document.body.style.backgroundColor = randomColor;
+    colorText.textContent = `Color: ${randomColor}`;
+  });
+
+
+</script>
+
+</body>
+</html>
