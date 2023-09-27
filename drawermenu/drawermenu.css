@@ -4,26 +4,34 @@
   display: block;
   position: fixed;
   top: 0;
-  bottom: 0;
+  left: 0px;
   right: 0;
-  width: 500px;
-  padding: 10px;
+  padding: 30px;
   background-color: rgb(136, 136, 135);
   box-shadow: 0 0 100px 30px rgba(63, 63, 63, 0.1);
   transition: all 0.5s ease-out;
 }
 
+.drawer-list{
+  list-style: none;
+  padding: 0;
+  display: flex; 
+}
+
+
+.drawer-list li{
+  margin-right: 50px;
+}
 
 #drawer-opener {
   color: white;
   border: 2px solid #fffcf1;
-  ;
   font-size: 50px;
   border-radius: 70%;
   width: 300px;
   height: 230px;
-  margin: 200px;
-  background-image: linear-gradient(45deg, #fceb9a 0%, #f8d405 100%);
+  margin: 200px 200px 200px 600px;
+  background-image: linear-gradient(45deg, #f8c5dd 0%, #f775d6 100%);
 }
 
 #drawer-opener:hover {
