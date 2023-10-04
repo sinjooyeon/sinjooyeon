@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>카운터</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    #counter {
+      font-size: 36px;
+      margin: 20px;
+    }
+
+    button {
+      font-size: 18px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      width: 550px;
+      height: 250px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 50px;
+      color: #054c8f;
+    }
+
+    .color {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #333;
+      color: #fff;
+      width:150px;
+      border: none;
+      padding: 8px 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #incrementButton:hover {
+      background-color: #4966e6;
+    }
+    
+        #resetButton:hover {
+      background-color: #808080;
+    }
+        #decrementButton:hover {
+      background-color: #fa5f81;
+    }
+    
+  </style>
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+  <h1>Counter</h1>
+  <p id="counter">0</p>
+  <button class="btn" id="incrementButton">증가</button>
+  <button class="btn" id="resetButton">리셋</button>
+  <button class="btn" id="decrementButton">감소</button>
+ 
+</div>
+  <script>
+    let count = 0;
+
+    const counterElement = document.getElementById("counter");
+    const incrementButton = document.getElementById("incrementButton");
+    const decrementButton = document.getElementById("decrementButton");
+    const resetButton = document.getElementById("resetButton");
+
+    incrementButton.addEventListener("click", function () {
+      count++;
+      updateCounter();
+    });
+
+    decrementButton.addEventListener("click", function () {
+      count--;
+      updateCounter();
+    });
+
+    resetButton.addEventListener("click", function () {
+      count = 0;
+      updateCounter();
+    });
+
+    function updateCounter() {
+      counterElement.textContent = count;
+    }
+  </script>
+</body>
+
+</html>
