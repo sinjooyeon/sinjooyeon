@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Flipper</title>
+</head>
+
+<body>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0;
+      margin-left: 100px;
+      margin-top: 100px;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      width: 400px;
+      height: 200px;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .color {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #7c7c7c;
+    }
+
+
+
+
+    #counter {
+      font-size: 50px;
+      margin: 10px;
+    }
+
+    button {
+      font-size: 18px;
+    }
+
+
+
+    .container2 {
+      text-align: center;
+      background-color: #fff;
+      width: 440px;
+      height: 240px;
+      margin: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #counterTitle {
+      font-size: 40px;
+      color: rgb(24, 81, 156);
+    }
+
+
+    .btn2 {
+      background-color: #333;
+      color: #fff;
+      width: 100px;
+      border: none;
+      padding: 8px 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #incrementButton:hover {
+      background-color: #4966e6;
+    }
+
+    #resetButton:hover {
+      background-color: #808080;
+    }
+
+    #decrementButton:hover {
+      background-color: #fa5f81;
+    }
+
+    .container3 {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    }
+
+    .img-container {
+    
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 10px 10px 10px rgb(180, 96, 142);
+      background-color: #f0f0f0;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  <div class="container">
+    <h1>Color Flipper</h1>
+    <p class="color" id="color">Click the button to change color</p>
+    <button class="btn" id="btn">Change Color</button>
+  </div>
+
+
+  <div class="container2">
+    <h1 id="counterTitle">Counter</h1>
+    <p id="counter">0</p>
+    <button class="btn2" id="incrementButton">증가</button>
+    <button class="btn2" id="resetButton">리셋</button>
+    <button class="btn2" id="decrementButton">감소</button>
+
+
+
+
+    <section class="container3">
+      <div>
+        <h2>review</h2>
+        <article class="review">
+          <div class="img-container">
+            <img src="./images/pic01.jpg" id="person-img" alt="" />
+          </div>
+          <h4 id="author">mouse</h4>
+          <p id="job">designer</p>
+          <p id="info">Great projects! Lеarning by practicing is so much better. Even if all you do is copying a few lines of code that you see in each lesson.
+          </p>
+          <button class="btn3"><</button>
+              <button class="btn3">></button>
+        </article>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      const colorText = document.getElementById("color");
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        const randomColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+        document.body.style.backgroundColor = randomColor;
+        colorText.textContent = `Color: ${randomColor}`;
+      });
+
+
+
+      let count = 0;
+
+      const counterElement = document.getElementById("counter");
+      const incrementButton = document.getElementById("incrementButton");
+      const decrementButton = document.getElementById("decrementButton");
+      const resetButton = document.getElementById("resetButton");
+
+      incrementButton.addEventListener("click", function () {
+        count++;
+        updateCounter();
+      });
+
+      decrementButton.addEventListener("click", function () {
+        count--;
+
+        updateCounter();
+      });
+
+      resetButton.addEventListener("click", function () {
+        count = 0;
+        updateCounter();
+      });
+
+      function updateCounter() {
+        counterElement.textContent = count;
+        if (count > 0) {
+          counterElement.style.color = "blue";
+        }
+        if (count < 0) {
+          counterElement.style.color = "red";
+        }
+        if (count === 0) {
+          counterElement.style.color = "black";
+        }
+      };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
