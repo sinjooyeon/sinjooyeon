@@ -55,7 +55,7 @@
     .btn {
       background-color: #333;
       color: #fff;
-      width:150px;
+      width: 150px;
       border: none;
       padding: 8px 10px;
       font-size: 16px;
@@ -67,14 +67,14 @@
     #incrementButton:hover {
       background-color: #4966e6;
     }
-    
-        #resetButton:hover {
+
+    #resetButton:hover {
       background-color: #808080;
     }
-        #decrementButton:hover {
+
+    #decrementButton:hover {
       background-color: #fa5f81;
     }
-    
   </style>
 
 
@@ -88,13 +88,13 @@
 <body>
 
   <div class="container">
-  <h1>Counter</h1>
-  <p id="counter">0</p>
-  <button class="btn" id="incrementButton">증가</button>
-  <button class="btn" id="resetButton">리셋</button>
-  <button class="btn" id="decrementButton">감소</button>
- 
-</div>
+    <h1>Counter</h1>
+    <p id="counter">0</p>
+    <button class="btn" id="incrementButton">증가</button>
+    <button class="btn" id="resetButton">리셋</button>
+    <button class="btn" id="decrementButton">감소</button>
+
+  </div>
   <script>
     let count = 0;
 
@@ -120,7 +120,17 @@
 
     function updateCounter() {
       counterElement.textContent = count;
-    }
+      if (count > 0) {
+        counterElement.style.color = "blue";
+      }
+      if (count < 0) {
+        counterElement.style.color = "red";
+      }
+      if (count === 0) {
+        counterElement.style.color = "black";
+      }
+    };
+
   </script>
 </body>
 
