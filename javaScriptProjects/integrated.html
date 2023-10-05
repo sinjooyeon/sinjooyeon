@@ -5,18 +5,16 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Flipper</title>
+  <title>integrated</title>
 </head>
 
 <body>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
       background-color: #f0f0f0;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
       margin: 0;
       margin-left: 100px;
       margin-top: 100px;
@@ -57,8 +55,6 @@
     }
 
 
-
-
     #counter {
       font-size: 50px;
       margin: 10px;
@@ -67,8 +63,6 @@
     button {
       font-size: 18px;
     }
-
-
 
     .container2 {
       text-align: center;
@@ -107,30 +101,91 @@
     }
 
     #decrementButton:hover {
-      background-color: #fa5f81;
+      background-color: #d3d0d1;
     }
 
     .container3 {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
+      position: absolute;
+      top: 500px;
+      left: 100px;
+      width: 500px;
+      height: 640px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f3de;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
-    .img-container {
-    
+    h2 {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+
+    }
+
+    .container4 img {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 200px;
       height: 200px;
       border-radius: 50%;
       overflow: hidden;
-      box-shadow: 10px 10px 10px rgb(180, 96, 142);
+      box-shadow: 10px 10px 10px rgb(124, 124, 92);
       background-color: #f0f0f0;
     }
 
-    .img-container img {
+    /* .person-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    } */
+
+    .btn3 {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .randomBtn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #dd5d07;
+      background-color: #f7e815;
+      width: 150px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 3px 3px 3px rgb(224, 224, 177);
+    }
+
+    #author,
+    #job,
+    #info {
+      position: absolute;
+      top: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #job {
+      position: absolute;
+      top: 340px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #info {
+      position: absolute;
+      top: 380px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   </style>
 
@@ -153,29 +208,24 @@
 
     <section class="container3">
       <div>
-        <h2>review</h2>
+        <h2 class="hreview">review</h2>
         <article class="review">
-          <div class="img-container">
-            <img src="./images/pic01.jpg" id="person-img" alt="" />
+          <div class="container4">
+            <img src="./images/pic01.jpg" id="person-img" alt="">
           </div>
           <h4 id="author">mouse</h4>
           <p id="job">designer</p>
-          <p id="info">Great projects! Lеarning by practicing is so much better. Even if all you do is copying a few lines of code that you see in each lesson.
+          <p id="info">Great projects! Leaning by practicing is so much better. Even if all you do is copying a few lines of code that you see in each lesson.
           </p>
-          <button class="btn3"><</button>
-              <button class="btn3">></button>
+          <div class="btn3">
+            <button class="prevBtn">prev</button>
+            <button class="nextBtn">next</button>
+          </div>
+          <button class="randomBtn">random</button>
         </article>
       </div>
 
     </section>
-
-
-
-
-
-
-
-
 
 
 
@@ -227,6 +277,105 @@
           counterElement.style.color = "black";
         }
       };
+
+
+
+
+      const img = document.getElementById("person-img");
+      const author = document.getElementById("author");
+      const job = document.getElementById("job");
+      const info = document.getElementById("info");
+
+      const prevBtn = document.querySelector(".prevBtn");
+      const nextBtn = document.querySelector(".nextBtn");
+      const randomBtn = document.querySelector(".randomBtn");
+      let currentItem = 0;
+      window.addEventListener("DOMContentLoaded", function () {
+        showPerson()
+      });
+
+
+      function showPerson(person) {
+        const item = reviews[currentItem];
+        img.src = item.img;
+        author.textContent = item.name;
+        job.textContent = item.job;
+        info.textContent = item.text;
+      };
+
+      prevBtn.addEventListener("click", function () {
+        currentItem--;
+        if (currentItem < 0) {
+          currentItem = reviews.length - 1;
+        }
+        showPerson();
+      });
+
+      nextBtn.addEventListener("click", function () {
+        currentItem++;
+        if (currentItem > 3) {
+          currentItem = 0;
+        }
+        showPerson();
+      });
+
+      randomBtn.addEventListener("click", function () {
+        currentItem = Math.floor(Math.random() * reviews.length);
+        showPerson();
+      });
+
+
+
+
+
+
+      const reviews = [
+        {
+          id: 1,
+          name: "mouse",
+          job: "web developer",
+          img: "./images/pic01.jpg",
+          text: "I can't express how much you are helping my learning journey. I was feeling so frustrated not being able to grasp JavaScript concepts. "
+        },
+        {
+          id: 2,
+          name: "dog",
+          job: "homeless",
+          img: "./images/pic02.jpg",
+          text: "Was almost lost after learning programming concepts in Javascript, having no idea how to implement them in a project and this is exactly the kind of tutorial I needed."
+        },
+        {
+          id: 3,
+          name: "cat",
+          job: "designer",
+          img: "./images/pic03.jpg",
+          text: "I  want to say Thank you for these projects and your teaching. "
+        },
+        {
+          id: 4,
+          name: "tiger",
+          job: "illustrator",
+          img: "./images/pic04.jpg",
+          text: "Thank you for putting this together. It's been immensely helpful and really well done.  "
+        }
+
+      ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
