@@ -253,7 +253,57 @@
     }
 
     .menu-h1 {
+    font-size: 30px;
       margin: 30px 0 0 100px;
+      text-shadow: 5px 5px 0 rgba(20, 20, 20, 0.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+      height: 30%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    #openModalBtn {
+      font-size: 30px;
+      position: absolute;
+      top: 500px;
+      left: 560px;
+      width: 440px;
+      height: 240px;
+      background-color: #e6f2ff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgb(116, 115, 115);
+    }
+    .modal-content>p{
+      font-size: 20px;
     }
   </style>
 
@@ -301,14 +351,29 @@
           <p id="info">Great projects! Leaning by practicing is so much better. Even if all you do is copying a few lines of code that you see in each lesson.
           </p>
           <div class="btn3">
-            <button class="prevBtn">prev</button>
-            <button class="nextBtn">next</button>
+            <button class="prevBtn">&lt;</button>
+            <button class="nextBtn">&gt;</button>
           </div>
           <button class="randomBtn">random</button>
         </article>
       </div>
 
     </section>
+    <div>
+      <button id="openModalBtn">Open Modal</button>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModalBtn">&times;</span>
+          <h2>Modal Title</h2>
+          <p>This is the modal content.
+            Am I surprised that this is a modal function?
+            Make modal functions work with your eyes closed.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
 
     <script>
 
@@ -324,17 +389,6 @@
         // }
         links.classList.toggle("links");
       });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -468,7 +522,26 @@
       ]
 
 
+      const openModalBtn = document.getElementById("openModalBtn");
+      const closeModalBtn = document.getElementById("closeModalBtn");
+      const modal = document.getElementById("myModal");
 
+
+      openModalBtn.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+
+
+      closeModalBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
 
 
 
