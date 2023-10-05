@@ -108,7 +108,7 @@
       position: absolute;
       top: 500px;
       left: 100px;
-      width: 500px;
+      width: 440px;
       height: 640px;
       display: flex;
       justify-content: center;
@@ -187,7 +187,93 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
+
+    .button2 {
+      position: absolute;
+      top: 20px;
+      right: 100px;
+      width: 50px;
+      height: 50px;
+      transition: all 0.2s ease-out;
+    }
+
+    .button2:hover {
+      transform: rotate(-90deg);
+    }
+
+    .logo {
+      width: 400px;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    .nav-center {
+      background-color: #fff;
+      color: white;
+      font-size: 15px;
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0;
+
+      box-shadow: 0 0 10px 10px rgba(63, 63, 63, 0.1);
+      transition: all 0.5s ease-out;
+    }
+
+    .links {
+
+      margin-left: 100px;
+      height: 0;
+      overflow: hidden;
+
+    }
+
+    .links li {
+      margin-bottom: 20px;
+    }
+
+    .list {
+      color: #333;
+      transition: 0.5s ease-in;
+    }
+
+    .list:hover {
+      margin-left: 20px;
+      background-color: #75b2f7;
+    }
+
+    .menu-h1 {
+      margin: 30px 0 0 100px;
+    }
   </style>
+
+
+  <nav>
+    <div class="nav-center">
+      <div class="nav-header">
+        <h1 class="menu-h1">Coding Addict</h1>
+      </div>
+      <ul class="links">
+        <li><a href="" class="list">Home</a></li>
+        <li><a href="" class="list">About</a></li>
+        <li><a href="" class="list">Project</a></li>
+        <li><a href="" class="list">Contact</a></li>
+      </ul>
+      <div class="nav-toggle">
+        <img src="./images/mm.jpg" class="button2" alt="">
+      </div>
+    </div>
+  </nav>
 
   <div class="container">
     <h1>Color Flipper</h1>
@@ -195,15 +281,12 @@
     <button class="btn" id="btn">Change Color</button>
   </div>
 
-
   <div class="container2">
     <h1 id="counterTitle">Counter</h1>
     <p id="counter">0</p>
     <button class="btn2" id="incrementButton">증가</button>
     <button class="btn2" id="resetButton">리셋</button>
     <button class="btn2" id="decrementButton">감소</button>
-
-
 
 
     <section class="container3">
@@ -227,11 +310,34 @@
 
     </section>
 
-
-
-
-
     <script>
+
+      const navToggle = document.querySelector(".button2");
+      const links = document.querySelector(".links");
+
+      navToggle.addEventListener("click", function () {
+        // if (links.classList.contains("links")) {
+        //   links.classList.remove("links");
+        // }
+        // else {
+        //   links.classList.add("links");
+        // }
+        links.classList.toggle("links");
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       const colorText = document.getElementById("color");
       const btn = document.getElementById("btn");
       btn.addEventListener("click", function () {
