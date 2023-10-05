@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reviewcarousel</title>
+</head>
+
+<body>
+  <style>
+    .container3 {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 640px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f3de;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+
+    }
+
+    .container4 img {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 10px 10px 10px rgb(124, 124, 92);
+      background-color: #f0f0f0;
+    }
+
+    /* .person-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  } */
+
+    .btn3 {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .randomBtn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #dd5d07;
+      background-color: #f7e815;
+      width: 150px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 3px 3px 3px rgb(224, 224, 177);
+    }
+
+    #author,
+    #job,
+    #info {
+      position: absolute;
+      top: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #job {
+      position: absolute;
+      top: 340px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #info {
+      position: absolute;
+      top: 380px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+
+  <section class="container3">
+    <div>
+      <h2 class="hreview">review</h2>
+      <article class="review">
+        <div class="container4">
+          <img src="./images/pic01.jpg" id="person-img" alt="">
+        </div>
+        <h4 id="author">mouse</h4>
+        <p id="job">designer</p>
+        <p id="info">Great projects! Leaning by practicing is so much better. Even if all you do is copying a few lines of code that you see in each lesson.
+        </p>
+        <div class="btn3">
+          <button class="prevBtn">prev</button>
+          <button class="nextBtn">next</button>
+        </div>
+        <button class="randomBtn">random</button>
+      </article>
+    </div>
+
+  </section>
+
+
+  <script>
+
+    const img = document.getElementById("person-img");
+    const author = document.getElementById("author");
+    const job = document.getElementById("job");
+    const info = document.getElementById("info");
+
+    const prevBtn = document.querySelector(".prevBtn");
+    const nextBtn = document.querySelector(".nextBtn");
+    const randomBtn = document.querySelector(".randomBtn");
+    let currentItem = 0;
+    window.addEventListener("DOMContentLoaded", function () {
+      showPerson()
+    });
+
+
+    function showPerson(person) {
+      const item = reviews[currentItem];
+      img.src = item.img;
+      author.textContent = item.name;
+      job.textContent = item.job;
+      info.textContent = item.text;
+    };
+
+    prevBtn.addEventListener("click", function () {
+      currentItem--;
+      if (currentItem < 0) {
+        currentItem = reviews.length - 1;
+      }
+      showPerson();
+    });
+
+    nextBtn.addEventListener("click", function () {
+      currentItem++;
+      if (currentItem > 3) {
+        currentItem = 0;
+      }
+      showPerson();
+    });
+
+    randomBtn.addEventListener("click", function () {
+      currentItem = Math.floor(Math.random() * reviews.length);
+      showPerson();
+    });
+
+
+
+
+
+
+    const reviews = [
+      {
+        id: 1,
+        name: "mouse",
+        job: "web developer",
+        img: "./images/pic01.jpg",
+        text: "I can't express how much you are helping my learning journey. I was feeling so frustrated not being able to grasp JavaScript concepts. "
+      },
+      {
+        id: 2,
+        name: "dog",
+        job: "homeless",
+        img: "./images/pic02.jpg",
+        text: "Was almost lost after learning programming concepts in Javascript, having no idea how to implement them in a project and this is exactly the kind of tutorial I needed."
+      },
+      {
+        id: 3,
+        name: "cat",
+        job: "designer",
+        img: "./images/pic03.jpg",
+        text: "I  want to say Thank you for these projects and your teaching. "
+      },
+      {
+        id: 4,
+        name: "tiger",
+        job: "illustrator",
+        img: "./images/pic04.jpg",
+        text: "Thank you for putting this together. It's been immensely helpful and really well done.  "
+      }
+
+    ]
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
