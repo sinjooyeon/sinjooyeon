@@ -106,7 +106,7 @@
 
     .container3 {
       position: absolute;
-      top: 500px;
+      top: 370px;
       left: 100px;
       width: 440px;
       height: 640px;
@@ -215,7 +215,12 @@
       list-style-type: none;
     }
 
+    ul li {
+      padding: 20px 0 20px 60px;
+    }
+
     .nav-center {
+      z-index: 999;
       background-color: #fff;
       color: white;
       font-size: 15px;
@@ -239,12 +244,15 @@
     }
 
     .links li {
+
       margin-bottom: 20px;
     }
 
     .list {
+
+      padding: 20px 80px;
       color: #333;
-      transition: 0.5s ease-in;
+      transition: 0.2s ease-in;
     }
 
     .list:hover {
@@ -259,6 +267,7 @@
     }
 
     .modal {
+      z-index: 998;
       display: none;
       position: fixed;
       top: 0;
@@ -269,6 +278,7 @@
     }
 
     .modal-content {
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -293,8 +303,8 @@
     #openModalBtn {
       font-size: 30px;
       position: absolute;
-      top: 500px;
-      left: 560px;
+      top: 120px;
+      left: 1020px;
       width: 440px;
       height: 240px;
       background-color: #e6f2ff;
@@ -310,11 +320,11 @@
     .container5 {
       position: absolute;
       background-color: #83c7cc;
-      top: 750px;
+      top: 370px;
       left: 560px;
       border-radius: 10px;
       width: 440px;
-      height: 500px;
+      height: 640px;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -343,7 +353,7 @@
     .show-text .question-text {
       padding: 0 0 10px 40px;
       display: block;
-      text-align: left; 
+      text-align: left;
     }
 
     .minus-icon {
@@ -378,6 +388,58 @@
 
     .question-btn:hover {
       transform: rotate(-90deg);
+    }
+
+    .container6 {
+      background-color: #f0f0f0;
+      position: absolute;
+      top: 1020px;
+      left: 100px;
+      border-radius: 10px;
+      width: 890px;
+      height: 640px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .grid-container {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 150px);
+      /* 2칸의 400px 너비 그리드 생성 */
+      justify-content: center;
+      /* 그리드를 수평 중앙에 배치 */
+      gap: 20px;
+      /* 그리드 아이템 간격 설정 */
+    }
+
+    .grid-item {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2px;
+    }
+
+    .grid-item img {
+      max-width: 100%;
+      /* 이미지의 최대 너비를 부모 요소인 그리드 아이템의 너비에 맞게 설정 */
+      height: auto;
+      /* 이미지의 높이를 자동으로 조정하여 비율을 유지 */
+      margin: 0 auto;
+      /* 가운데 정렬을 위해 좌우 여백을 자동으로 설정 */
+      display: block;
+      /* inline 요소에서 block 요소로 변경하여 가운데 정렬이 제대로 적용되도록 함 */
+    }
+
+    .menutitle {
+      font-size: 30px;
     }
   </style>
 
@@ -455,39 +517,39 @@
         <div class="section-center">
           <article class="question">
             <div class="question-title">
-              <p>총알 배송 너무 빨라요 </p>
+              <p>Bullet delivery is so fast </p>
               <button type="button" class="question-btn">
                 <span class="plus-icon">&#43;</span>
-                <span class="minus-icon"> &#45;</span>
+                <span class="minus-icon">&#8722;</span>
               </button>
             </div>
             <div class="question-text">
-              <p> 늦게 오라고 하십시오 </p>
+              <p> ask them to come late </p>
             </div>
           </article>
           <article class="question">
             <div class="question-title">
-              <p>이중배송 받았을때 어떻게 할까요?</p>
+              <p>I received a double delivery.</p>
               <button type="button" class="question-btn">
                 <span class="plus-icon">&#43;</span>
-                <span class="minus-icon"> &#45;</span>
+                <span class="minus-icon">&#8722;</span>
               </button>
             </div>
             <div class="question-text">
-              <p> 반품은 불가합니다.</p>
+              <p> Returns are not possible</p>
             </div>
           </article>
           <article class="question">
 
             <div class="question-title">
-              <p>구매한것보다 10배 더 왔습니다.</p>
+              <p>I received 10 more than what</p>
               <button type="button" class="question-btn">
                 <span class="plus-icon">&#43;</span>
-                <span class="minus-icon"> &#45;</span>
+                <span class="minus-icon"> &#8722;</span>
               </button>
             </div>
             <div class="question-text">
-              <p> 반품은 불가합니다.</p>
+              <p> Returns are not possible</p>
             </div>
           </article>
         </div>
@@ -495,187 +557,288 @@
     </div>
 
 
-    <script>
 
-      const navToggle = document.querySelector(".button2");
-      const links = document.querySelector(".links");
+    <div class="container6">
+      <div class="menutitle">
+        <h3>메뉴판</h3>
+      </div>
 
-      navToggle.addEventListener("click", function () {
-        // if (links.classList.contains("links")) {
-        //   links.classList.remove("links");
-        // }
-        // else {
-        //   links.classList.add("links");
-        // }
-        links.classList.toggle("links");
-      });
+      <div class="menubutton">
+        <button type="button" class="food">스테이크</button>
+        <button type="button" class="food">꽃게</button>
+        <button type="button" class="food">스파게티</button>
+        <button type="button" class="food">피자파티</button>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item"><img src="./images/food03.jpg" width="100px" height="100px" alt="음식 1">
+          <h3>짬뽕</h3>
+
+        </div>
+        <div class="grid-item"><img src="./images/food23.jpg" width="100px" height="100px" alt="음식 1">
+          <h3>짬뽕</h3>
+
+        </div>
+
+        <div class="grid-item"><img src="./images/food33.jpg" width="100px" height="100px" alt="음식 1">
+          <h3>짬뽕</h3>
+
+        </div>
+
+        <div class="grid-item"><img src="./images/food34.jpg" width="100px" height="100px" alt="음식 1">
+          <h3>짬뽕</h3>
+        </div>
+
+      </div>
 
 
+      <script>
 
-      const colorText = document.getElementById("color");
-      const btn = document.getElementById("btn");
-      btn.addEventListener("click", function () {
-        const randomColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
-        document.body.style.backgroundColor = randomColor;
-        colorText.textContent = `Color: ${randomColor}`;
-      });
+        const navToggle = document.querySelector(".button2");
+        const links = document.querySelector(".links");
 
-
-
-      let count = 0;
-
-      const counterElement = document.getElementById("counter");
-      const incrementButton = document.getElementById("incrementButton");
-      const decrementButton = document.getElementById("decrementButton");
-      const resetButton = document.getElementById("resetButton");
-
-      incrementButton.addEventListener("click", function () {
-        count++;
-        updateCounter();
-      });
-
-      decrementButton.addEventListener("click", function () {
-        count--;
-
-        updateCounter();
-      });
-
-      resetButton.addEventListener("click", function () {
-        count = 0;
-        updateCounter();
-      });
-
-      function updateCounter() {
-        counterElement.textContent = count;
-        if (count > 0) {
-          counterElement.style.color = "blue";
-        }
-        if (count < 0) {
-          counterElement.style.color = "red";
-        }
-        if (count === 0) {
-          counterElement.style.color = "black";
-        }
-      };
+        navToggle.addEventListener("click", function () {
+          // if (links.classList.contains("links")) {
+          //   links.classList.remove("links");
+          // }
+          // else {
+          //   links.classList.add("links");
+          // }
+          links.classList.toggle("links");
+        });
 
 
 
-
-      const img = document.getElementById("person-img");
-      const author = document.getElementById("author");
-      const job = document.getElementById("job");
-      const info = document.getElementById("info");
-
-      const prevBtn = document.querySelector(".prevBtn");
-      const nextBtn = document.querySelector(".nextBtn");
-      const randomBtn = document.querySelector(".randomBtn");
-      let currentItem = 0;
-      window.addEventListener("DOMContentLoaded", function () {
-        showPerson()
-      });
+        const colorText = document.getElementById("color");
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+          const randomColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+          document.body.style.backgroundColor = randomColor;
+          colorText.textContent = `Color: ${randomColor}`;
+        });
 
 
-      function showPerson(person) {
-        const item = reviews[currentItem];
-        img.src = item.img;
-        author.textContent = item.name;
-        job.textContent = item.job;
-        info.textContent = item.text;
-      };
 
-      prevBtn.addEventListener("click", function () {
-        currentItem--;
-        if (currentItem < 0) {
-          currentItem = reviews.length - 1;
-        }
-        showPerson();
-      });
+        let count = 0;
 
-      nextBtn.addEventListener("click", function () {
-        currentItem++;
-        if (currentItem > 3) {
-          currentItem = 0;
-        }
-        showPerson();
-      });
+        const counterElement = document.getElementById("counter");
+        const incrementButton = document.getElementById("incrementButton");
+        const decrementButton = document.getElementById("decrementButton");
+        const resetButton = document.getElementById("resetButton");
 
-      randomBtn.addEventListener("click", function () {
-        currentItem = Math.floor(Math.random() * reviews.length);
-        showPerson();
-      });
+        incrementButton.addEventListener("click", function () {
+          count++;
+          updateCounter();
+        });
+
+        decrementButton.addEventListener("click", function () {
+          count--;
+
+          updateCounter();
+        });
+
+        resetButton.addEventListener("click", function () {
+          count = 0;
+          updateCounter();
+        });
+
+        function updateCounter() {
+          counterElement.textContent = count;
+          if (count > 0) {
+            counterElement.style.color = "blue";
+          }
+          if (count < 0) {
+            counterElement.style.color = "red";
+          }
+          if (count === 0) {
+            counterElement.style.color = "black";
+          }
+        };
 
 
 
 
+        const img = document.getElementById("person-img");
+        const author = document.getElementById("author");
+        const job = document.getElementById("job");
+        const info = document.getElementById("info");
+
+        const prevBtn = document.querySelector(".prevBtn");
+        const nextBtn = document.querySelector(".nextBtn");
+        const randomBtn = document.querySelector(".randomBtn");
+        let currentItem = 0;
+        window.addEventListener("DOMContentLoaded", function () {
+          showPerson()
+        });
 
 
-      const reviews = [
-        {
-          id: 1,
-          name: "mouse",
-          job: "web developer",
-          img: "./images/pic01.jpg",
-          text: "I can't express how much you are helping my learning journey. I was feeling so frustrated not being able to grasp JavaScript concepts. "
-        },
-        {
-          id: 2,
-          name: "dog",
-          job: "homeless",
-          img: "./images/pic02.jpg",
-          text: "Was almost lost after learning programming concepts in Javascript, having no idea how to implement them in a project and this is exactly the kind of tutorial I needed."
-        },
-        {
-          id: 3,
-          name: "cat",
-          job: "designer",
-          img: "./images/pic03.jpg",
-          text: "I  want to say Thank you for these projects and your teaching. "
-        },
-        {
-          id: 4,
-          name: "tiger",
-          job: "illustrator",
-          img: "./images/pic04.jpg",
-          text: "Thank you for putting this together. It's been immensely helpful and really well done.  "
-        }
+        function showPerson(person) {
+          const item = reviews[currentItem];
+          img.src = item.img;
+          author.textContent = item.name;
+          job.textContent = item.job;
+          info.textContent = item.text;
+        };
 
-      ]
+        prevBtn.addEventListener("click", function () {
+          currentItem--;
+          if (currentItem < 0) {
+            currentItem = reviews.length - 1;
+          }
+          showPerson();
+        });
+
+        nextBtn.addEventListener("click", function () {
+          currentItem++;
+          if (currentItem > 3) {
+            currentItem = 0;
+          }
+          showPerson();
+        });
+
+        randomBtn.addEventListener("click", function () {
+          currentItem = Math.floor(Math.random() * reviews.length);
+          showPerson();
+        });
 
 
-      const openModalBtn = document.getElementById("openModalBtn");
-      const closeModalBtn = document.getElementById("closeModalBtn");
-      const modal = document.getElementById("myModal");
 
 
-      openModalBtn.addEventListener("click", () => {
-        modal.style.display = "block";
-      });
 
 
-      closeModalBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-      });
+        const reviews = [
+          {
+            id: 1,
+            name: "mouse",
+            job: "web developer",
+            img: "./images/pic01.jpg",
+            text: "I can't express how much you are helping my learning journey. I was feeling so frustrated not being able to grasp JavaScript concepts. "
+          },
+          {
+            id: 2,
+            name: "dog",
+            job: "homeless",
+            img: "./images/pic02.jpg",
+            text: "Was almost lost after learning programming concepts in Javascript, having no idea how to implement them in a project and this is exactly the kind of tutorial I needed."
+          },
+          {
+            id: 3,
+            name: "cat",
+            job: "designer",
+            img: "./images/pic03.jpg",
+            text: "I  want to say Thank you for these projects and your teaching. "
+          },
+          {
+            id: 4,
+            name: "tiger",
+            job: "illustrator",
+            img: "./images/pic04.jpg",
+            text: "Thank you for putting this together. It's been immensely helpful and really well done.  "
+          }
+
+        ]
 
 
-      window.addEventListener("click", (e) => {
-        if (e.target === modal) {
+        const openModalBtn = document.getElementById("openModalBtn");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const modal = document.getElementById("myModal");
+
+
+        openModalBtn.addEventListener("click", () => {
+          modal.style.display = "block";
+        });
+
+
+        closeModalBtn.addEventListener("click", () => {
           modal.style.display = "none";
-        }
-      });
+        });
+
+
+        window.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        });
 
 
 
 
 
 
-      const btns = document.querySelectorAll(".question-btn");
+        const btns = document.querySelectorAll(".question-btn");
 
-      btns.forEach(function (btn) {
-        btn.addEventListener("click", function (e) {
-          const question = e.currentTarget.parentElement.parentElement;
-          question.classList.toggle("show-text");
+        btns.forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            const question = e.currentTarget.parentElement.parentElement;
+            question.classList.toggle("show-text");
+          })
         })
-      })
+
+
+
+
+
+
+
+
+
+
+        const menupan = [
+          {
+            id: 1,
+            img: "./images/food01.jpg",
+            name: "stake"
+          },
+          {
+            id: 2,
+            img: "./images/food02.jpg",
+            name: "stake"
+          },
+          {
+            id: 3,
+            img: "./images/food11.jpg",
+            name: "stake"
+          },
+          {
+            id: 4,
+            img: "./images/food12.jpg",
+            name: "stake"
+          },
+          {
+            id: 5,
+            img: "./images/food21.jpg",
+            name: "stake"
+          },
+          {
+            id: 6,
+            img: "./images/food22.jpg",
+            name: "stake"
+          },
+          {
+            id: 7,
+            img: "./images/food31.jpg",
+            name: "stake"
+          },
+          {
+            id: 8,
+            img: "./images/food32.jpg",
+            name: "stake"
+          }
+        ]
+
+
+
+
+        const sectionCenter = document.querySelector(".grid-container");
+
+        window.addEventListener("DOMContentLoaded", function () {
+          let displayMenu = menu.map(function (item) {
+            return `<div class="grid-item"><img src=${item.img} width="100px" height="100px" alt="음식 1">
+          <h3>${item.name}</h3>
+          </div>`;
+
+          });
+          displayMenu = displayMenu.join('')
+        })
 
 
 
@@ -691,24 +854,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </script>
+      </script>
 
 </body>
 
