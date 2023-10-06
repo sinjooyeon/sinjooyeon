@@ -12,7 +12,7 @@
 
   <style>
     body {
-      background-color: #f0f0f0;
+      background-color: #8e87ad;
       display: flex;
       align-items: center;
       margin: 0;
@@ -253,7 +253,7 @@
     }
 
     .menu-h1 {
-    font-size: 30px;
+      font-size: 30px;
       margin: 30px 0 0 100px;
       text-shadow: 5px 5px 0 rgba(20, 20, 20, 0.1);
     }
@@ -302,8 +302,82 @@
       border-radius: 10px;
       box-shadow: 3px 3px 10px rgb(116, 115, 115);
     }
-    .modal-content>p{
+
+    .modal-content>p {
       font-size: 20px;
+    }
+
+    .container5 {
+      position: absolute;
+      background-color: #83c7cc;
+      top: 750px;
+      left: 560px;
+      border-radius: 10px;
+      width: 440px;
+      height: 500px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .questions {
+      display: block;
+    }
+
+    .title {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .section-center {
+      padding: 30px;
+    }
+
+    .question {
+      border-radius: 10px;
+      background-color: aliceblue;
+    }
+
+    .question-text {
+      display: none;
+    }
+
+    .show-text .question-text {
+      padding: 0 0 10px 40px;
+      display: block;
+      text-align: left; 
+    }
+
+    .minus-icon {
+      display: none;
+    }
+
+
+    .show-text .minus-icon {
+      display: inline;
+    }
+
+
+    .show-text .plus-icon {
+      display: none;
+    }
+
+    .question-title {
+      padding: 5px 20px;
+      display: flex;
+      justify-content: space-between;
+      /* 요소를 좌우로 분배 */
+      align-items: center;
+      /* 수직 가운데 정렬 (선택 사항) */
+
+      margin: 20px;
+    }
+
+    .question-btn {
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+    }
+
+    .question-btn:hover {
+      transform: rotate(-90deg);
     }
   </style>
 
@@ -341,7 +415,7 @@
 
     <section class="container3">
       <div>
-        <h2 class="hreview">review</h2>
+        <h2 class="hreview">Review</h2>
         <article class="review">
           <div class="container4">
             <img src="./images/pic01.jpg" id="person-img" alt="">
@@ -373,6 +447,52 @@
       </div>
     </div>
 
+    <div class="container5">
+      <section class="questions">
+        <div class="title">
+          <h1>General Questions</h1>
+        </div>
+        <div class="section-center">
+          <article class="question">
+            <div class="question-title">
+              <p>총알 배송 너무 빨라요 </p>
+              <button type="button" class="question-btn">
+                <span class="plus-icon">&#43;</span>
+                <span class="minus-icon"> &#45;</span>
+              </button>
+            </div>
+            <div class="question-text">
+              <p> 늦게 오라고 하십시오 </p>
+            </div>
+          </article>
+          <article class="question">
+            <div class="question-title">
+              <p>이중배송 받았을때 어떻게 할까요?</p>
+              <button type="button" class="question-btn">
+                <span class="plus-icon">&#43;</span>
+                <span class="minus-icon"> &#45;</span>
+              </button>
+            </div>
+            <div class="question-text">
+              <p> 반품은 불가합니다.</p>
+            </div>
+          </article>
+          <article class="question">
+
+            <div class="question-title">
+              <p>구매한것보다 10배 더 왔습니다.</p>
+              <button type="button" class="question-btn">
+                <span class="plus-icon">&#43;</span>
+                <span class="minus-icon"> &#45;</span>
+              </button>
+            </div>
+            <div class="question-text">
+              <p> 반품은 불가합니다.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
 
 
     <script>
@@ -542,6 +662,20 @@
           modal.style.display = "none";
         }
       });
+
+
+
+
+
+
+      const btns = document.querySelectorAll(".question-btn");
+
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          const question = e.currentTarget.parentElement.parentElement;
+          question.classList.toggle("show-text");
+        })
+      })
 
 
 
