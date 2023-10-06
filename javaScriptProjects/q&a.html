@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reviewcarousel</title>
+</head>
+
+<body>
+
+
+<style>
+  .qa-item {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .answer {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .toggle-answer {
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .show-answer {
+    display: block; /* 답변을 보여줄 때 표시되도록 변경 */
+}
+</style>
+</head>
+
+<body>
+  <div class="qa-item">
+    <div class="question">
+      <p>질문 1: 이것은 첫 번째 질문입니다?</p>
+      <button class="toggle-answer">답변 보기</button>
+    </div>
+    <div class="answer">
+      <p>답변 1: 이것은 첫 번째 질문에 대한 답변입니다.</p>
+    </div>
+  </div>
+  <div class="qa-item">
+    <div class="question">
+      <p>질문 2: 이것은 두 번째 질문입니다?</p>
+      <button class="toggle-answer">답변 보기</button>
+    </div>
+    <div class="answer">
+      <p>답변 2: 이것은 두 번째 질문에 대한 답변입니다.</p>
+    </div>
+  </div>
+  <script>
+    const toggleButtons = document.querySelectorAll('.toggle-answer');
+
+    toggleButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const answer = button.parentElement.nextElementSibling;
+        answer.classList.toggle('show-answer');
+        button.textContent = answer.classList.contains('show-answer') ? '답변 숨기기' : '답변 보기';
+      });
+    });
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>
