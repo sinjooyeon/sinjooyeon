@@ -401,10 +401,16 @@
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     }
 
+
+
+    .menutitle h3 {
+      color: #5a7c22;
+    }
+
     .grid-container {
       margin-top: 30px;
       display: grid;
-      grid-template-columns: repeat(4, 150px);
+      grid-template-columns: repeat(4, 200px);
       /* 2칸의 400px 너비 그리드 생성 */
       justify-content: center;
       /* 그리드를 수평 중앙에 배치 */
@@ -416,6 +422,7 @@
       display: flex;
       align-items: center;
       border: 1px solid #ccc;
+      border-radius: 10px;
       padding: 20px;
       text-align: center;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -428,12 +435,9 @@
     }
 
     .grid-item img {
-      max-width: 100%;
+      max-width: 60%;
+      border-radius: 10px;
       /* 이미지의 최대 너비를 부모 요소인 그리드 아이템의 너비에 맞게 설정 */
-      height: auto;
-      /* 이미지의 높이를 자동으로 조정하여 비율을 유지 */
-      margin: 0 auto;
-      /* 가운데 정렬을 위해 좌우 여백을 자동으로 설정 */
       display: block;
       /* inline 요소에서 block 요소로 변경하여 가운데 정렬이 제대로 적용되도록 함 */
     }
@@ -441,7 +445,22 @@
     .menutitle {
       font-size: 30px;
     }
+
+    .grid-item h3 {
+      margin: 10px;
+      font-size: 15px;
+    }
+
+    .menubutton button {
+      width: 100px;
+      background-color: #79aa2b;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #e6f2ff;
+    }
   </style>
+
 
 
   <nav>
@@ -564,30 +583,47 @@
       </div>
 
       <div class="menubutton">
-        <button type="button" class="food">스테이크</button>
-        <button type="button" class="food">꽃게</button>
-        <button type="button" class="food">스파게티</button>
-        <button type="button" class="food">피자파티</button>
+        <button type="button" class="all">all</button>
+        <button type="button" class="cake">cake</button>
+        <button type="button" class="pizza">pizza</button>
+        <button type="button" class="pasta">pasta</button>
+        <button type="button" class="seafood">seafood</button>
       </div>
       <div class="grid-container">
-        <div class="grid-item"><img src="./images/food03.jpg" width="100px" height="100px" alt="음식 1">
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
           <h3>짬뽕</h3>
 
         </div>
-        <div class="grid-item"><img src="./images/food23.jpg" width="100px" height="100px" alt="음식 1">
-          <h3>짬뽕</h3>
-
-        </div>
-
-        <div class="grid-item"><img src="./images/food33.jpg" width="100px" height="100px" alt="음식 1">
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
           <h3>짬뽕</h3>
 
         </div>
 
-        <div class="grid-item"><img src="./images/food34.jpg" width="100px" height="100px" alt="음식 1">
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
           <h3>짬뽕</h3>
+
         </div>
 
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+          <h3>짬뽕</h3>
+
+        </div>
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+          <h3>짬뽕</h3>
+
+        </div>
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+          <h3>짬뽕</h3>
+
+        </div>
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+          <h3>짬뽕</h3>
+
+        </div>
+        <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+          <h3>짬뽕</h3>
+
+        </div>
       </div>
 
 
@@ -785,43 +821,43 @@
         const menupan = [
           {
             id: 1,
-            img: "./images/food01.jpg",
-            name: "stake"
+            img: "./images/cake1.jpg",
+            name: "cake"
           },
           {
             id: 2,
-            img: "./images/food02.jpg",
-            name: "stake"
+            img: "./images/cake2.jpg",
+            name: "cake"
           },
           {
             id: 3,
-            img: "./images/food11.jpg",
-            name: "stake"
+            img: "./images/food32.jpg",
+            name: "pasta"
           },
           {
             id: 4,
-            img: "./images/food12.jpg",
-            name: "stake"
+            img: "./images/food31.jpg",
+            name: "pasta"
           },
           {
             id: 5,
-            img: "./images/food21.jpg",
-            name: "stake"
+            img: "./images/food03.jpg",
+            name: "seafood"
           },
           {
             id: 6,
             img: "./images/food22.jpg",
-            name: "stake"
+            name: "pizza"
           },
           {
             id: 7,
-            img: "./images/food31.jpg",
-            name: "stake"
+            img: "./images/food21.jpg",
+            name: "seafood"
           },
           {
             id: 8,
-            img: "./images/food32.jpg",
-            name: "stake"
+            img: "./images/food33.jpg",
+            name: "pizza"
           }
         ]
 
@@ -831,19 +867,65 @@
         const sectionCenter = document.querySelector(".grid-container");
 
         window.addEventListener("DOMContentLoaded", function () {
-          let displayMenu = menu.map(function (item) {
-            return `<div class="grid-item"><img src=${item.img} width="100px" height="100px" alt="음식 1">
+          let displayMenu = menupan.map(function (item) {
+            return `<div class="grid-item"><img src=${item.img}  alt="음식">
           <h3>${item.name}</h3>
           </div>`;
 
           });
-          displayMenu = displayMenu.join('')
+          displayMenu = displayMenu.join('');
+          sectionCenter.innerHTML = displayMenu;
         })
 
 
+        const allButton = document.querySelector(".all");
+        const cakeButton = document.querySelector(".cake");
+        const pizzaButton = document.querySelector(".pizza");
+        const pastaButton = document.querySelector(".pasta");
+        const seafoodButton = document.querySelector(".seafood");
 
 
+        // 버튼 클릭 이벤트 처리 함수
+        function filterMenuItems(category) {
+          // 선택한 버튼과 일치하는 카테고리의 항목만 필터링
+          const filteredItems = menupan.filter((item) => item.name === category);
 
+          // 필터링된 항목을 그리드에 추가
+          displayMenuItems(filteredItems);
+        }
+
+        // 메뉴 항목을 화면에 표시하는 함수
+        function displayMenuItems(items) {
+          // 그리드 초기화
+          sectionCenter.innerHTML = "";
+
+          items.forEach((item) => {
+            const gridItem = document.createElement("div");
+            gridItem.classList.add("grid-item");
+
+            const img = document.createElement("img");
+            img.src = item.img;
+            img.alt = "음식";
+
+            const h3 = document.createElement("h3");
+            h3.textContent = item.name;
+
+            gridItem.appendChild(img);
+            gridItem.appendChild(h3);
+
+            sectionCenter.appendChild(gridItem);
+          });
+        }
+
+
+        displayMenuItems(menupan);
+
+
+        cakeButton.addEventListener("click", () => filterMenuItems("cake"));
+        pizzaButton.addEventListener("click", () => filterMenuItems("pizza"));
+        pastaButton.addEventListener("click", () => filterMenuItems("pasta"));
+        seafoodButton.addEventListener("click", () => filterMenuItems("seafood"));
+        allButton.addEventListener("click", () => displayMenuItems(menupan));
 
 
 
