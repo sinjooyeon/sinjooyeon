@@ -508,19 +508,46 @@
       padding: 20px;
     }
 
-   .switch-btn {
-    position: relative;
- 
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
- width: 50%;
- 
-    z-index: 1;
-}
+    .switch-btn {
+      position: relative;
 
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      width: 50%;
+
+      z-index: 1;
+    }
+
+    .container8 {
+      background-color: #f0f0f0;
+      text-align: center;
+      position: absolute;
+      top: 1020px;
+      left: 1020px;
+      border-radius: 10px;
+      width: 440px;
+      height: 640px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container8 img {
+      border-radius: 10px;
+      margin: 20px;
+      width: 400px;
+      height: 300PX;
+      object-fit: cover;
+    }
+
+    .content4 {
+      display: none;
+    }
+
+    .content4.active {
+      display: block;
+    }
   </style>
 
 
@@ -604,7 +631,29 @@
       </div>
 
     </div>
-
+    <div class="container8">
+      <div class="aboutimg"><img src="./images/ham2.jpg" alt="">
+      </div>
+      <div class="hamsterbtn">
+        <button type="button" class="hamster2 active" id="history">history</button>
+        <button type="button" class="hamster2" id="vision">vision</button>
+        <button type="button" class="hamster2" id="goals">goals</button>
+      </div>
+      <article class="hamstertext">
+        <div class="content4 active" id="history">
+          <h3>history</h3>
+          <p>Once a friend suggested me a few books with interactive content, that made me practice what I learned at each chapter.</p>
+        </div>
+        <div class="content4 active" id="vision">
+          <h3>vision</h3>
+          <p>I been struggling with JS and you have cleared it up for me. You guys are all awesome and I for one can't thank you guys enough.</p>
+        </div>
+        <div class="content4 active" id="goals">
+          <h3>goals</h3>
+          <p>Great projects, and John is a wonderful instructor (got some of his Udemy courses as well) who actually explains how any code that he writes works.</p>
+        </div>
+      </article>
+    </div>
 
     <div class="container5">
       <section class="questions">
@@ -657,7 +706,7 @@
 
     <div class="container6">
       <div class="menutitle">
-        <h3>메뉴판</h3>
+        <h3>MENU</h3>
       </div>
 
       <div class="menubutton">
@@ -1012,7 +1061,7 @@
         document.addEventListener("DOMContentLoaded", function () {
           const videobutton = document.querySelector(".switch-btn"); // 클래스 이름 수정
           const video = document.getElementById("video-bg"); // 클래스 이름 수정
-           videobutton.addEventListener("click", function () {
+          videobutton.addEventListener("click", function () {
             if (video.paused) {
               video.play();
               videobutton.textContent = "Pause"; // 버튼 텍스트 변경
