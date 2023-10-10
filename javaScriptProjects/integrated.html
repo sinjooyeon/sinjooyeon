@@ -12,13 +12,15 @@
 
   <style>
     body {
-      background-color: #8e87ad;
+      background-color: #b18054;
       display: flex;
       align-items: center;
       margin: 0;
       margin-left: 100px;
       margin-top: 100px;
     }
+
+
 
     .container {
       text-align: center;
@@ -157,8 +159,8 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      color: #dd5d07;
-      background-color: #f7e815;
+      color: #ffffff;
+      background-color: #aaa44a;
       width: 150px;
       border-radius: 5px;
       border: none;
@@ -396,7 +398,7 @@
       top: 1020px;
       left: 100px;
       border-radius: 10px;
-      width: 890px;
+      width: 900px;
       height: 640px;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
     }
@@ -411,7 +413,7 @@
       margin-top: 30px;
       display: grid;
       grid-template-columns: repeat(4, 200px);
-      /* 2칸의 400px 너비 그리드 생성 */
+
       justify-content: center;
       /* 그리드를 수평 중앙에 배치 */
       gap: 20px;
@@ -459,6 +461,66 @@
       cursor: pointer;
       color: #e6f2ff;
     }
+
+    .container7 {
+      background-color: #f0f0f0;
+      position: absolute;
+      top: 370px;
+      left: 1020px;
+      border-radius: 10px;
+      width: 440px;
+      height: 640px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 비디오 요소를 전체 화면으로 확장 */
+    .container7 #video-bg {
+      margin: 20px;
+      top: 150px;
+      left: 0;
+      width: 380px;
+      /* 너비 400px 설정 */
+      height: 540px;
+      /* 높이 400px 설정 */
+      object-fit: cover;
+      /* 비디오를 박스 내에 맞추고, 남는 부분을 잘라냅니다. */
+      z-index: -2;
+    }
+
+    /* 내용을 위에 배치 */
+    .content3 {
+      position: absolute;
+      /* 절대 위치 설정 */
+      top: 50%;
+      /* 세로 중앙 정렬 */
+      left: 50%;
+      /* 가로 중앙 정렬 */
+      transform: translate(-50%, -50%);
+      /* 중앙 정렬을 위한 이동 변환 */
+      text-align: center;
+      /* 텍스트 가운데 정렬 */
+      z-index: 1;
+      /* 비디오 위에 텍스트가 나타나도록 설정 */
+      color: #fff;
+      /* 텍스트 색상 설정 */
+      background-color: rgba(0, 0, 0, 0.1);
+      /* 텍스트 배경 색상 및 투명도 설정 */
+      padding: 20px;
+    }
+
+   .switch-btn {
+    position: relative;
+ 
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+ width: 50%;
+ 
+    z-index: 1;
+}
+
   </style>
 
 
@@ -527,6 +589,22 @@
         </div>
       </div>
     </div>
+
+    <div class="container7">
+      <video id="video-bg" muted autoplay loop>
+        <source src="./images/bbivideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button type="button" class="switch-btn">Play</span></button>
+
+      <div class="content3">
+        <!-- 내용을 배치할 컨테이너 -->
+        <h1>Welcome to our website</h1>
+        <p>Enjoy the video background effect.</p>
+      </div>
+
+    </div>
+
 
     <div class="container5">
       <section class="questions">
@@ -625,6 +703,9 @@
 
         </div>
       </div>
+
+
+
 
 
       <script>
@@ -928,13 +1009,19 @@
         allButton.addEventListener("click", () => displayMenuItems(menupan));
 
 
-
-
-
-
-
-
-
+        document.addEventListener("DOMContentLoaded", function () {
+          const videobutton = document.querySelector(".switch-btn"); // 클래스 이름 수정
+          const video = document.getElementById("video-bg"); // 클래스 이름 수정
+           videobutton.addEventListener("click", function () {
+            if (video.paused) {
+              video.play();
+              videobutton.textContent = "Pause"; // 버튼 텍스트 변경
+            } else {
+              video.pause();
+              videobutton.textContent = "Play"; // 버튼 텍스트 변경
+            }
+          });
+        });
 
       </script>
 
