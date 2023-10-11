@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q&A</title>
+</head>
+
+<body>
+
+
+  <style>
+    .container5 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      background-color: #83c7cc;
+      border-radius: 10px;
+      width: 440px;
+      height: 640px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .questions {
+      display: block;
+    }
+
+    .title {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .section-center {
+      padding: 30px;
+    }
+
+    .question {
+      border-radius: 10px;
+      background-color: aliceblue;
+    }
+
+    .question-text {
+      display: none;
+    }
+
+    .show-text .question-text {
+      padding: 0 0 10px 40px;
+      display: block;
+      text-align: left;
+    }
+
+    .minus-icon {
+      display: none;
+    }
+
+
+    .show-text .minus-icon {
+      display: inline;
+    }
+
+
+    .show-text .plus-icon {
+      display: none;
+    }
+
+    .question-title {
+      padding: 5px 20px;
+      display: flex;
+      justify-content: space-between;
+      /* 요소를 좌우로 분배 */
+      align-items: center;
+      /* 수직 가운데 정렬 (선택 사항) */
+
+      margin: 20px;
+    }
+
+    .question-btn {
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+    }
+
+    .question-btn:hover {
+      transform: rotate(-90deg);
+    }
+  </style>
+  <div class="container5">
+    <section class="questions">
+      <div class="title">
+        <h1>General Questions</h1>
+      </div>
+      <div class="section-center">
+        <article class="question">
+          <div class="question-title">
+            <p>Bullet delivery is so fast </p>
+            <button type="button" class="question-btn">
+              <span class="plus-icon">&#43;</span>
+              <span class="minus-icon">&#8722;</span>
+            </button>
+          </div>
+          <div class="question-text">
+            <p> ask them to come late </p>
+          </div>
+        </article>
+        <article class="question">
+          <div class="question-title">
+            <p>I received a double delivery.</p>
+            <button type="button" class="question-btn">
+              <span class="plus-icon">&#43;</span>
+              <span class="minus-icon">&#8722;</span>
+            </button>
+          </div>
+          <div class="question-text">
+            <p> Returns are not possible</p>
+          </div>
+        </article>
+        <article class="question">
+
+          <div class="question-title">
+            <p>I received 10 more than what</p>
+            <button type="button" class="question-btn">
+              <span class="plus-icon">&#43;</span>
+              <span class="minus-icon"> &#8722;</span>
+            </button>
+          </div>
+          <div class="question-text">
+            <p> Returns are not possible</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+
+
+
+  <script>
+
+    const btns = document.querySelectorAll(".question-btn");
+
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        const question = e.currentTarget.parentElement.parentElement;
+        question.classList.toggle("show-text");
+      })
+    })
+
+
+  </script>
+
+
+</body>
+
+</html>
