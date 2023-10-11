@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+</head>
+
+<body>
+
+
+  <style>
+    .modal {
+
+      z-index: 998;
+      display: none;
+      position: fixed;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+      height: 30%;
+      max-width: 600px;
+      position: relative;
+    }
+
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    #openModalBtn {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      position: absolute;
+
+      width: 440px;
+      height: 240px;
+      background-color: #e6f2ff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgb(116, 115, 115);
+    }
+
+    .modal-content>p {
+      font-size: 20px;
+    }
+  </style>
+
+  </section>
+
+  <button id="openModalBtn">Open Modal</button>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2>Modal Title</h2>
+      <p>This is the modal content.
+        Am I surprised that this is a modal function?
+        Make modal functions work with your eyes closed.
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+
+
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modal = document.getElementById("myModal");
+
+
+    openModalBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
+
+
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>
