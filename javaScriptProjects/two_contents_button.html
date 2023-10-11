@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>two contents button</title>
+</head>
+
+<body>
+
+
+  <style>
+    body {
+      background-color: rgb(207, 188, 93);
+    }
+
+
+    .container8 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f0f0f0;
+      text-align: center;
+      position: absolute;
+      border-radius: 10px;
+      width: 440px;
+      height: 640px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container8 img {
+
+      border-radius: 10px;
+      margin: 20px;
+      width: 400px;
+      height: 300PX;
+      object-fit: cover;
+    }
+
+    .content4 {
+      display: none;
+    }
+
+    .content4.active {
+      display: block;
+    }
+
+    .hamstertext {
+      background-color: #ffffff;
+      text-align: center;
+      position: absolute;
+      margin: 20px;
+
+      border-radius: 10px;
+      width: 400px;
+      height: 210px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .hamstertext p {
+      margin: 30px;
+    }
+
+    .hamster2 {
+      width: 130px;
+      height: 40px;
+
+      border: none;
+      background-color: #fdfce8;
+
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .hamster2:hover {
+      transform: translate(0, -10px);
+    }
+  </style>
+
+  <div class="container8">
+    <div class="aboutimg"><img src="./images/ham2.jpg" alt="">
+    </div>
+    <article class="about">
+      <div class="hamsterbtn">
+        <button type="button" class="hamster2" data-id="history">history</button>
+        <button type="button" class="hamster2" data-id="vision">vision</button>
+        <button type="button" class="hamster2" data-id="goals">goals</button>
+      </div>
+      <article class="hamstertext">
+        <div class="content4" id="history">
+          <h3>history</h3>
+          <p>Once a friend suggested me a few books with interactive content, that made me practice what I learned at each chapter.</p>
+        </div>
+        <div class="content4" id="vision">
+          <h3>vision</h3>
+          <p>I been struggling with JS and you have cleared it up for me. You guys are all awesome and I for one can't thank you guys enough.</p>
+        </div>
+        <div class="content4" id="goals">
+          <h3>goals</h3>
+          <p>Great projects, and John is a wonderful instructor (got some of his Udemy courses as well) who actually explains how any code that he writes works.</p>
+        </div>
+      </article>
+    </article>
+  </div>
+
+
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const hamsterbutton = document.querySelectorAll(".hamster2");
+      const about = document.querySelector(".about");
+      const articles = document.querySelectorAll(".content4");
+      const firstArticle = articles[0];
+      firstArticle.classList.add("active");
+
+      about.addEventListener("click", function (e) {
+        const id = e.target.dataset.id;
+        if (id) {
+          hamsterbutton.forEach(function (btn) {
+            btn.classList.remove("active");
+            e.target.classList.add("active");
+          });
+          articles.forEach(function (article) {
+            article.classList.remove("active");
+          });
+          const element = document.getElementById(id);
+          element.classList.add("active");
+        }
+      });
+
+    });
+
+
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>
