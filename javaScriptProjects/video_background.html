@@ -13,6 +13,7 @@
 
   <style>
     .container7 {
+      z-index: 2;
       position: absolute;
       /* 절대 위치 설정 */
       top: 50%;
@@ -21,7 +22,7 @@
       /* 가로 중앙 정렬 */
       transform: translate(-50%, -50%);
       /* 중앙 정렬을 위한 이동 변환 */
-      background-color: #f0f0f0;
+      background-color: #f7f7f7;
         text-align: center;
    
       border-radius: 10px;
@@ -78,6 +79,55 @@
 
       z-index: 1;
     }
+
+
+
+    .polygon1 {
+z-index: -99;
+      display: inline-block;
+      position: absolute;
+      /* 절대 위치 설정 */
+      top: -20px;
+      /* 세로 중앙 정렬 */
+      left:-20px;
+      /* 가로 중앙 정렬 */
+      transform: translate(-50%, -50%);
+      /* 중앙 정렬을 위한 이동 변환 */
+      /* 내용의 크기에 맞게 조절 */
+      animation: rotate 4s linear infinite;
+    }
+
+    .polygon2 {
+      width: 100px;
+      height: 100px;
+    }
+
+    .polygon2>polygon {
+      fill: rgb(241, 203, 78,0.3);
+    }
+
+    .text {
+      position: absolute;
+      /* 절대 위치 설정 */
+      top: 50%;
+      /* 세로 중앙 정렬 */
+      left: 50%;
+      /* 가로 중앙 정렬 */
+      transform: translate(-50%, -50%);
+      /* 중앙 정렬을 위한 이동 변환 */
+      /* 내용의 크기에 맞게 조절 */
+      color: white;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 
   <div class="container7">
@@ -93,9 +143,16 @@
       <p>Enjoy the video background effect.</p>
     </div>
 
+ 
+<div class="polygon1">
+  <svg class="polygon2" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="28,0 72,0 100,28 100,72 75,100 28,100 0,72 0,28" />
+  </svg>
+  <div class="text">
+    <p>CHOCO</p>
   </div>
-
-
+</div>
+</div>
   <script>
 
 
