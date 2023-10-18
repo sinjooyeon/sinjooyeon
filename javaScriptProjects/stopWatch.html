@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stopWatch</title>
+</head>
+
+<body>
+
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: 'popins', 'sans-serif';
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      align-items: center;
+    }
+
+    #timer {
+      font-size: 7rem;
+      font-weight: 700;
+      text-shadow: 2px 2px #645069;
+      color: rgb(150, 101, 196);
+      width: 600px;
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    #buttons {
+      display: flex;
+      justify-content: center;
+
+    }
+
+    button {
+      background-color: #dd89f1;
+      border: none;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 1.5rem 4rem;
+      margin: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background-color: #a63be4;
+    }
+
+    button[disabled] {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    @media(max-width:800px) {
+      #timer {
+        font-size: 4rem;
+        width: 350px;
+      }
+
+      button {
+        font-size: 0.5rem;
+        padding: 1rem 2rem;
+      }
+    }
+  </style>
+
+
+
+
+
+  <div id="timer">00:00:00</div>
+  <div id="button">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+  </div>
+
+  <script>
+
+
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>
