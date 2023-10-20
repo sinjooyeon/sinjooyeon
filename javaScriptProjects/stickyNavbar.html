@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stickNavbar</title>
+</head>
+
+<body>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .top-container {
+      background-image: url("https://images.unsplash.com/photo-1523052011903-f16f87b9bc57?auto=format&fit=crop&q=80&w=1844&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      height: 100vh;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .top-container h1 {
+      color: white;
+      font-size: 100px;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      letter-spacing:15px;
+    }
+
+    .text {
+      margin: 50px 5%;
+      font-size: 30px;
+      font-family: sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.4s;
+    }
+
+    .logo {
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-left: -10px
+    }
+
+
+    .navbar ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      margin: 0 10px;
+      color: black;
+      font-family: cursive;
+    }
+
+    .navbar ul li a:hover {
+      color: red;
+    }
+
+    .navbar.active {
+      background-color: black;
+    }
+
+    .navbar.active ul li a {
+      color: white;
+    }
+  </style>
+  <div class="navbar">
+    <div class="logo">
+      <a href=""><img src="logo.svg" alt="logo" /></a>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="top-container">
+    <h1>Welcome to our website</h1>
+  </div>
+  <div class="bottom-container">
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore
+      explicabo veritatisexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatis dignLorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore explicabo veritatis dignissimos accusantium nostrum voluptatum qui labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda accusantium consectetur culpa necessitatibus sint cum perspiciatis laboriosam sequi praesentium, eos numquam! Eum, officia fugiat maiores?issimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+
+    </p>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore
+      explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natusexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatis mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+
+    </p>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore
+      explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatiseniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatis
+
+    </p>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore
+      explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisvoluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+
+    </p>
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore
+      explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum explicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias volexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisexplicabo veritatis dignissimos accusantium nostrum voluptatum qui
+      labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisuptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisluptatem. Ipsa ducimus eos saepe expedita ex
+      laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
+      sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatisplaceat blanditiis rerum doloribus
+      aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
+      accusantium consectetur culpa necessitatibus sint cum perspiciatis
+      laboriosam sequi praesentium, eos numquam! Eum, officia fugiat
+      maiores?
+    </p>
+  </div>
+
+
+
+
+
+  <script>
+
+    const navbarEl = document.querySelector(".navbar");
+
+    const bottomContainerEl = document.querySelector(".bottom-container");
+
+    console.log(navbarEl.offsetHeight);
+
+    console.log(bottomContainerEl.offsetTop);
+
+    window.addEventListener("scroll", () => {
+      if (
+        window.scrollY >
+        bottomContainerEl.offsetTop - navbarEl.offsetHeight - 50
+      ) {
+        navbarEl.classList.add("active");
+      } else {
+        navbarEl.classList.remove("active");
+      }
+    });
+
+
+
+  </script>
+
+
+</body>
+
+</html>
