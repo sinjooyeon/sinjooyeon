@@ -26,13 +26,11 @@
     .top-container h1 {
       color: white;
       font-size: 100px;
-      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-      letter-spacing:15px;
     }
 
     .text {
-      margin: 50px 5%;
-      font-size: 30px;
+      margin:100px 5%;
+      font-size: 50px;
       font-family: sans-serif;
     }
 
@@ -48,33 +46,36 @@
     }
 
     .logo {
-      height: 150px;
+      height: 180px;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      margin-left: -10px
+      margin-left: -10px;
+      margin-top: -10px;
     }
 
 
     .navbar ul {
       display: flex;
       list-style-type: none;
+      font-size: 50px;
     }
 
     .navbar ul li a {
       text-decoration: none;
+
       margin: 0 10px;
       color: black;
       font-family: cursive;
     }
 
     .navbar ul li a:hover {
-      color: red;
+      color: rgb(22, 149, 235);
     }
 
     .navbar.active {
-      background-color: black;
+      background-color: rgb(212, 89, 89)
     }
 
     .navbar.active ul li a {
@@ -213,7 +214,7 @@
     window.addEventListener("scroll", () => {
       if (
         window.scrollY >
-        bottomContainerEl.offsetTop - navbarEl.offsetHeight - 50
+        bottomContainerEl.offsetTop - navbarEl.offsetHeight
       ) {
         navbarEl.classList.add("active");
       } else {
