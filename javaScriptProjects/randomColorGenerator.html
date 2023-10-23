@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Color Generator</title>
+</head>
+
+<body>
+  <style>
+    body{
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .colorContainer {
+      width: 80px;
+      height: 25px;
+      background-color: rgb(214, 180, 245);
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  </style>
+
+
+  <h1>Random Color Generator</h1>
+  <div class="container">
+    <div class="colorContainer">#98497</div>
+    <div class="colorContainer">#98497</div>
+    <div class="colorContainer">#98497</div>
+    <div class="colorContainer">#98497</div>
+    <div class="colorContainer">#98497</div>
+    <div class="colorContainer">#98497</div>
+    <div class="colorContainer">#98497</div>
+  </div>
+
+
+
+
+
+
+  <script>
+const containerEl = document.querySelector(".container");
+
+for (let i = 0; i < 300; i++) {
+  const colorContainerEl= document.createElement("div");
+  colorContainerEl.classList.add("colorContainer");
+  containerEl.appendChild(colorContainerEl);
+  }
+  const colorContainerEls = document.querySelectorAll(".colorContainer");
+
+  generateColors();
+
+  function generateColors() {
+    colorContainerEls.forEach((colorContainerEl) => {
+      const newColorCode = randomColor();
+      colorContainerEl.style.backgroundColor = "#" + newColorCode;
+      colorContainerEl.innerText = "#" + newColorCode;
+    });
+  }
+
+  function randomColor() {
+    const chars = "0123456789abcdef";
+    const colorCodeLength = 6;
+    let colorCode = "";
+    for (let index = 0; index < colorCodeLength; index++) {
+      const randomNum = Math.floor(Math.random() * chars.length);
+      colorCode += chars.substring(randomNum, randomNum + 1);
+    }
+    return colorCode;
+  }
+
+
+
+
+
+
+
+  // document.querySelector("button").onclick = () => 
+  // document.body.style.backgroundColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+
+
+
+  </script>
+
+</body>
+</html>
