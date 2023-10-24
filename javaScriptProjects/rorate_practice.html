@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+
+
+  <title>rotate_practice</title>
+</head>
+
+<body>
+  <style>
+    .items {
+      position: relative;
+      width: 1000px;
+      height: 700px;
+      border: 0;
+      overflow: hidden;
+      margin: 100px auto;
+    }
+
+    .item {
+      position: absolute;
+      display: none;
+      width: 1000px;
+      height: 700px;
+
+    }
+
+    .active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: appear 3s;
+    }
+
+    .inactive {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: disappear 3s;
+    }
+
+
+    @keyframes appear {
+      from {
+        transform: translateX(1000px);
+      }
+
+      to {
+        transform: translateX(0px);
+      }
+    }
+
+    @keyframes disappear {
+      from {
+        transform: translateX(0px);
+      }
+
+      to {
+        transform: translateX(-1000px);
+      }
+    }
+
+    .menu {
+      border: 1px solid #ccc;
+
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      margin: 50px;
+      display: inline-block;
+      line-height: 50px;
+    }
+
+    .bigmenu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .letter {
+    
+      display: none;
+    }
+
+    .textcon {
+       font-size: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+    }
+    #button-container button{
+      margin: 0 20px;
+    } 
+ 
+  </style>
+
+
+  <div class="items">
+    <div class="item red active"><img src="https://picsum.photos/id/24/1000/700" alt="Image 1"></div>
+    <div class="item green"><img src="https://picsum.photos/id/252/1000/700" alt="Image 1"></div>
+    <div class="item yellow"><img src="https://picsum.photos/id/37/1000/700" alt="Image 1"></div>
+    <div class="item blue"> <img src="https://picsum.photos/id/36/1000/700" alt="Image 1"></div>
+    <div class="item orange"><img src="https://picsum.photos/id/55/1000/700" alt="Image 1"></div>
+
+  </div>
+
+
+
+  <div class="textcon"id="text-container">
+         <p id="text">첫 번째 글자</p>
+      <div id="button-container">
+        <button id="prev-button">← 이전</button>
+        <button id="next-button">다음 →</button>
+      </div>
+   
+    
+      <p class="letter">Canadian coffee brand Tim Hortons </p>
+      <p class="letter">is opening its first Korean branch in Gangnam District, </p>
+      <p class="letter">southern Seoul, with an anticipated launch later this year. </p>
+      <p class="letter">Following its announcement for its debut in Korea made in May, </p>
+      <p class="letter">screens on the building's facade located at the Sinnonhyeon </p>
+
+  </div>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const textContainer = document.getElementById('text-container');
+      const textElement = document.getElementById('text');
+      const prevButton = document.getElementById('prev-button');
+      const nextButton = document.getElementById('next-button');
+      const textArray = document.querySelectorAll(".letter");
+
+      let currentIndex = 0; // 현재 표시 중인 글자의 인덱스
+
+      // 초기 텍스트 설정
+      textElement.textContent = textArray[currentIndex].textContent;
+
+      // 이전 버튼 클릭 이벤트 핸들러
+      prevButton.addEventListener('click', function () {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = textArray.length - 1; // 처음 글자로 순환
+        }
+        textElement.textContent = textArray[currentIndex].textContent;
+      });
+
+      // 다음 버튼 클릭 이벤트 핸들러
+      nextButton.addEventListener('click', function () {
+        currentIndex++;
+        if (currentIndex >= textArray.length) {
+          currentIndex = 0; // 처음 글자로 순환
+        }
+        textElement.textContent = textArray[currentIndex].textContent;
+      });
+    });
+
+
+
+
+
+
+
+
+
+    let index = 0;
+    const firstElement = document.querySelector(".item:first-child");
+    const lastElement = document.querySelector(".item:last-child");
+
+    setInterval(() => {
+      const currentElement = document.querySelector(".active");
+      const dispearedElement = currentElement.previousElementSibling;
+      const appearedElemnt = currentElement.nextElementSibling;
+
+      currentElement.classList.remove("active");
+      currentElement.classList.add("inactive");
+
+      if (dispearedElement) {
+        dispearedElement.classList.remove("inactive");
+      } else {
+        lastElement.classList.remove("inactive");
+      }
+
+      if (appearedElemnt) {
+        appearedElemnt.classList.add("active");
+      } else {
+        firstElement.classList.add("active");
+      }
+    }, 3000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
