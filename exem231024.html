@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      align-items: center;
+    }
+
+    .cal {
+
+      width: 250px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      margin: 0 auto;
+    }
+
+    .button {
+
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+    }
+
+    form {
+    margin: 10px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+
+
+  <div class="container">
+    <h1>calculator</h1>
+    <form>
+      <input type="text" id="value"><input type="submit" class="btn">
+    </form>
+
+
+    <div class="cal">
+      <button class="button" type="button">7</button>
+      <button class="button" type="button">8</button>
+      <button class="button" type="button">9</button>
+      <button class="button" type="button">-</button>
+      <button class="button" type="button">4</button>
+      <button class="button" type="button">5</button>
+      <button class="button" type="button">6</button>
+      <button class="button" type="button">+</button>
+      <button class="button" type="button">1</button>
+      <button class="button" type="button">2</button>
+      <button class="button" type="button">3</button>
+      <button class="button" type="button">=</button>
+      <button class="button" type="button">C</button>
+
+    </div>
+  </div>
+
+
+
+  <script>
+    const btn = document.querySelectorAll('.button');
+    const inputfieldEl = document.getElementById("value");
+
+
+    for (let i = 0; i < btn.length; i++) {
+      btn[i].addEventListener("click", () => {
+        const btnContext = btn[i].textContent;
+        if (btnContext === "C") {
+          inputfieldEl.value = "";
+        } else if (btnContext === "=") {
+          inputfieldEl.value = eval(inputfieldEl.value);
+        } else {
+          plustext(btnContext)
+        }
+      });
+    }
+ 
+
+    function plustext(btnContext) {
+      inputfieldEl.value = inputfieldEl.value + btnContext;
+    }
+  </script>
+
+
+</body>
+
+</html>
