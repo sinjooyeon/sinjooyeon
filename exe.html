@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <style>
+    .wrapper {
+      width: 80%;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: rgb(58, 170, 106);
+      display: grid;
+      border: solid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(200px, auto);
+
+    }
+
+    div {
+      border: solid rgb(255, 255, 255);
+    }
+
+    .b {
+      display: flex;
+      align-items: center; 
+      justify-content: center;
+
+    }
+
+    .last {
+      grid-column: span 2;
+    }
+  </style>
+
+
+
+  <div class="wrapper">
+    <div class="b">One</div>
+    <div class="b">Two</div>
+    <div class="b">Three</div>
+    <div class="b">Four</div>
+    <div class="b">Five</div>
+    <div class="b">Four</div>
+    <div class="b">Five</div>
+    <div class="b">One</div>
+    <div class="b">Two</div>
+    <div class="b">Three</div>
+    <div class="b">Four</div>
+    <div class="b">Five</div>
+    <div class="b">Five</div>
+    <div class=" b last">Four</div>
+
+  </div>
+
+
+</body>
+
+</html>
