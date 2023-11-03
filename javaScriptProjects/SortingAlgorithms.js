@@ -1,3 +1,4 @@
+
 function quickSort(array, start, end) {
   if (start === undefined) {
     start = 0;
@@ -26,7 +27,6 @@ function quickSort(array, start, end) {
 
 
 
-
 function selectionSort(arr) {
   for (var i = 0; i < arr.length; i++) {
     let min = i;
@@ -48,6 +48,10 @@ function selectionSort(arr) {
 
 
 
+
+
+
+
 function bubbleSort(arr) {
   for (var i = 0; i < arr.length; i++) {
     for (var j = 0; j < (arr.length - i - 1); j++) {
@@ -59,5 +63,38 @@ function bubbleSort(arr) {
     }
   }
 }
+
+
+
+
+
+
+function mergeSort(array) {
+  const half = array.length / 2;
+
+  if (array.length < 2) {
+    return array;
+  }
+
+  const left = array.splice(0, half);
+  return merge(mergeSort(left), mergeSort(array));
+}
+
+function merge(left, right) {
+  const arr = [];
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      arr.push(left.shift());
+    } else {
+      arr.push(right.shift());
+    }
+  }
+
+  return [...arr, ...left, ...right];
+}
+
+
+
 
 
