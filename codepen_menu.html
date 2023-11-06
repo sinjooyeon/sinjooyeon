@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codepen menu</title>
+</head>
+
+<body>
+  <style>
+    *,
+    ::before,
+    ::after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: Arial, Geometria, sans-serif;
+      background-color: #ffffff;
+    }
+
+    body {
+      padding: 5px 50px;
+      font-size: 30px;
+   
+    }
+
+    h1 {
+      font-size: 100px;
+      padding: 20px 0;
+      text-shadow: 0 0 4px silver;
+    }
+
+    ol {
+      list-style-type: none;
+    }
+
+    .wrapper {
+      width: 800px;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px 10px;
+      padding: 10px;
+      border: 10px solid #ffffff;
+      text-align: center;
+      overflow: hidden;
+      box-shadow: 0px 5px 10px rgb(255, 255, 255);
+      border-radius: 10px;
+
+    }
+
+    /* tabs */
+    .tab-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 10px;
+      width: 100%;
+      height: min-content;
+      transform: translateX(-160px);
+      transition: transform 0.2s;
+      cursor: pointer;
+    
+    }
+
+    .tab-item {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 50px;
+      padding: 5px;
+      background: gray;
+      transition: width 0.5s;
+    }
+
+    .tab-item:hover {
+      background-image: linear-gradient(gray, aqua);
+    }
+
+    .tab-item::before {
+    
+     
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: aqua;
+    }
+
+    .tab-list:hover {
+      transform: translateX(0);
+    }
+
+    .tab-list:hover .tab-item::before {
+      display: none;
+    }
+
+    .tab-item.is-active {
+      background: aqua;
+    }
+
+    /* content */
+    .content-item {
+      height: 100%;
+      display: none;
+      /*line-height: 100%;*/
+    }
+
+    .content-item.is-active {
+      display: block;
+    }
+
+ 
+  </style>
+
+
+  <body class="page-body">
+
+    <h1>Checkout tabs JavaScript</h1>
+
+
+    <div class="wrapper">
+      <ol class="tab-list">
+        <li class="tab-item is-active">1</li>
+        <li class="tab-item">2</li>
+        <li class="tab-item">3</li>
+        <li class="tab-item">4</li>
+        <li class="tab-item">5</li>
+      </ol>
+
+      <ol class="content-list">
+        <li class="content-item is-active">Content 1</li>
+        <li class="content-item">Content 2</li>
+        <li class="content-item">Content 3</li>
+        <li class="content-item">Content 4</li>
+        <li class="content-item">Content 5</li>
+      </ol>
+    </div>
+
+
+
+    <script>
+
+      const tabItems = Array.from(document.querySelectorAll('.tab-item'))
+      const contentItems = Array.from(document.querySelectorAll('.content-item'))
+      const colorsArray = ["#ffffff", "#ffffff", "violet", "green", "pink"];
+
+      const clearActiveClass = (element, className = 'is-active') => {
+        element.find(item => item.classList.remove(`${className}`))
+      }
+
+      const setActiveClass = (element, index, className = 'is-active') => {
+        element[index].classList.add(`${className}`)
+      }
+
+      const checkoutTabs = (item, index) => {
+        item.addEventListener('click', () => {
+
+          if (item.classList.contains('is-active')) 
+       
+          clearActiveClass(tabItems)
+          clearActiveClass(contentItems)
+
+          setActiveClass(tabItems, index)
+          setActiveClass(contentItems, index)
+
+          contentItems.forEach((Item) => {
+            Item.style.backgroundColor = colorsArray[index];
+          });
+
+
+        })
+      }
+
+      tabItems.forEach(checkoutTabs)
+
+      
+    </script>
+
+
+  </body>
+
+</html>
