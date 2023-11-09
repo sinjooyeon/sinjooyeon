@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu</title>
+</head>
+
+<body>
+
+
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+
+    .container {
+      width: 1000px;
+      height: 1400px;
+      background-color: rgb(184, 207, 128);
+      border-radius: 10px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .menutitle h3 {
+      padding-top: 50px;
+      margin-bottom: 20px;
+      font-size: 40px;
+      color: #ffffff;
+    }
+
+    .grid-container {
+
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 400px);
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .menubutton button {
+      width: 100px;
+      height: 30px;
+      background-color: #a0c06e;
+      border-radius: 5px;
+      border: none;
+      margin: 20px;
+      font-size: 20px;
+      color: white;
+      box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.247);
+    }
+
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.705);
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+
+    }
+
+
+
+
+
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2px;
+
+    }
+
+
+    .grid-item img {
+      margin: 5px;
+      max-width: 60%;
+      border-radius: 10px;
+
+    }
+
+    .grid-item h3 {
+      text-align: left;
+      margin: 10px;
+      font-size: 20px;
+    }
+
+    .grid-item p {
+      text-align: left;
+      margin: 10px;
+    }
+  </style>
+
+
+  <div class="container">
+    <div class="menutitle">
+      <h3>MENU</h3>
+    </div>
+
+    <div class="menubutton">
+      <button type="button" class="all">all</button>
+      <button type="button" class="cake">cake</button>
+      <button type="button" class="pizza">pizza</button>
+      <button type="button" class="pasta">pasta</button>
+      <button type="button" class="seafood">seafood</button>
+    </div>
+    <div class="grid-container">
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+
+      </div>
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+
+      </div>
+
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+
+      </div>
+
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+      </div>
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+      </div>
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+
+      </div>
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+
+      </div>
+      <div class="grid-item"><img src="./images/food03.jpg" alt="음식">
+        <div class="description">
+          <h3>짬뽕</h3>
+          <p>맛나요</p>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <script>
+
+      const menupan = [
+        {
+          id: 1,
+          img: "./images/cake1.jpg",
+          name: "cake",
+          content: "이게 케이꾸"
+        },
+        {
+          id: 2,
+          img: "./images/cake2.jpg",
+          name: "cake",
+          content: "치즈향이 향긋해요"
+        },
+        {
+          id: 3,
+          img: "./images/food32.jpg",
+          name: "pasta",
+          content: "쫄낏쫄깃 면발"
+        },
+        {
+          id: 4,
+          img: "./images/food31.jpg",
+          name: "pasta",
+          content: "토마토의 감칠맛"
+        },
+        {
+          id: 5,
+          img: "./images/food03.jpg",
+          name: "seafood",
+          content: "씨푸드가 맞나요?"
+        },
+        {
+          id: 6,
+          img: "./images/food22.jpg",
+          name: "pizza",
+          content: "피자한족각에 배가 든든"
+        },
+        {
+          id: 7,
+          img: "./images/food21.jpg",
+          name: "seafood",
+
+          content: "꽃게가 뭅니다"
+
+        },
+        {
+          id: 8,
+          img: "./images/food33.jpg",
+          name: "pizza",
+          content: "옴총 마시따"
+        }
+      ]
+
+      const sectionCenter = document.querySelector(".grid-container");
+
+      window.addEventListener("DOMContentLoaded", function () {
+        let displayMenu = menupan.map(function (item) {
+          return `<div class="grid-item"><img src=${item.img}  alt="음식">
+          <div class="description">
+            <h3>${item.name}</h3>
+                   <p>${item.content}</p>
+          </div>
+          </div>`;
+
+        });
+        displayMenu = displayMenu.join('');
+        sectionCenter.innerHTML = displayMenu;
+      })
+
+      const allButton = document.querySelector(".all");
+      const cakeButton = document.querySelector(".cake");
+      const pizzaButton = document.querySelector(".pizza");
+      const pastaButton = document.querySelector(".pasta");
+      const seafoodButton = document.querySelector(".seafood");
+
+
+      function filterMenuItems(category) {
+
+        const filteredItems = menupan.filter((item) => item.name === category);
+        displayMenuItems(filteredItems);
+      }
+
+
+      function displayMenuItems(items) {
+        sectionCenter.innerHTML = "";
+        items.forEach((item) => {
+          const gridItem = document.createElement("div");
+          gridItem.classList.add("grid-item");
+
+          const img = document.createElement("img");
+          img.src = item.img;
+          img.alt = "음식";
+          const menu = document.createElement("div");
+
+
+          const h3 = document.createElement("h3");
+          h3.textContent = item.name;
+          const p = document.createElement("p");
+          p.textContent = item.content;
+
+
+          gridItem.appendChild(img);
+          gridItem.appendChild(menu);
+          menu.appendChild(h3);
+          menu.appendChild(p);
+
+
+          sectionCenter.appendChild(gridItem);
+        });
+      }
+
+      displayMenuItems(menupan);
+
+
+      cakeButton.addEventListener("click", () => filterMenuItems("cake"));
+      pizzaButton.addEventListener("click", () => filterMenuItems("pizza"));
+      pastaButton.addEventListener("click", () => filterMenuItems("pasta"));
+      seafoodButton.addEventListener("click", () => filterMenuItems("seafood"));
+      allButton.addEventListener("click", () => displayMenuItems(menupan));
+
+
+
+    </script>
+</body>
+
+</html>
