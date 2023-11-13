@@ -63,7 +63,7 @@
 
 
     .step {
-      font-size: 50px;
+  font-size: 50px;
       width: 100px;
       height: 100px;
       background-color: white;
@@ -100,8 +100,11 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
+    .fa-x{
+ 
+    }
     .btn:hover {
-      opacity: 0.9;
+      opacity: 0.8;
     }
 
     .btn:active {
@@ -147,9 +150,8 @@
     </div>
 
 
-
-    <button class="btn" id="prev" disabled> <i class="fa-solid fa-arrow-left"></i> </button>
-    <button class="btn" id="next"> <i class="fa-solid fa-arrow-right"></i> </button>
+    <button type="button" class="btn" id="prev" disabled> <i class="fa-solid fa-arrow-left"> </i> </button>
+    <button type="button" class="btn" id="next"> <i class="fa-solid fa-arrow-right"> </i></button>
   </div>
 
 
@@ -199,7 +201,7 @@
         } else {
           stepEl.classList.remove("checked");
           stepEl.innerHTML = `
-      <i class="fas fa-times"></i>
+      <i class="fa-solid fa-x"></i>
       `;
         }
       });
@@ -219,6 +221,7 @@
       }
     }
   </script>
+
 
 
 </body>
