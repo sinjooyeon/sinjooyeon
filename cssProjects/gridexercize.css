@@ -1,0 +1,122 @@
+    body {
+      margin: 0;
+      display: contents;
+
+    }
+
+    .box {
+      margin-top: 100px;
+      width: 1200px;
+      height: 1400px;
+
+
+
+      margin: 0 auto;
+
+    }
+
+    .big {
+      margin-top: 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 15px;
+    }
+
+    .container {
+      width: 400px;
+    }
+
+    .thumbnail {
+      max-width: 400px;
+    }
+
+    .pic {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+    }
+
+    .profile {
+      width: 50px;
+      border-radius: 50px;
+    }
+
+
+    .description {
+      margin-left: 10px;
+    }
+
+
+    .flex-container {
+      width: 1230px;
+      height: 100px;
+      display: flex;
+      border: 1px solid;
+      justify-content: space-between;
+    }
+
+    
+    .flex-1 {
+
+      background-color: lightblue;
+      width: 200px;
+
+    }
+
+    .good-tooltip {
+      position: relative;
+      background-color: gray;
+      width: 150px;
+      height: 50px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      bottom: -90px;
+      opacity: 0;
+    }
+
+    .flex-1:hover .good-tooltip {
+      opacity: 1;
+    }
+
+    .flex-2 {
+      background-color: lightpink;
+      flex: 1;
+    }
+
+    .sea-tooltip {
+      position: relative;
+      background-color: gray;
+      width: 150px;
+      height: 50px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      bottom: -90px;
+      opacity: 0;
+    }
+
+    .flex-2:hover .sea-tooltip {
+      opacity: 1;
+    }
+
+    .flex-3 {
+      background-color: lightblue;
+      width: 300px;
+
+    }
+
+    .octopus-tooltip {
+      position: relative;
+      background-color: gray;
+      width: 150px;
+      height: 50px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      bottom: -90px;
+      opacity: 0;
+    }
+
+    .flex-3:hover .octopus-tooltip {
+      opacity: 1;
+    }
