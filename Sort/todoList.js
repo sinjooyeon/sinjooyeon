@@ -4,8 +4,10 @@ const button = document.querySelector('.button');
 
 button.addEventListener('click', () => {
   const inputElement = document.querySelector('.js-name-input');
+  const dateElement = document.querySelector('.js-date-input');
   const name = inputElement.value;
-  todoList.push(name);
+  const dueDate = dateElement.value;
+  todoList.push({name: name, dueDate: dueDate});
   inputElement.value = '';
   renderTodoList();
 });
@@ -18,9 +20,10 @@ let todoListHTML = '';
 function renderTodoList() {
   todoListHTML = '';
   for (let i = 0; i < todoList.length; i++) {
-    const name = todoList[i];
+    const todoObject = todoList[i];
+    const {name, dueDate} = todoObject;
     const html = `
-       <div><p>${name}</p><button class="delete" type="button">delete</button></div> `;
+       <div><p>${name}</p><div><p>${dueDate}</p>  <button class="delete" type="button">delete</button></div></div> `;
     todoListHTML += html;
   }
 

@@ -15,6 +15,15 @@ body {
   border: none;
 }
 
+.js-date-input {
+  border-radius: 5px;
+  outline: none;
+  width: 200px;
+  height: 35px;
+  padding-left: 10px;
+  border: none;
+}
+
 .button {
   width: 80px;
   height: 37px;
@@ -39,7 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 400px;
+  width: 600px;
   height: 800px;
   border: none;
   padding: 20px;
@@ -49,7 +58,7 @@ body {
 .delete {
   width: 80px;
   height: 27px;
-
+  margin-left: 100px;
   text-align: center;
   border: none;
   border-radius: 5px;
@@ -61,9 +70,11 @@ body {
 
   color: white;
   display: flex;
+  flex-direction: row;
+
   justify-content: space-between;
   align-items: center;
   margin-bottom: 3px;
   height: 30px;
-  
+
 }
