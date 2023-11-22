@@ -1,86 +1,86 @@
 const products = [
   {
-    image: './images/mandoo.jpg',
-    name: 'what',
-    price: '30,000원',
-    ceo: './images/pic01.jpg',
+    image:      './images/mandoo.jpg',
+    name:       'what',
+    price:      '30,000원',
+    ceo:        './images/pic01.jpg',
     expanation: 'n-Sydney College in Virginia'
   },
   {
-    image: './images/pizon.jpg',
-    name: 'what',
-    price: '20,000원',
-    ceo: './images/pic02.jpg',
+    image:      './images/pizon.jpg',
+    name:       'what',
+    price:      '20,000원',
+    ceo:        './images/pic02.jpg',
     expanation: 'This book is a treatise on the theory '
   },
   {
-    image: './images/lotion.jpg',
-    name: 'what',
-    price: '40,000원',
-    ceo: './images/pic03.jpg',
+    image:      './images/lotion.jpg',
+    name:       'what',
+    price:      '40,000원',
+    ceo:        './images/pic03.jpg',
     expanation: 'The standard chunk of Lorem Ipsum'
   },
   {
-    image: './images/dalfona.jpg',
-    name: 'what',
-    price: '90,000원',
-    ceo: './images/pic04.jpg',
+    image:      './images/dalfona.jpg',
+    name:       'what',
+    price:      '90,000원',
+    ceo:        './images/pic04.jpg',
     expanation: 'There are many variations'
   },
   {
-    image: './images/mandoo.jpg',
-    name: 'what',
-    price: '30,000원',
-    ceo: './images/pic01.jpg',
+    image:      './images/mandoo.jpg',
+    name:       'what',
+    price:      '30,000원',
+    ceo:        './images/pic01.jpg',
     expanation: 'n-Sydney College in Virginia'
   },
   {
-    image: './images/pizon.jpg',
-    name: 'what',
-    price: '20,000원',
-    ceo: './images/pic02.jpg',
+    image:      './images/pizon.jpg',
+    name:       'what',
+    price:      '20,000원',
+    ceo:        './images/pic02.jpg',
     expanation: 'This book is a treatise on the theory '
   },
   {
-    image: './images/lotion.jpg',
-    name: 'what',
-    price: '40,000원',
-    ceo: './images/pic03.jpg',
+    image:      './images/lotion.jpg',
+    name:       'what',
+    price:      '40,000원',
+    ceo:        './images/pic03.jpg',
     expanation: 'The standard chunk of Lorem Ipsum'
   },
   {
-    image: './images/dalfona.jpg',
-    name: 'what',
-    price: '90,000원',
-    ceo: './images/pic04.jpg',
+    image:      './images/dalfona.jpg',
+    name:       'what',
+    price:      '90,000원',
+    ceo:        './images/pic04.jpg',
     expanation: 'There are many variations'
   },
   {
-    image: './images/mandoo.jpg',
-    name: 'what',
-    price: '30,000원',
-    ceo: './images/pic01.jpg',
+    image:      './images/mandoo.jpg',
+    name:       'what',
+    price:      '30,000원',
+    ceo:        './images/pic01.jpg',
     expanation: 'n-Sydney College in Virginia'
   },
   {
-    image: './images/pizon.jpg',
-    name: 'what',
-    price: '20,000원',
-    ceo: './images/pic02.jpg',
+    image:      './images/pizon.jpg',
+    name:       'what',
+    price:      '20,000원',
+    ceo:        './images/pic02.jpg',
     expanation: 'This book is a treatise on the theory '
   },
   {
-    image: './images/lotion.jpg',
-    name: 'what',
-    price: '40,000원',
-    ceo: './images/pic03.jpg',
+    image:      './images/lotion.jpg',
+    name:       'what',
+    price:      '40,000원',
+    ceo:        './images/pic03.jpg',
     expanation: 'The standard chunk of Lorem Ipsum'
   },
   {
-    image: './images/dalfona.jpg',
-    name: 'what',
-    price: '90,000원',
-    ceo: './images/pic04.jpg',
+    image:      './images/dalfona.jpg',
+    name:       'what',
+    price:      '90,000원',
+    ceo:        './images/pic04.jpg',
     expanation: 'There are many variations'
   },
 ];
