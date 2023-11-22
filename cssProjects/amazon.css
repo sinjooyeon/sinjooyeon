@@ -1,56 +1,103 @@
-body {
-  margin: 0;
-}
+ body {
+   margin: 0;
+ }
 
-.nav-belt {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 100px;
-  top: 0;
-  background-color: #22a63d;
-}
+ .header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   height: 100px;
+   background-color: #22a63d;
+   align-items: center;
+ }
 
-.logo {
-  width: 100px;
+ .logo {
+   width: 100px;
+ }
 
-}
+ .header-left {
+   width: 200px;
+   margin-left: 20px;
+ }
 
-.searchbar {
-  padding: 0;
-  width: 400px;
-  height: 40px;
-  border: none;
-  border-radius: 3px;
-  margin-top: 30px;
-  outline: none;
-  padding-left: 20px;
-  font-size: 17px;
-}
+ .header-middle {
+   flex: 1;
+   margin-left: 20px;
+   margin-right: 30px;
+   max-width: 500px;
+   display: flex;
+ }
 
 
-.searchbutton {
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 3px;
-  padding: 0;
-}
+ .searchbar {
+   flex: 1;
+   height: 40px;
+   border: none;
+   outline: none;
+   border-radius: 3px;
+   padding-left: 20px;
+   font-size: 15px;
+ }
 
-.cart {
-  margin-right: 50px;
-  margin-top: 20px;
-  font-size: 20px;
-  color: white;
-}
+ .searchbutton {
+   width: 40px;
+   border: none;
+   border-radius: 3px;
+   color: white;
+   background-color: rgb(12, 92, 16);
 
-.grid-container {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  justify-content: center;
+ }
 
-  width: 1600px;
-}
+ .header-right {
+   width: 200px;
+   color: white;
+   font-size: 20px;
+ }
 
+ .container {
+   display: flex;
+   justify-content: center;
+ }
+
+
+
+ .goods {
+   margin: 10px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+   justify-content: center;
+   width: 1200px;
+ }
+
+ .profilepic {
+   width: 100%;
+ }
+
+ .products {
+   display: flex;
+   justify-content: center;
+ }
+
+ .small-pic {
+   display: inline-block;
+   width: 70px;
+   vertical-align: top;
+ }
+
+ .small-pic img {
+   width: 50px;
+   border-radius: 50px;
+ }
+
+
+
+ .text {
+   display: inline-block;
+   width: 210px;
+ }
+
+ p {
+   padding: 0;
+   margin: 0;
+ }
