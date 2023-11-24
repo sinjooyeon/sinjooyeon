@@ -1,3 +1,7 @@
+import {addToCart, cart} from './cart.js';
+import {products} from './products.js';
+
+
 
 function pro() {
   const goodsContainer = document.querySelector('.goods');
@@ -16,7 +20,7 @@ function pro() {
           </div>
           <div class="text">
             <p>${element.name}</p>
-            <p>${element.expanation} </p>
+            <p>${element.explanation} </p>
              <p>${element.price}</p>
              <button class="addbutton js-add-button" data-product-id="${element.id}" type="submit">Add to Cart</button>
           </div>
@@ -30,34 +34,32 @@ function pro() {
 
 pro();
 
+
+
+
+function updateCartQuantity() {
+  let cartQuantity = 0;
+
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  const textquantity = document.querySelector('.cartquantity');
+  textquantity.innerHTML = cartQuantity;
+}
+
 const addButton = document.querySelectorAll('.js-add-button');
 addButton.forEach((button) => {
   button.addEventListener('click', () => {
     const productId = button.dataset.productId;
-
-    let matchingItem;
-    cart.forEach((item) => {
-      if (productId === item.productId) {
-        matchingItem = item;
-      }
-    });
-    if (matchingItem) {
-      matchingItem.quantity += 1;
-    } else {
-      cart.push({
-        productId: productId,
-        quantity:  1
-
-      });
-    };
-
-    let cartQuantity = 0;
-
-
-    cart.forEach((item) => {
-      cartQuantity += item.quantity;
-    });
-    const textquantity = document.querySelector('.cartquantity');
-    textquantity.innerHTML = cartQuantity;
+    addToCart(productId);
+    updateCartQuantity();
   });
 });
+
+console.log(cart);
+
+
+
+
+
