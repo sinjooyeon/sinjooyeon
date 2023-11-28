@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart page</title>
+</head>
+<body>
+<div class="cartpage"> 장바구니
+<div>감자<span>0</span>개</div>
+
+
+</div>
+
+
+
+<script type="module">
+  import {vegetable} from './vegetable.js';
+  import {selectedVegetables} from './cart.js';
+
+  // Function to update the cart page with current basket information
+  function updateCartPage() {
+    const cartPageElement = document.querySelector('.cartpage');
+    if (cartPageElement) {
+      // Clear existing content
+      cartPageElement.innerHTML = '장바구니';
+
+      // Retrieve selectedVegetables array from local storage
+      const storedVegetables = localStorage.getItem('selectedVegetables');
+
+      // Parse the stored data as JSON
+      const selectedVegetables = storedVegetables ? JSON.parse(storedVegetables) : [];
+
+      // Iterate over selectedVegetables and update the cart page
+      selectedVegetables.forEach(selectedVegetable => {
+        const vegetableInfo = document.createElement('div');
+        vegetableInfo.textContent = `${selectedVegetable.id} ${selectedVegetable.quantity}개`;
+        cartPageElement.appendChild(vegetableInfo);
+      });
+    }
+  }
+
+  // Add event listener to handle page unload (when user leaves the page)
+  window.addEventListener('beforeunload', () => {
+    // Store selectedVegetables array in local storage
+    localStorage.setItem('selectedVegetables', JSON.stringify(selectedVegetables));
+  });
+
+  // Load selectedVegetables from local storage when the page loads
+  window.addEventListener('load', () => {
+    // Retrieve selectedVegetables array from local storage
+    const storedVegetables = localStorage.getItem('selectedVegetables');
+
+    // Parse the stored data as JSON
+    let selectedVegetables = storedVegetables ? JSON.parse(storedVegetables) : [];
+
+    // Update the count element based on the loaded data
+     basketCount = selectedVegetables.reduce((total, veg) => total + veg.quantity, 0);
+    countElement.textContent = ` ${basketCount}`;
+
+    // Update the cart page
+    updateCartPage();
+  });
+
+</script>
+</body>
+</html>
