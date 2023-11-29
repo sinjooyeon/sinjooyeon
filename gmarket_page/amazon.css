@@ -132,10 +132,10 @@
    margin: 3px 0;
  }
 
- .icon-container {
+ #icon-container {
    position: relative;
    display: inline-block;
-
+   cursor: pointer;
 
  }
 
