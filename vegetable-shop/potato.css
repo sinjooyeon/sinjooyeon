@@ -11,8 +11,19 @@ h1 {
 }
 
 #basket {
+
   width: 800px;
-  background-color: rgb(151, 151, 151);
+
+}
+
+.box {
+  margin: 5px;
+  border-radius: 10px;
+  background-color: rgb(211, 211, 211);
+}
+
+.box img {
+  margin: 30px;
   border-radius: 10px;
 }
 
@@ -21,10 +32,11 @@ button {
   height: 150px;
   margin: 30px;
   font-size: 50px;
+  border: none;
+  border-radius: 10px;
 }
 
 #cartt {
-
   margin: 200px;
   display: flex;
   flex-direction: row;
@@ -45,9 +57,9 @@ button {
 }
 
 
-#basket {
+.basket {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   color: white;
   font-size: 15px;
@@ -57,10 +69,13 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 50px;
+  margin: 20px;
+  align-items: center;
+  text-align: center;
 }
 
 .small-pic img {
+  margin-top: 25px;
   margin-right: 100px;
   width: 200px;
   height: 200px;
@@ -72,4 +87,10 @@ button {
   flex-direction: row;
   justify-content: center;
 
+}
+
+.orderCheck {
+  background-color: rgb(211, 211, 211);
+  height: 250px;
+  border-radius: 15px;
 }
