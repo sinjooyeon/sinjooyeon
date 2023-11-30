@@ -1,3 +1,5 @@
+
+import {selectedVegetables} from './cart.js'; 
 import { vegetable } from './vegetable.js';
 
 const selectedVegetablesString = localStorage.getItem('selectedVegetables');

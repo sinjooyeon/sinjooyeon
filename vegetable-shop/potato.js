@@ -1,10 +1,10 @@
-
+import {selectedVegetables} from './cart.js';
 import {vegetable} from './vegetable.js';
 
 const vegetable2s = document.querySelectorAll('.vegetable2')
 const countElement = document.querySelector('.count');
 
-const selectedVegetables = [];
+
 let basketCount = 0;
 
 

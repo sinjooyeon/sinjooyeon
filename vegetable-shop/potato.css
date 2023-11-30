@@ -10,10 +10,10 @@ h1 {
   font-size: 100px;
 }
 
-.basket {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+#basket {
+  width: 800px;
+  background-color: rgb(151, 151, 151);
+  border-radius: 10px;
 }
 
 button {
@@ -24,6 +24,7 @@ button {
 }
 
 #cartt {
+
   margin: 200px;
   display: flex;
   flex-direction: row;
@@ -48,6 +49,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: white;
+  font-size: 15px;
 }
 
 .content {
@@ -62,4 +65,11 @@ button {
   width: 200px;
   height: 200px;
   border-radius: 15px;
+}
+
+.cartbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
 }
