@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    .items {
+      width: 500px;
+      height: 300px;
+      border: 1px solid grey;
+      overflow: hidden;
+    }
+
+    .item {
+      display: none;
+      width: 100%;
+      height: 100%;
+      font-size: 200px;
+    }
+
+    .active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: appear 1.2s;
+    }
+
+    @keyframes appear {
+
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    .items2 {
+      margin: 100px;
+      position: relative;
+      width: 300px;
+      height:200px;
+      border: 1px solid grey;
+      overflow: hidden;
+    }
+
+    .item2 {
+      position: absolute;
+      display: none;
+
+      width: 300px;
+      height:200px;
+      font-size: 20px;
+    }
+
+    .active2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: appear2 1.2s;
+    }
+
+    .inactive2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: disappear2 1.2s;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    .orange {
+      background-color: orange;
+    }
+
+    @keyframes appear2 {
+      from {
+        transform: translateX(300px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes disappear2 {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-300px);
+      }
+    }
+
+
+  </style>
+
+
+</head>
+
+<body>
+  <div class="items">
+    <div class="item active">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+  <div class="items2">
+    <div class="item2 red active2">1</div>
+    <div class="item2 green">2</div>
+    <div class="item2 yellow">3</div>
+    <div class="item2 blue">4</div>
+    <div class="item2 orange">5</div>
+  </div>
+
+  <script>
+    let index = 0;
+    const items = document.querySelectorAll(".item");
+    const length = items.length;
+    setInterval(() => {
+      items[index].classList.remove("active");
+      index = (index + 1) % length;
+      items[index].classList.add("active");
+    }, 2000);
+
+
+    let index2 = 0;
+    const firstElement = document.querySelector(".item2:first-child");
+    const lastElement = document.querySelector(".item2:last-child");
+
+    setInterval(() => {
+      const currentElement = document.querySelector(".active2");
+      const dispearedElement = currentElement.previousElementSibling;
+      const appearedElemnt = currentElement.nextElementSibling;
+
+      currentElement.classList.remove("active2");
+      currentElement.classList.add("inactive2");
+
+      if (dispearedElement) {
+        dispearedElement.classList.remove("inactive2");
+      } else {
+        lastElement.classList.remove("inactive2");
+      }
+
+      if (appearedElemnt) {
+        appearedElemnt.classList.add("active2");
+      } else {
+        firstElement.classList.add("active2");
+      }
+    }, 2000);
+
+
+
+  </script>
+
+
+</body>
+
+</html>
