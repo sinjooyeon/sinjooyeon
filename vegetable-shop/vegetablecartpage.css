@@ -1,0 +1,70 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  color: rgb(96, 96, 96);
+  font-size: 100px;
+}
+
+#basket {
+
+  width: 800px;
+
+}
+
+
+
+
+button {
+  width: 70px;
+  height: 30px;
+
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+
+
+
+.basket {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.small-pic img {
+  margin-top: 25px;
+  margin-right: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.cartbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.orderCheck {
+  background-color: rgb(230, 229, 229);
+  height: 250px;
+  border-radius: 15px;
+}
