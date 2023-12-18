@@ -5,35 +5,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>darkmode</title>
+  <style>
+    .btn-dark {
+      background-color: rgb(255, 255, 255);
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 5px;
+      margin: 100px;
+    }
+
+    .mt-5 {
+      margin-left: 50px;
+    }
+
+    .row {
+      display: flex;
+      width: 250px;
+      height: 500px;
+    }
+
+    .col-md-6 {
+      margin: 20px;
+      padding: 5px;
+      border: 1px solid #1d1d1d;
+      border-radius: 5px;
+    }
+
+    body.dark .col-md-6 {
+      border: 1px solid white;
+    }
+
+    .col-md-6 img {
+      width: 250px;
+      height: 250px;
+    }
+
+    .btn-primary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 40px;
+      background-color: rgb(53, 131, 248);
+      color: white;
+      text-decoration-line: none;
+      border-radius: 3px;
+
+    }
+
+    .dark {
+      background-color: #333333;
+      color: white;
+    }
+  </style>
 </head>
 
-<body>
+<body class="change">
+
   <div class="container mt-5">
     <button class="btn btn-dark">Dark Mode</button>
     <h1 id="title" class="mt-5">다크 모드 만들기</h1>
     <div class="row">
-      <div class="col-md-6">
-        <div class="card" style="width: 18rem">
-          <img src="1.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
+      <div class="col-md-6 change">
+        <div class="card">
+          <img src="../images/bear01.jpg" class="card-img-top" alt="..." />
+          <div class="card-body change">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="card" style="width: 18rem">
-          <img src="2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
+      <div class="col-md-6 change">
+        <div class="card">
+          <img src="../images/bear02.jpg" class="card-img-top" alt="..." />
+          <div class="card-body change">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-       </div>
       </div>
     </div>
+  </div>
+
+  <script>
+    const elem = document.querySelectorAll(".change");
+    const darkbutton = document.querySelector(".btn-dark")
+
+    darkbutton.addEventListener("click", () => {
+      for (let i = 0; i < elem.length; i++) {
+        elem[i].classList.toggle("dark");
+      }
+    });
+  </script>
+
+
+
 
 </body>
 
