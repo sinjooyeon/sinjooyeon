@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>notice board</title>
+
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>게시판</h1>
+    <form id="post-form">
+      <input type="text" id="post-title" placeholder="제목">
+      <textarea id="post-content" placeholder="내용"></textarea>
+      <button type="submit">게시</button>
+    </form>
+    <div id="post-list">
+      <!-- 게시물 목록이 여기에 표시됩니다. -->
+    </div>
+  </div>
+
+
+
+  <script>
+    const postForm = document.getElementById('post-form');
+    const postTitle = document.getElementById('post-title');
+    const postContent = document.getElementById('post-content');
+    const postList = document.getElementById('post-list');
+
+    postForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const title = postTitle.value;
+      const content = postContent.value;
+
+      if (title && content) {
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.innerHTML = `<h2>${title}</h2><p>${content}</p>`;
+        postList.appendChild(post);
+
+        postTitle.value = '';
+        postContent.value = '';
+      }
+    });
+  </script>
+
+</body>
+
+</html>
