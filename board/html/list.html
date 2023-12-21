@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>write</title>
+  <title>list</title>
   <style>
     .logoarea {
       display: flex;
@@ -12,7 +12,7 @@
       text-align: center;
       align-items: center;
       height: 200px;
-      background-color: #685d2e;
+      background-color: #dbebd4;
 
     }
 
@@ -21,7 +21,7 @@
       font-weight: bold;
       font-size: 100px;
       color: transparent;
-      background-image: linear-gradient(to right, #b6b6b5, #f39b36);
+      background-image: linear-gradient(to right, #4b4b4b, #198004);
       background-clip: text;
     }
 
@@ -34,49 +34,19 @@
       font-size: 50px;
       text-decoration-line: none;
       cursor: pointer;
-      color: #a44eb9;
+      color: #4a741a;
     }
 
-    #writeform {
+    .list {
       display: block;
       justify-content: center;
       text-align: center;
-      font-size: 30px;
-    }
-
-    .inputarea {
-      display: block;
-      justify-content: center;
-      text-align: center;
-      font-size: 30px;
-    }
-
-    .inputarea input {
-      justify-content: center;
-      text-align: center;
-      font-size: 30px;
-      margin: 20px;
-    }
-
-    .inputarea label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .texta {
-      width: 350px;
-      height: 500px;
-    }
-
-    .back {
-
-      margin: 30px;
-      text-decoration-line: none;
-      color: #222222;
       font-size: 50px;
-
+   
     }
-
+    .list ul{
+ list-style-type: none;
+    }
     .buttonarea {
       display: block;
       justify-content: center;
@@ -99,6 +69,7 @@
     .buttonarea button:hover {
       opacity: 0.8;
     }
+
   </style>
 </head>
 
@@ -109,24 +80,37 @@
     </hi>
   </div>
   <h2>
-    게시판쓰기
+    게시판리스트
   </h2>
-  <form id="writeform">
-    <div class="inputarea">제목: <input type="text" name="subject" aria-label="제목" /></div>
-    <div class="inputarea"> 작성자:<input type="text" name="writer" aria-label="작성자" /></div>
-    <div class="inputarea"><label for="content">내용:</label> <textarea class="texta" name="content" aria-label="내용"></textarea></div>
-  </form>
-  <div class="buttonarea">
-    <button id="myButton" type="button">뒤로가기</button>
+  <div class="list">
+    <ul>
+      <li>번호</li>
+      <li>글제목</li>
+      <li>작성자</li>
+      <li>등록일</li>
+      <li>조회수</li>
+
+    </ul>
   </div>
 
+  <div class="buttonarea">
+    <button id="myButton" type="button">글쓰기</button>
+  </div>
+  
   <script>
 
     document.getElementById("myButton").addEventListener("click", function () {
       event.preventDefault();
-      window.location.href = "./list.html";
+      window.location.href = "./write.html";
     });
   </script>
+
+
+ 
+
+
+
+
 
 </body>
 

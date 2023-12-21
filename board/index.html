@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>board</title>
   <style>
-    .logoarea {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-      height: 200px;
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       background-color: #d6b523;
-      
+      font-size: 80px;
+
     }
 
     .logo {
-      display: block;
+      text-align: left;
+      margin-left: 25%;
       font-weight: bold;
       font-size: 100px;
       color: transparent;
@@ -26,12 +26,15 @@
     }
 
     .boardgo {
-      display: block;
-      justify-content: center;
-      text-align: center;
+      text-align: right;
+      margin-right: 20%;
+      margin-top: 40px;
       font-weight: bold;
-      margin-top: 100px;
-      font-size: 50px;
+      font-size: 40px;
+
+    }
+
+    .boardgo a {
       text-decoration-line: none;
       cursor: pointer;
       color: #837253;
@@ -40,12 +43,14 @@
 </head>
 
 <body>
-  <div class="logoarea">
-    <hi class="logo">
-      FINDEYE
-    </hi>
+  <div class="container">
+    <div class="logoarea">
+      <hi class="logo"> FINDEYE</hi>
+    </div>
+    <div class="boardgo">
+      <a href="./html/list.html">게시판</a>
+    </div>
   </div>
-  <a class="boardgo" href="">게시판으로가기</a>
 </body>
 
 </html>
