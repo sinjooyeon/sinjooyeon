@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>write</title>
+  <style>
+    .logoarea {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      height: 200px;
+      background-color: #685d2e;
+
+    }
+
+    .logo {
+      display: block;
+      font-weight: bold;
+      font-size: 100px;
+      color: transparent;
+      background-image: linear-gradient(to right, #b6b6b5, #f39b36);
+      background-clip: text;
+    }
+
+    h2 {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 100px;
+      font-size: 50px;
+      text-decoration-line: none;
+      cursor: pointer;
+      color: #a44eb9;
+    }
+
+    #writeform {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .inputarea {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .inputarea input {
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+      margin: 20px;
+    }
+
+    .inputarea label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .texta {
+      width: 350px;
+      height: 500px;
+    }
+
+    .back {
+
+      margin: 30px;
+      text-decoration-line: none;
+      color: #222222;
+      font-size: 50px;
+
+    }
+
+    .buttonarea {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+
+
+    }
+
+    .buttonarea button {
+      background-color: #b6b6b5;
+      border: none;
+      border-radius: 10px;
+      transition: opacity 0.3s;
+    }
+
+    .buttonarea button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logoarea">
+    <hi class="logo">
+      FINDEYE
+    </hi>
+  </div>
+  <h2>
+    게시판쓰기
+  </h2>
+  <form id="writeform">
+    <div class="inputarea">제목: <input type="text" name="subject" aria-label="제목" /></div>
+    <div class="inputarea"> 작성자:<input type="text" name="writer" aria-label="작성자" /></div>
+    <div class="inputarea"><label for="content">내용:</label> <textarea class="texta" name="content" aria-label="내용"></textarea></div>
+  </form>
+  <div class="buttonarea">
+    <button type="button"><a class="inputarea back" href="../index.html">뒤로가기</a></button>
+  </div>
+</body>
+
+</html>
