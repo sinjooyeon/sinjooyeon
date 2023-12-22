@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>표시 페이지</title>
+</head>
+
+<body>
+  <div id="displayText">여기에 저장된 텍스트가 표시됩니다.</div>
+
+  <script>
+    window.onload = function () {
+      const savedText = localStorage.getItem("savedText");
+      document.getElementById("displayText").innerText = savedText;
+    };
+  </script>
+</body>
+
+</html>

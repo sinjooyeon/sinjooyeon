@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>입력 페이지</title>
+</head>
+
+<body>
+  <input type="text" id="textInput" placeholder="여기에 글자를 입력하세요">
+  <button id="saveButton">저장하기</button>
+
+  <script>
+    document.getElementById("saveButton").addEventListener("click", function () {
+      const text = document.getElementById("textInput").value;
+      localStorage.setItem("savedText", text);
+      alert("저장되었습니다!");
+    });
+  </script>
+</body>
+
+</html>
