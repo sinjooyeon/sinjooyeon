@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>view</title>
+  <title>write</title>
   <style>
     .logoarea {
       display: flex;
@@ -12,16 +12,16 @@
       text-align: center;
       align-items: center;
       height: 200px;
-      background-color: #f7bfe0;
+      background-color: #abe3fa;
 
     }
 
-    .logo a {
+    .logo a{
       display: block;
       font-weight: bold;
       font-size: 100px;
       color: transparent;
-      background-image: linear-gradient(to right, #2c0d0d, #6af7fc, #e44bb8);
+      background-image: linear-gradient(to right, #6ca5f0, #1665be, #2c97fa);
       background-clip: text;
     }
 
@@ -34,9 +34,48 @@
       font-size: 50px;
       text-decoration-line: none;
       cursor: pointer;
-      color: #ec2fad;
+      color: #1665be;
     }
 
+    #writeform {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .inputarea {
+      display: block;
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .inputarea input {
+      justify-content: center;
+      text-align: center;
+      font-size: 30px;
+      margin: 20px;
+    }
+
+    .inputarea label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .texta {
+      width: 350px;
+      height: 500px;
+    }
+
+    .back {
+
+      margin: 30px;
+      text-decoration-line: none;
+      color: #222222;
+      font-size: 50px;
+
+    }
 
     .buttonarea {
       display: block;
@@ -65,27 +104,19 @@
 
 <body>
   <div class="logoarea">
-    <hi class="logo">
-      <a href="../index.html">Findeye</a>
+    <hi class="logo"><a href="../index.html">FINDEYE</a>
     </hi>
   </div>
   <h2>
-    작성한게시글
+    글수정
   </h2>
-
-  <form id="viewFrm">
-    <div id="subject">제목:</div>
-    <div id="writer">작성자:</div>
-    <div id="date">작성일:</div>
-    <div id="content">내용:</div>
+  <form id="writeform">
+    <div class="inputarea">제목: <input type="text" name="subject" aria-label="제목" /></div>
+    <div class="inputarea"> 작성자:<input type="text" name="writer" aria-label="작성자" /></div>
+    <div class="inputarea"><label for="content">내용:</label> <textarea class="texta" name="content" aria-label="내용"></textarea></div>
   </form>
-
-
-
-
-
-  <button type="button" id="modify">수정</button>
-  <button type="button" id="delete">삭제</button>
+<div class="inputarea">
+ <input type="submit" value="수정완료"/>
   <div class="buttonarea">
     <button id="myButton" type="button">뒤로가기</button>
   </div>
@@ -94,20 +125,9 @@
 
     document.getElementById("myButton").addEventListener("click", function () {
       event.preventDefault();
-      window.location.href = "./list.html";
-    });
-    document.getElementById("modify").addEventListener("click", function () {
-      event.preventDefault();
-      window.location.href = "./modify.html";
+      window.location.href = "./view.html";
     });
   </script>
-
-
-
-
-
-
-
 
 </body>
 

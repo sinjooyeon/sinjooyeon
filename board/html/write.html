@@ -16,7 +16,7 @@
 
     }
 
-    .logo a{
+    .logo a {
       display: block;
       font-weight: bold;
       font-size: 100px;
@@ -99,13 +99,17 @@
     .buttonarea button:hover {
       opacity: 0.8;
     }
+
+    #myButton {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
   <div class="logoarea">
-    <hi class="logo"><a href="../index.html">FINDEYE</a>
-    </hi>
+    <h1 class="logo"><a href="../index.html">FINDEYE</a>
+    </h1>
   </div>
   <h2>
     게시판쓰기
@@ -113,10 +117,10 @@
   <form id="writeform">
     <div class="inputarea">제목: <input type="text" name="subject" aria-label="제목" /></div>
     <div class="inputarea"> 작성자:<input type="text" name="writer" aria-label="작성자" /></div>
-    <div class="inputarea"><label for="content">내용:</label> <textarea class="texta" name="content" aria-label="내용"></textarea></div>
+    <div class="inputarea">내용: <textarea class="texta" name="content" aria-label="내용"></textarea></div>
+    <input type="submit" value="글작성" />
   </form>
-<div class="inputarea">
-  <button type="button">게시글올리기</button></div>
+
   <div class="buttonarea">
     <button id="myButton" type="button">뒤로가기</button>
   </div>
@@ -127,6 +131,93 @@
       event.preventDefault();
       window.location.href = "./list.html";
     });
+
+    const writeFrm = document.getElementById('writeform');
+   console.log(writeFrm);
+
+  //   const submitHandler = (e) => {
+  //     e.preventDefault();
+  //     const subject = e.target.subject.value;
+  //     const write = e.target.writer.value;
+  //     const content = e.target.content.value;
+      
+
+  //     const newBoard = new Board(subject,write,content);
+  //     saveBoard(newBoard)
+      
+  //     window.location.href = "./list.html";
+
+
+  //   };
+
+
+  // const saveBoard = (board) => {
+  //   let boards = JSON.parse(localStorage.getItem("boards")) || [];
+  //   boards.push(board);
+  //   localStorage.setItem("boards", JSON.stringify(boards));
+  // };
+
+
+
+
+
+
+
+  //     class Board {
+  //       constructor(indexNum, subjectStr, writerStr, contentStr) {
+  //         this.index = indexNum;
+  //         this.Subject = subjectStr;
+  //         this.Writer = writerStr;
+  //         this.Content = contentStr;
+  //         this.date = recordDate();
+  //         this.views = 0;
+  //       }
+
+  //       set Subject(value) {
+  //         if (value.length === 0)
+  //           throw new Error("제목을 입력해주세요");
+  //         this.subject = value;
+  //       }
+
+  //       set Writer(value) {
+  //         if (value.length === 0)
+  //           throw new Error("작성자를 입력해주세요");
+  //         this.writer = value;
+  //       }
+
+  //       set Content(value) {
+  //         if (value.length === 0)
+  //           throw new Error("내용을 입력해주세요");
+  //         this.content = value;
+  //       }
+  //     }
+      
+
+  //   writeFrm.addEventListener("submit", submitHandler);
+
+    const recordDate = () => {
+      const date = new Date();
+      const yyyy = date.getFullYear();
+      let mm = date.getMonth() + 1;
+      let dd = date.getDate();
+
+      mm = (mm > 9 ? "" : 0) + mm;
+      dd = (dd > 9 ? "" : 0) + dd;
+
+      const arr = [yyyy, mm, dd];
+      return arr.join("-");
+
+    };
+//   console.log(boardsStr);
+
+// let boardsStr = localStorage.getItem("boards");
+let time = recordDate()
+
+console.log(time)
+
+
+
+
   </script>
 
 </body>
