@@ -5,21 +5,135 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .carousel {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      width: 500px;
+      height: 300px;
+
+    }
+
+    .carousel-container {
+      display: block;
+      text-align: center;
+      justify-content: center;
+      width: 500px;
+      height: 500px;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    button {
+      width: 150px;
+      height: 100px;
+      font-size: 30px;
+      border-radius: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #999;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .slide {
+      min-width: 100%;
+      transition: 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+  </style>
 </head>
 
 <body>
-  <ol>
-    <li>A</li>
-    <li>B</li>
-    <li>C</li>
-  </ol>
-  <br>
-    <ul>
-    <li>a</li>
-    <li>b</li>
-    <li>c</li>
-    <li>d</li>
-  </ul>
+  <h1>What can javascript do? </h1>
+  <button id="b1" type="button" onclick="changeOn();">전구켜기</button>
+  <img id="light" src="images/turnOffBulb.png" style="width:300px;" alt="bulb">
+  <button id="b2" type="button" onclick="changeOff();">전구끄기</button>
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="container">
+        <img src="https://source.unsplash.com/collection/190727/300x300" alt="사진 1" class="slide">
+        <img src="https://source.unsplash.com/collection/190730/300x300" alt="사진 2" class="slide">
+        <img src="https://source.unsplash.com/collection/190727/300x300" alt="사진 3" class="slide">
+        <img src="https://source.unsplash.com/collection/190717/300x300" alt="사진 4" class="slide">
+        <img src="images/new2.jpg" alt="사진 5" class="slide">
+      </div>
+    </div>
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+  <script>
+    function changeOff() {
+      const tag1 = document.getElementById('light');
+      tag1.src = 'images/turnOffBulb.png';
+    }
+    function changeOn() {
+      const tag1 = document.getElementById('light');
+      tag1.src = 'images/lightBulb.png';
+    }
+
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+
+  </script>
+
 </body>
 
 </html>
