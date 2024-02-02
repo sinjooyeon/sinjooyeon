@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      background-color: #f0f0f0;
+      text-align: center;
+      position: absolute;
+      top: 100px;
+      left: 500px;
+      border-radius: 10px;
+      width: 440px;
+      height: 640px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container img {
+      border-radius: 10px;
+      margin: 20px;
+      width: 400px;
+      height: 300PX;
+      object-fit: cover;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .buttoncontent {
+      background-color: #ffffff;
+      text-align: center;
+      position: absolute;
+      margin: 20px;
+      border-radius: 10px;
+      width: 400px;
+      height: 210px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .buttoncontent p {
+      margin: 30px;
+    }
+
+    .indexs {
+      width: 130px;
+      height: 40px;
+      font-size: 15px;
+      color: rgb(56, 55, 55);
+      border: none;
+      background-color: #eeb2cb;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .indexs:hover {
+      transform: translate(0, -10px);
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="imageflower"><img src="../images/flower.jpg" alt="flower">
+    </div>
+    <article class="about">
+      <div class="indexbutton">
+        <button type="button" class="indexs" data-id="history">History</button>
+        <button type="button" class="indexs" data-id="vision">Vision</button>
+        <button type="button" class="indexs" data-id="goals">Goals</button>
+      </div>
+      <article class="buttoncontent">
+        <div class="content" id="history">
+          <h3>History</h3>
+          <p>Once a friend suggested me a few books with interactive content, that made me practice what I learned at each chapter.</p>
+        </div>
+        <div class="content" id="vision">
+          <h3>Vision</h3>
+          <p>I been struggling with JS and you have cleared it up for me. You guys are all awesome and I for one can't thank you guys enough.</p>
+        </div>
+        <div class="content" id="goals">
+          <h3>Goals</h3>
+          <p>Great projects, and John is a wonderful instructor (got some of his Udemy courses as well) who actually explains how any code that he writes works.</p>
+        </div>
+      </article>
+    </article>
+  </div>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const indexrbuttons = document.querySelectorAll(".indexs");
+      const about = document.querySelector(".about");
+      const articles = document.querySelectorAll(".content");
+      const firstArticle = articles[0];
+      firstArticle.classList.add("active");
+
+      about.addEventListener("click", function (e) {
+        const id = e.target.dataset.id;
+        if (id) {
+          indexrbuttons.forEach(function (btn) {
+            btn.classList.remove("active");
+            e.target.classList.add("active");
+          });
+          articles.forEach(function (article) {
+            article.classList.remove("active");
+          });
+          const element = document.getElementById(id);
+          element.classList.add("active");
+        }
+      });
+
+    });
+
+
+  </script>
+</body>
+
+</html>
