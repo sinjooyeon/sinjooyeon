@@ -16,7 +16,7 @@
       background-color: slateblue;
     }
 
-    .calendar-container {
+    .calendarcontainer {
       background-color: white;
       width: 300px;
       text-align: center;
@@ -25,7 +25,7 @@
       overflow: hidden;
     }
 
-    .month-name {
+    .monthname {
       margin: 0;
       background-color: rgb(255, 128, 54);
       color: white;
@@ -34,12 +34,12 @@
       font-weight: bold;
     }
 
-    .day-name {
+    .dayname {
       font-size: 20px;
-      color:rgb(250, 217, 147);
+      color: rgb(250, 217, 147);
     }
 
-    .day-number {
+    .daynumber {
       font-size: 80px;
       margin: 0;
       font-weight: bold;
@@ -55,17 +55,17 @@
 </head>
 
 <body>
-  <div class="calendar-container">
-    <p class="month-name" id="month-name">April</p>
-    <p class="day-name" id="day-name">Friday</p>
-    <p class="day-number" id="day-number">20</p>
+  <div class="calendarcontainer">
+    <p class="monthname" id="monthname">April</p>
+    <p class="dayname" id="dayname">Friday</p>
+    <p class="daynumber" id="daynumber">20</p>
     <p class="year" id="year">2020</p>
   </div>
 </body>
 <script>
-  const monthNameEl = document.getElementById("month-name");
-  const dayNameEl = document.getElementById("day-name");
-  const dayNumEl = document.getElementById("day-number");
+  const monthNameEl = document.getElementById("monthname");
+  const dayNameEl = document.getElementById("dayname");
+  const dayNumEl = document.getElementById("daynumber");
   const yearEl = document.getElementById("year");
 
   const date = new Date();
