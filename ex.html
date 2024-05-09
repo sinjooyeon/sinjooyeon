@@ -62,7 +62,7 @@
 <body>
   <h1>What can javascript do? </h1>
   <button id="b1" type="button" onclick="changeOn();">전구켜기</button>
-  <img id="light" src="images/turnOffBulb.png" style="width:300px;" alt="bulb">
+  <img id="light" src="../images/turnOffBulb.png" style="width:300px;" alt="bulb">
   <button id="b2" type="button" onclick="changeOff();">전구끄기</button>
 
   <div class="carousel-container">
@@ -72,7 +72,7 @@
         <img src="https://source.unsplash.com/collection/190730/300x300" alt="사진 2" class="slide">
         <img src="https://source.unsplash.com/collection/190727/300x300" alt="사진 3" class="slide">
         <img src="https://source.unsplash.com/collection/190717/300x300" alt="사진 4" class="slide">
-        <img src="images/new2.jpg" alt="사진 5" class="slide">
+        <img src="../images/new2.jpg" alt="사진 5" class="slide">
       </div>
     </div>
     <div class="dots">
@@ -93,11 +93,11 @@
   <script>
     function changeOff() {
       const tag1 = document.getElementById('light');
-      tag1.src = 'images/turnOffBulb.png';
+      tag1.src = '../images/turnOffBulb.png';
     }
     function changeOn() {
       const tag1 = document.getElementById('light');
-      tag1.src = 'images/lightBulb.png';
+      tag1.src = '../images/lightBulb.png';
     }
 
 
