@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Toggle Div Example</title>
+  <style>
+    .container {
+      width: 1000px;
+      height: 1000px;
+      background-color: #f0f0f0;
+      margin-bottom: 10px;
+      display: none;
+  
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      text-align: center;
+    }
+
+    #first {
+      display: flex;
+      /* 첫 번째 div만 초기에 보입니다. */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="first" class="container">
+    <button onclick="toggleDivs()">Show Second Div</button>
+  </div>
+  <div id="second" class="container">
+    <button onclick="toggleDivs()">Show First Div</button>
+  </div>
+
+  <script>
+    function toggleDivs() {
+      var firstDiv = document.getElementById('first');
+      var secondDiv = document.getElementById('second');
+
+      if (firstDiv.style.display === 'flex') {
+        firstDiv.style.display = 'none';
+        secondDiv.style.display = 'flex';
+      } else {
+        firstDiv.style.display = 'flex';
+        secondDiv.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+
+</html>

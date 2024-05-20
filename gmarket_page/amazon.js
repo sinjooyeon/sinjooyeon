@@ -51,10 +51,9 @@ function addToCart(productId) {
   } else {
     cart.push({
       productId: productId,
-      quantity: 1
-
+      quantity: 1,
     });
-  };
+  }
 }
 
 
@@ -87,8 +86,6 @@ addButton.forEach((button) => {
     updateCartQuantity();
 
     localStorage.setItem('cart', JSON.stringify(cart));
-
-
   });
 });
 
