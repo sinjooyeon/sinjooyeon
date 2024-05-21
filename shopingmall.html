@@ -74,9 +74,9 @@
       border: 1px solid #45a049;
       background-color: rgb(221, 255, 167);
       justify-content: center;
-       align-items: center;
-      margin-top:20px;
-      font-size:25px;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 25px;
     }
   </style>
 
@@ -133,7 +133,7 @@
 
       displayArea.appendChild(loadingMessage);
 
-      let imageSrc = `./images/number0${index}.jpg`;
+      let imageSrc = `https://placehold.co/800x400/e9967a/ffffff/?text=IMAGE0${index}`;
 
       let img = new Image();
       img.onload = function () {
@@ -149,17 +149,43 @@
       let listDiv = document.getElementById('imageList');
       let fileName = imageSrc.split('/').pop();
       let listItem = document.createElement('div');
-      listItem.className = 'filenamebox'
-
+      listItem.className = 'filenamebox';
       listItem.textContent = fileName;
+      listItem.setAttribute('draggable', true);
+
+      listItem.addEventListener('dragstart', function (e) {
+        draggedItem = listItem;
+        setTimeout(() => listItem.style.display = 'none', 0);
+      });
+
+      listItem.addEventListener('dragend', function (e) {
+        setTimeout(() => {
+          listItem.style.display = 'block';
+          draggedItem = null;
+        }, 0);
+      });
+
+      listItem.addEventListener('dragover', function (e) {
+        e.preventDefault();
+      });
+
+      listItem.addEventListener('dragenter', function (e) {
+        e.preventDefault();
+        if (this !== draggedItem) {
+          const list = draggedItem.parentNode;
+          const y = e.clientY;
+          const thisRect = this.getBoundingClientRect();
+          const offset = y - thisRect.top - (thisRect.height / 2);
+          if (offset > 0) {
+            list.insertBefore(draggedItem, this.nextSibling);
+          } else {
+            list.insertBefore(draggedItem, this);
+          }
+        }
+      });
+
       listDiv.appendChild(listItem);
-
     }
-
-
-
-
-
 
 
 

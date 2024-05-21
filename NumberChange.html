@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag and Drop with Local Storage</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 500px;
+    }
+
+    .box-container {
+      width: 200px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 10px;
+      background-color: lightgray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .box[data-id="1"] {
+      background-color: rgb(243, 162, 162);
+    }
+
+    .box[data-id="2"] {
+      background-color: rgb(161, 161, 238);
+    }
+
+    .box[data-id="3"] {
+      background-color: rgb(164, 250, 164);
+    }
+
+    .box[data-id="4"] {
+      background-color: rgb(236, 236, 157);
+      color: black;
+    }
+
+    .box[data-id="5"] {
+      background-color: rgb(248, 184, 248);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box-container" id="left-container">
+      <div class="box" draggable="true" data-id="1">1</div>
+      <div class="box" draggable="true" data-id="2">2</div>
+      <div class="box" draggable="true" data-id="3">3</div>
+      <div class="box" draggable="true" data-id="4">4</div>
+      <div class="box" draggable="true" data-id="5">5</div>
+    </div>
+    <div class="box-container" id="right-container">
+      <div class="box" data-id="1">1</div>
+      <div class="box" data-id="2">2</div>
+      <div class="box" data-id="3">3</div>
+      <div class="box" data-id="4">4</div>
+      <div class="box" data-id="5">5</div>
+    </div>
+  </div>
+  <button id="apply-order">Apply Order</button>
+
+  <script>
+    const leftContainer = document.getElementById('left-container');
+    const rightContainer = document.getElementById('right-container');
+    const applyOrderButton = document.getElementById('apply-order');
+
+    let draggedItem = null;
+
+    leftContainer.addEventListener('dragstart', (e) => {
+      draggedItem = e.target;
+    });
+
+    leftContainer.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const target = e.target;
+      if (target && target !== draggedItem && target.classList.contains('box')) {
+        const bounding = target.getBoundingClientRect();
+        const offset = bounding.y + (bounding.height / 2);
+        if (e.clientY - offset > 0) {
+          target.style['border-bottom'] = 'solid 4px blue';
+          target.style['border-top'] = '';
+        } else {
+          target.style['border-top'] = 'solid 4px blue';
+          target.style['border-bottom'] = '';
+        }
+      }
+    });
+
+    leftContainer.addEventListener('dragleave', (e) => {
+      e.target.style['border-bottom'] = '';
+      e.target.style['border-top'] = '';
+    });
+
+    leftContainer.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const target = e.target;
+      if (target && target !== draggedItem && target.classList.contains('box')) {
+        target.style['border-bottom'] = '';
+        target.style['border-top'] = '';
+        const bounding = target.getBoundingClientRect();
+        const offset = bounding.y + (bounding.height / 2);
+        if (e.clientY - offset > 0) {
+          target.insertAdjacentElement('afterend', draggedItem);
+        } else {
+          target.insertAdjacentElement('beforebegin', draggedItem);
+        }
+        updateLocalStorage();
+      }
+    });
+
+    function updateLocalStorage() {
+      const order = [...leftContainer.children].map(child => child.dataset.id);
+      localStorage.setItem('boxOrder', JSON.stringify(order));
+    }
+
+    applyOrderButton.addEventListener('click', () => {
+      const order = JSON.parse(localStorage.getItem('boxOrder'));
+      if (order) {
+        order.forEach(id => {
+          const box = rightContainer.querySelector(`[data-id='${id}']`);
+          rightContainer.appendChild(box);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
