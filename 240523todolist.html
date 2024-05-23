@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>240523TodoList</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      background-color: #dbb7db;
+      height: 100%;
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      color: #65376e;
+      text-shadow: 2px 2px rgb(131, 131, 131);
+    }
+
+    label {
+      background-color: #b49bb9;
+      border-radius: 15px;
+      padding: 10px;
+    }
+
+    .bigcontainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 800px;
+      height: 800px;
+      background-color: #8c5d96;
+    }
+
+    .container2 {
+      display: flex;
+      border: solid 1px #b49bb9;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 720px;
+      height: 720px;
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+
+    .container {
+      border: solid 1px #b49bb9;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 700px;
+      height: 700px;
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+
+    .todo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-right: 30px;
+      margin-bottom: 10px;
+      background-color: #e9c7f0;
+      border-radius: 5px;
+    }
+
+    .todo-input {
+      border: none;
+      background-color: #e1c4e7;
+      width: 300px;
+      height: 39px;
+      font-size: 15px;
+      border-radius: 5px;
+    }
+
+    #add-button {
+      width: 100px;
+      height: 42px;
+      border: none;
+      background-color: #b49bb9;
+      color: white;
+      font-size: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .delete-button,
+    .complete-button {
+      width: 100px;
+      height: 42px;
+      border: none;
+      background-color: #b49bb9;
+      margin-right: 10px;
+      color: white;
+      font-size: 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bigcontainer">
+    <div class="container2">
+      <div class="container">
+        <form>
+          <h1>오늘의 할일</h1>
+          <label for="user-input">할일</label>
+          <input type="text" id="user-input" class="todo-input" placeholder="   할일을 입력하세요" required>
+          <button type="button" id="add-button">추가</button>
+        </form>
+        <div class="list">
+          <ul class="todolist">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const todoInput = document.querySelector('#user-input');
+    const addButton = document.querySelector('#add-button');
+    const todoList = document.querySelector('.todolist');
+
+    addButton.addEventListener('click', addTodo);
+
+    function addTodo() {
+      const todoText = todoInput.value;
+      if (todoText === '') return;
+
+      const newDiv = document.createElement('div');
+      newDiv.classList.add('todo');
+
+      const newTodo = document.createElement('ul');
+      newTodo.classList.add('todo-content');
+      newTodo.innerText = todoText;
+
+      const buttonContainer = document.createElement('div');
+      buttonContainer.classList.add('button-container');
+
+      const completeButton = document.createElement('button');
+      completeButton.innerHTML = '<i class="fas fa-check"></i>';
+      completeButton.classList.add('complete-button');
+      completeButton.addEventListener('click', manageTodo);
+      buttonContainer.appendChild(completeButton);
+
+      const deleteButton = document.createElement('button');
+      deleteButton.innerHTML = '<i class="fi fi-rr-exit"></i>';
+      deleteButton.classList.add('delete-button');
+      deleteButton.addEventListener('click', manageTodo);
+      buttonContainer.appendChild(deleteButton);
+
+      newDiv.appendChild(newTodo);
+      newDiv.appendChild(buttonContainer);
+
+      todoList.appendChild(newDiv);
+      saveToLocal(todoText);
+      todoInput.value = '';
+    }
+
+    function saveToLocal(todo) {
+      let todos;
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+      todos.push(todo);
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let todos;
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+
+      todos.forEach(function (todo) {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('todo');
+
+        const newTodo = document.createElement('ul');
+        newTodo.innerText = todo;
+        newTodo.classList.add('todo-content');
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
+
+        const completeButton = document.createElement('button');
+        completeButton.innerHTML = '<i class="fas fa-check"></i>';
+        completeButton.classList.add('complete-button');
+        completeButton.addEventListener('click', manageTodo);
+        buttonContainer.appendChild(completeButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = '삭제';
+        deleteButton.classList.add('delete-button');
+        deleteButton.addEventListener('click', manageTodo);
+        buttonContainer.appendChild(deleteButton);
+
+        newDiv.appendChild(newTodo);
+        newDiv.appendChild(buttonContainer);
+
+        todoList.appendChild(newDiv);
+      });
+    });
+
+    function removeLocal(todo) {
+      let todos;
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+      }
+
+      const todoText = todo.children[0].innerText;
+      const index = todos.indexOf(todoText);
+      if (index > -1) {
+        todos.splice(index, 1);
+      }
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    function manageTodo(e) {
+      const whichButton = e.target.classList[0];
+      const todo = e.target.parentElement.parentElement;
+
+      if (whichButton === 'complete-button') {
+        todo.children[0].classList.toggle('completed');
+      } else if (whichButton === 'delete-button') {
+        removeLocal(todo);
+        todo.remove();
+      }
+    }
+  </script>
+</body>
+
+</html>
