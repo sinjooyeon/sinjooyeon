@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
-      background-color: #dbb7db;
+      background-color: #c5c5c5;
       height: 100%;
       margin-top: 50px;
       display: flex;
@@ -17,12 +17,13 @@
     }
 
     h1 {
-      color: #65376e;
-      text-shadow: 2px 2px rgb(131, 131, 131);
+      font-family: '카페24 숑숑';
+      color: #888888;
+      text-shadow: 2px 2px rgb(189, 187, 187);
     }
 
     label {
-      background-color: #b49bb9;
+      background-color: #a09fa0;
       border-radius: 15px;
       padding: 10px;
     }
@@ -33,31 +34,33 @@
       align-items: center;
       text-align: center;
       width: 800px;
-      height: 800px;
-      background-color: #8c5d96;
+      height: 1200px;
+      background-color: #8a8a8a;
     }
 
     .container2 {
       display: flex;
-      border: solid 1px #b49bb9;
+      border: solid 1px #a3a3a3;
       justify-content: center;
       align-items: center;
       text-align: center;
       width: 720px;
-      height: 720px;
+      height: 1120px;
       background-color: #ffffff;
       border-radius: 5px;
     }
 
     .container {
-      border: solid 1px #b49bb9;
+      font-family: '온글잎 매일옥자체';
+      border: solid 1px #8a8a8a;
       justify-content: center;
       align-items: center;
       text-align: center;
       width: 700px;
-      height: 700px;
+      height: 1100px;
       background-color: #ffffff;
       border-radius: 5px;
+      font-size: 20px;
     }
 
     .todo {
@@ -67,39 +70,41 @@
       padding: 10px;
       margin-right: 30px;
       margin-bottom: 10px;
-      background-color: #e9c7f0;
+      background-color: #8a8a8a;
       border-radius: 5px;
     }
 
     .todo-input {
+      font-family: '카페24 숑숑';
       border: none;
-      background-color: #e1c4e7;
+      background-color: #bbbbbb;
       width: 300px;
       height: 39px;
-      font-size: 15px;
+      font-size: 20px;
       border-radius: 5px;
     }
 
     #add-button {
+      font-family: '온글잎 매일옥자체';
       width: 100px;
       height: 42px;
       border: none;
-      background-color: #b49bb9;
-      color: white;
-      font-size: 15px;
+      background-color: #c9c9c9;
+      font-size: 20px;
       border-radius: 5px;
       font-weight: bold;
     }
 
     .delete-button,
     .complete-button {
+      font-family: '온글잎 매일옥자체';
       width: 100px;
       height: 42px;
       border: none;
-      background-color: #b49bb9;
+      background-color: #bdbdbd;
       margin-right: 10px;
       color: white;
-      font-size: 15px;
+      font-size: 20px;
       border-radius: 5px;
       font-weight: bold;
     }
@@ -135,52 +140,78 @@
     const addButton = document.querySelector('#add-button');
     const todoList = document.querySelector('.todolist');
 
+
+
+
+
     addButton.addEventListener('click', addTodo);
+    todoInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        addTodo();
+      }
+    });
+
+
+
+
 
     function addTodo() {
       const todoText = todoInput.value;
       if (todoText === '') return;
+      const item = {
+        id: Date.now(),
+        text: todoText,
+        completed: false,
+      };
+      createTodoItem(item)
+      // const newDiv = document.createElement('div');
+      // newDiv.classList.add('todo');
 
-      const newDiv = document.createElement('div');
-      newDiv.classList.add('todo');
+      // const newTodo = document.createElement('ul');
+      // newTodo.classList.add('todo-content');
+      // newTodo.innerText = todoText;
 
-      const newTodo = document.createElement('ul');
-      newTodo.classList.add('todo-content');
-      newTodo.innerText = todoText;
+      // const buttonContainer = document.createElement('div');
+      // buttonContainer.classList.add('button-container');
 
-      const buttonContainer = document.createElement('div');
-      buttonContainer.classList.add('button-container');
+      // const completeButton = document.createElement('button');
+      // completeButton.innerText = '확인';
+      // completeButton.classList.add('complete-button');
+      // completeButton.addEventListener('click', manageTodo);
+      // buttonContainer.appendChild(completeButton);
 
-      const completeButton = document.createElement('button');
-      completeButton.innerHTML = '<i class="fas fa-check"></i>';
-      completeButton.classList.add('complete-button');
-      completeButton.addEventListener('click', manageTodo);
-      buttonContainer.appendChild(completeButton);
+      // const deleteButton = document.createElement('button');
+      // deleteButton.innerText = '삭제';
+      // deleteButton.classList.add('delete-button');
+      // deleteButton.addEventListener('click', manageTodo);
+      // buttonContainer.appendChild(deleteButton);
 
-      const deleteButton = document.createElement('button');
-      deleteButton.innerHTML = '<i class="fi fi-rr-exit"></i>';
-      deleteButton.classList.add('delete-button');
-      deleteButton.addEventListener('click', manageTodo);
-      buttonContainer.appendChild(deleteButton);
+      // newDiv.appendChild(newTodo);
+      // newDiv.appendChild(buttonContainer);
 
-      newDiv.appendChild(newTodo);
-      newDiv.appendChild(buttonContainer);
-
-      todoList.appendChild(newDiv);
-      saveToLocal(todoText);
+      // todoList.appendChild(newDiv);
+      saveToLocal(item);
       todoInput.value = '';
     }
 
-    function saveToLocal(todo) {
+
+
+
+    function saveToLocal(item) {
       let todos;
       if (localStorage.getItem('todos') === null) {
         todos = [];
       } else {
         todos = JSON.parse(localStorage.getItem('todos'));
       }
-      todos.push(todo);
+      // const item = {text: todoText, completed: false};
+      todos.push(item);
       localStorage.setItem('todos', JSON.stringify(todos));
     }
+
+
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
       let todos;
@@ -190,35 +221,63 @@
         todos = JSON.parse(localStorage.getItem('todos'));
       }
 
-      todos.forEach(function (todo) {
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('todo');
-
-        const newTodo = document.createElement('ul');
-        newTodo.innerText = todo;
-        newTodo.classList.add('todo-content');
-
-        const buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-
-        const completeButton = document.createElement('button');
-        completeButton.innerHTML = '<i class="fas fa-check"></i>';
-        completeButton.classList.add('complete-button');
-        completeButton.addEventListener('click', manageTodo);
-        buttonContainer.appendChild(completeButton);
-
-        const deleteButton = document.createElement('button');
-        deleteButton.innerText = '삭제';
-        deleteButton.classList.add('delete-button');
-        deleteButton.addEventListener('click', manageTodo);
-        buttonContainer.appendChild(deleteButton);
-
-        newDiv.appendChild(newTodo);
-        newDiv.appendChild(buttonContainer);
-
-        todoList.appendChild(newDiv);
-      });
+      todos.forEach(createTodoItem);
     });
+
+
+
+    function createTodoItem(todo) {
+      const newDiv = document.createElement('div');
+      newDiv.classList.add('todo');
+      newDiv.dataset.id = todo.id;
+
+      if (todo.completed) {
+        newDiv.classList.add('completed');
+      }
+
+      const newTodo = document.createElement('ul');
+      newTodo.innerText = todo.text;
+      newTodo.classList.add('todo-content');
+
+      const buttonContainer = document.createElement('div');
+      buttonContainer.classList.add('button-container');
+
+      const completeButton = document.createElement('button');
+      completeButton.classList.add('complete-button');
+      completeButton.innerText = '확인';
+      completeButton.addEventListener('click', manageTodo);
+      buttonContainer.appendChild(completeButton);
+
+      const deleteButton = document.createElement('button');
+      deleteButton.innerText = '삭제';
+      deleteButton.classList.add('delete-button');
+      deleteButton.addEventListener('click', manageTodo);
+      buttonContainer.appendChild(deleteButton);
+
+      newDiv.appendChild(newTodo);
+      newDiv.appendChild(buttonContainer);
+
+      todoList.appendChild(newDiv);
+    }
+
+
+    function manageTodo(e) {
+      const whichButton = e.target.classList[0];
+      const todo = e.target.parentElement.parentElement;
+
+      if (whichButton === 'complete-button') {
+        todo.children[0].classList.toggle('completed');
+        updateLocal(parseInt(todo.dataset.id, 10), todo.children[0].classList.contains('completed'));
+      } else if (whichButton === 'delete-button') {
+        removeLocal(todo);
+        todo.remove();
+      }
+    }
+
+
+
+
+
 
     function removeLocal(todo) {
       let todos;
@@ -229,24 +288,37 @@
       }
 
       const todoText = todo.children[0].innerText;
-      const index = todos.indexOf(todoText);
-      if (index > -1) {
-        todos.splice(index, 1);
-      }
+      todos = todos.filter(item => item.text !== todoText);
       localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    function manageTodo(e) {
-      const whichButton = e.target.classList[0];
-      const todo = e.target.parentElement.parentElement;
 
-      if (whichButton === 'complete-button') {
-        todo.children[0].classList.toggle('completed');
-      } else if (whichButton === 'delete-button') {
-        removeLocal(todo);
-        todo.remove();
+
+
+
+
+
+
+    function updateLocal(id, isCompleted) {
+      let todos;
+      if (localStorage.getItem('todos') === null) {
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
       }
+
+      todos.forEach(function (todo) {
+
+        if (todo.id === id) {
+          todo.completed = isCompleted;
+        }
+      });
+
+      localStorage.setItem('todos', JSON.stringify(todos));
     }
+
+
+
   </script>
 </body>
 
