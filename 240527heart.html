@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(-30deg);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes pulse2 {
+
+      0%,
+      100% {
+        transform: scale(1) translateX(200px);
+        /* 기본 크기와 200px 이동 */
+      }
+
+      50% {
+        transform: scale(1.5) translateX(200px);
+        /* 1.5배 크기로 확대와 200px 이동 */
+      }
+    }
+
+
+    @keyframes selected {
+      25% {
+        transform: scale(1.25)rotate(50deg);
+        text-shadow: 1vmin 1vmin 0 hsla(0 0% 0% / 0.1);
+      }
+
+      40% {
+        transform: scale(0.92)rotate(-50deg);
+        text-shadow: 0 0 0 hsla(0 0% 0% / 0.2);
+      }
+
+      60% {
+        transform: scale(1.02)rotate(50deg);
+        text-shadow: 0.5vmin 0.5vmin 0 hsla(0 0% 0% / 0.1);
+      }
+
+      75% {
+        transform: scale(0.98)rotate(-50deg);
+      }
+
+      85% {
+        transform: scale(1)rotate(50deg);
+      }
+    }
+
+
+
+
+
+
+    .heart {
+      display: flex;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(241, 117, 187);
+      position: relative;
+      transform: rotate(-45deg);
+      animation: pulse 3s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background-color: rgb(241, 117, 187);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    .heart2 {
+      animation: selected 3s infinite;
+
+    }
+
+    .heartchange {
+      width: 150px;
+      height: 50px;
+      border-radius: 15px;
+      background-color: pink;
+      position: fixed;
+      top: 400px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #second-container {
+      display: none;
+    }
+
+
+    #third-container,
+    #fourth-container,
+    #fifth-container {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 200px;
+
+      border-radius: 50px;
+      justify-content: center;
+    }
+
+    #third-container {
+      background-color: rgb(243, 157, 157);
+    }
+
+    #fourth-container {
+      background-color: rgb(189, 243, 157);
+    }
+
+    #fifth-container {
+      background-color: rgb(157, 209, 243);
+    }
+
+    .heart2 {
+      width: 500px
+    }
+
+    .constainerbutton {
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .container {
+      display: none;
+    }
+
+    .container.active {
+      display: flex;
+    }
+
+
+    .toggle-switch {
+
+      width: 600px;
+      height: 200px;
+      background-color: #f3a8d4;
+      border-radius: 100px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-switch .circle {
+      width: 180px;
+      height: 180px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transition: left 0.3s;
+    }
+
+    .toggle-switch.active {
+      background-color: #e6c2f7;
+    }
+
+    .toggle-switch.active .circle {
+      left: 410px;
+    }
+
+    .togglegreen {
+      position: fixed;
+      top:900px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="toggledivs()" class="heartchange">하트변경</button>
+  <div id="first-container">
+
+    <div class="heart"></div>
+  </div>
+  <div id="second-container">
+    <img src="./images/hh.png" alt="Heart" class="heart2">
+
+  </div>
+
+  <div id="third-container" class="container active">First Container</div>
+  <div id="fourth-container" class="container">Second Container</div>
+  <div id="fifth-container" class="container">Third Container</div>
+
+  <button onclick="toggledivs2()" class="constainerbutton">Toggle Divs</button>
+
+
+
+
+  <div class="togglegreen">
+    <div class="toggle-switch" onclick="toggleSwitch(this); toggledivs();toggledivs2();">
+      <div class="circle"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <script>
+    function toggledivs() {
+      let firstdiv = document.getElementById('first-container');
+      let seconddiv = document.getElementById('second-container');
+
+      if (firstdiv.style.display === 'none') {
+        firstdiv.style.display = 'flex';
+        seconddiv.style.display = 'none';
+      } else {
+        firstdiv.style.display = 'none';
+        seconddiv.style.display = 'flex';
+      }
+    }
+
+
+    let currentDiv = 0;
+    function toggledivs2() {
+      let divs = document.getElementsByClassName('container');
+
+      divs[currentDiv].classList.remove('active');
+      currentDiv = (currentDiv + 1) % divs.length;
+      divs[currentDiv].classList.add('active');
+    }
+
+    function toggleSwitch(element) {
+      element.classList.toggle('active');
+    }
+  </script>
+
+
+
+</body>
+
+</html>
