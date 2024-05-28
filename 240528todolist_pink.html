@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>투드리스트</title>
+  <style>
+    body {
+      background-color: #ffe6e6;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #todo-container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 800px;
+    }
+
+    #todo-container h2 {
+      margin-top: 0;
+    }
+
+    #new-todo {
+      width: calc(100% - 62px);
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    #add-button {
+      padding: 10px;
+      border: none;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .todo-text {
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+
+    .todo-text.completed {
+      text-decoration: line-through;
+    }
+
+    .todo-buttons button {
+      background-color: #f0f0f0;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .edit-input {
+      width: calc(100% - 22px);
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="todo-container">
+    <h2>투드리스트</h2>
+    <input type="text" id="new-todo" placeholder="할 일을 입력하세요">
+    <button id="add-button">추가</button>
+    <div id="todo-list"></div>
+  </div>
+
+  <script>
+    document.getElementById('add-button').addEventListener('click', addTodo);
+    window.addEventListener('load', loadTodos);
+
+    function addTodo() {
+      const todoText = document.getElementById('new-todo').value;
+      if (todoText === '') return;
+
+      const todoList = getTodos();
+      const todo = {
+        text: todoText,
+        completed: false
+      };
+      todoList.push(todo);
+      setTodos(todoList);
+      renderTodoList();
+      document.getElementById('new-todo').value = '';
+    }
+
+    function editTodo(index) {
+      const todoList = getTodos();
+      const todoItem = document.querySelector(`.todo-item[data-index='${index}']`);
+      const todoTextElement = todoItem.querySelector('.todo-text');
+      const editInput = document.createElement('input');
+      editInput.type = 'text';
+      editInput.className = 'edit-input';
+      editInput.value = todoList[index].text;
+
+      todoTextElement.replaceWith(editInput);
+
+      editInput.focus();
+      editInput.addEventListener('blur', () => {
+        todoList[index].text = editInput.value;
+        setTodos(todoList);
+        renderTodoList();
+      });
+
+      editInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          editInput.blur();
+        }
+      });
+    }
+
+    function toggleComplete(index) {
+      const todoList = getTodos();
+      todoList[index].completed = !todoList[index].completed;
+      setTodos(todoList);
+      renderTodoList();
+    }
+
+    function deleteTodo(index) {
+      const todoList = getTodos();
+      todoList.splice(index, 1);
+      setTodos(todoList);
+      renderTodoList();
+    }
+
+    function getTodos() {
+      return JSON.parse(localStorage.getItem('todos')) || [];
+    }
+
+    function setTodos(todos) {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    function renderTodoList() {
+      const todoList = getTodos();
+      const todoListElement = document.getElementById('todo-list');
+      todoListElement.innerHTML = '';
+      todoList.forEach((todo, index) => {
+        const todoItem = document.createElement('div');
+        todoItem.className = 'todo-item';
+        todoItem.dataset.index = index;
+
+        const todoTextElement = document.createElement('span');
+        todoTextElement.className = 'todo-text';
+        if (todo.completed) {
+          todoTextElement.classList.add('completed');
+        }
+        todoTextElement.textContent = todo.text;
+
+        const todoButtons = document.createElement('div');
+        todoButtons.className = 'todo-buttons';
+
+        const editButton = document.createElement('button');
+        editButton.textContent = '편집';
+        editButton.onclick = function () {
+          editTodo(index);
+        };
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = '확인';
+        completeButton.onclick = function () {
+          toggleComplete(index);
+        };
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+        deleteButton.onclick = function () {
+          deleteTodo(index);
+        };
+
+        todoButtons.appendChild(editButton);
+        todoButtons.appendChild(completeButton);
+        todoButtons.appendChild(deleteButton);
+
+        todoItem.appendChild(todoTextElement);
+        todoItem.appendChild(todoButtons);
+
+        todoListElement.appendChild(todoItem);
+      });
+    }
+
+    function loadTodos() {
+      renderTodoList();
+    }
+  </script>
+</body>
+
+</html>
