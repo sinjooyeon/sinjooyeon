@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>투두리스트</title>
+  <style>
+    body {
+      background-color: #fde5c0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color:  #fde5c0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid  #d4a406;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .input-group button {
+      background-color: #d4a406;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .todo-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      cursor: move;
+    }
+
+    .todo-item span {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .todo-item span.completed {
+      text-decoration: line-through;
+    }
+
+    .todo-item button {
+      background-color:  #d4a406;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .todo-item button.editing {
+      background-color: #FFA500;
+    }
+
+    .edit-input {
+      flex: 1;
+      margin-right: 10px;
+      padding: 10px;
+      border: 1px solid  #d4a406;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="input-group">
+      <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+      <button onclick="addTodo()">추가</button>
+    </div>
+    <ul id="todoList" class="todo-list"></ul>
+  </div>
+
+  <script>
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    let draggedIndex;
+
+    document.addEventListener('DOMContentLoaded', renderTodos);
+
+    function addTodo() {
+      const input = document.getElementById('todoInput');
+      const text = input.value.trim();
+      if (text) {
+        const newTodo = {
+          id: Date.now(),
+          text: text,
+          completed: false
+        };
+        todos.push(newTodo);
+        input.value = '';
+        saveTodos();
+        renderTodos();
+      }
+    }
+
+    function renderTodos() {
+      const todoList = document.getElementById('todoList');
+      todoList.innerHTML = '';
+      todos.forEach((todo, index) => {
+        const todoItem = document.createElement('li');
+        todoItem.className = 'todo-item';
+        todoItem.draggable = true;
+        todoItem.dataset.index = index;
+
+        todoItem.addEventListener('dragstart', (event) => {
+          draggedIndex = index;
+          event.target.style.backgroundColor = 'lightgray';
+        });
+
+        todoItem.addEventListener('dragend', (event) => {
+          event.target.style.backgroundColor = "";
+        });
+
+        todoItem.addEventListener('dragover', (event) => {
+          event.preventDefault();
+        });
+
+        todoItem.addEventListener('drop', (event) => {
+          event.preventDefault();
+          const targetIndex = event.target.closest('.todo-item').dataset.index;
+          if (draggedIndex !== targetIndex) {
+            const draggedTodo = todos.splice(draggedIndex, 1)[0];
+            todos.splice(targetIndex, 0, draggedTodo);
+            saveTodos();
+            renderTodos();
+          }
+        });
+
+        const todoText = document.createElement('span');
+        todoText.className = 'todo-text';
+        todoText.textContent = todo.text;
+        if (todo.completed) {
+          todoText.classList.add('completed');
+        }
+
+        const editButton = document.createElement('button');
+        editButton.textContent = '편집';
+        editButton.className = 'edit';
+        editButton.onclick = () => editTodo(index);
+
+        const completeButton = document.createElement('button');
+        completeButton.textContent = '확인';
+        completeButton.className = 'complete';
+        completeButton.onclick = () => toggleComplete(todo.id);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+        deleteButton.className = 'delete';
+        deleteButton.onclick = () => deleteTodo(todo.id);
+
+        todoItem.appendChild(todoText);
+        todoItem.appendChild(editButton);
+        todoItem.appendChild(completeButton);
+        todoItem.appendChild(deleteButton);
+
+        todoList.appendChild(todoItem);
+      });
+    }
+
+    function editTodo(index) {
+      const todoList = getTodos();
+      const todoItem = document.querySelector(`.todo-item[data-index='${index}']`);
+      const todoTextElement = todoItem.querySelector('.todo-text');
+      const editInput = document.createElement('input');
+      editInput.type = 'text';
+      editInput.className = 'edit-input';
+      editInput.value = todoList[index].text;
+
+      todoTextElement.replaceWith(editInput);
+
+      editInput.focus();
+      editInput.addEventListener('blur', () => {
+        todoList[index].text = editInput.value;
+        setTodos(todoList);
+        renderTodos();
+      });
+
+      editInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          editInput.blur();
+        }
+      });
+    }
+
+    function getTodos() {
+      return todos;
+    }
+
+    function setTodos(newTodos) {
+      todos = newTodos;
+      saveTodos();
+    }
+
+    function toggleComplete(id) {
+      const todo = todos.find(todo => todo.id === id);
+      if (todo) {
+        todo.completed = !todo.completed;
+        saveTodos();
+        renderTodos();
+      }
+    }
+
+    function deleteTodo(id) {
+      todos = todos.filter(todo => todo.id !== id);
+      saveTodos();
+      renderTodos();
+    }
+
+    function saveTodos() {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  </script>
+</body>
+
+</html>
