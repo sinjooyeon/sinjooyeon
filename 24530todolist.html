@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do</title>
+</head>
+
+<body>
+  <div class="bigcontainer">
+    <div class="container">
+      <input type="text" id="s_input_text" placeholder="할일을 입력하시오">
+      <button type="button" id="s_add_todo_button">추가</button>
+    </div>
+    <ul id="s_todo_list" class="s_list"></ul>
+  </div>
+
+
+
+
+
+  <script>
+    const s_todos = getTodos();
+    const draggedIndex = null;
+
+    document.addEventListener('DOMContentLoaded', renderTodos);
+
+    document.getElementById('s_add_todo_button').addEventListener('click', addTodo);
+
+    function renderTodos() {
+      const s_todoList_area = document.getElementById('s_todo_list');
+      s_todoList_area.innerHTML = '';
+
+      s_todos.forEach((todo, index) => {
+        const todoItem = document.createElement('li');
+        todoItem.classList.add('s_todo_item');   //className보다 훨신 더 안전하고 직관적 classList.add('_'),remove('_'),contain('_'),toggle('_')등이 있다
+        todoItem.draggable = true;
+        todoItem.dataset.index = index;    // 드래그를 하기 위한 순서 인덱스넣음
+
+        todoItem.addEventListener('dragstart', (event) => {
+          draggedIndex = index;
+          event.target.style.backgroundColor = 'lightgray';   //드래그를 시작하면 배경색이 라이트 그레이색으로 변경
+        });
+
+        todoItem.addEventListener('dragend', (event) => {
+          event.target.style.backgroundColor = "";   //드래그끝남 배경색 바뀌는거 그만
+        });
+
+        todoItem.addEventListener('dragover', (event) => {
+          event.preventDefault();    // 새로고침이나 다른작동 금지
+        });
+
+
+        todoItem.addEventListener('drop', (event) => {
+          event.preventDefault();
+
+          const targetIndex = parseInt(event.target.closest('.s_todo_item').dataset.index);
+          //closest()주어진 CSS 선택자와 일치하는 요소를 찾을때까지 자기자신을 포함해 위쪽으로 문서트리를 순화한다. 일치하는 요소의 인덱스를 반환한다 parseInt정수로 반환
+
+          if (draggedIndex !== targetIndex) {    //그래서 드래그한 인덱스와 내가 갈려고한공간 인덱스와 같지 않은 게 참이면  
+            const draggedTodo = s_todos.splice(draggedIndex, 1)[0];    //드래그한인덱스애를  한개잘라서 인덱스 0으로 넣은 객체?배열 를 변수로 저장해놓았다
+            s_todos.splice(targetIndex, 0, draggedTodo);   //투두목록에 (내가 갈려고한 인덱스에서 , 제거하는건0, 변수로저장해 놓은걸 배열에 추가한다)
+            setTodos();     //그리고 그목록을 스토리지에 저장
+            renderTodos();    //다시 랜더링?
+          }
+        });
+
+        const todoText = document.createElement('span');
+        todoText.classList.add('todo-text');
+        todoText.textContent = todo.text;
+        if (todo.completed) {
+          todoText.classList.add('completed');
+        }
+
+        const editButton = document.createElement('button');
+        editButton.classList.add('edit');
+        editButton.textContent = '편집';
+        editButton.addEventListener('click', (event) => {
+          editTodo(index);
+        });
+
+
+        const completeButton = document.createElement('button');
+        completeButton.classList.add('complete');
+        completeButton.textContent = '확인';
+        completeButton.addEventListener('click', (event) => {
+          toggleComplete(todo.id);
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete');
+        deleteButton.textContent = '삭제';
+        deleteButton.addEventListener('click', (event) => {
+          deleteTodo(todo.id);
+        });
+
+        todoItem.appendChild(todoText);
+        todoItem.appendChild(editButton);
+        todoItem.appendChild(completeButton);
+        todoItem.appendChild(deleteButton);
+
+
+        s_todoList_area.appendChild(todoItem);
+
+      });
+    }
+
+
+
+    function addTodo() {
+      const s_todoText = document.getElementById('s_input_text').value.trim(); //trim()은 맨앞,끝 부분만 공백제거 (이렇게써도 되는지 따로 코드를 뺴서 나눠써야되는지?)
+      if (s_todoText === '') return;
+
+      const s_todo = {
+        id: Date.now(),  //글씨가 같더라도 구분을 위한 고유식별자 역할
+        text: s_todoText,
+        completed: false
+      };
+      s_todos.push(s_todo);
+      document.getElementById('s_input_text').value = ''; //input.value=''; 저코드와 이코드 중에 어떤코드를 쓰는게 좋은걸까?
+      setTodos();
+      renderTodos();
+    }
+
+
+    function getTodos() {
+      return JSON.parse(localStorage.getItem('s_todos')) || []; //제이슨으로 저장되어있는 목록을 객체로 불러오거나 없음 빈배열 반환
+    }
+
+    function setTodos() {
+      localStorage.setItem('s_todos', JSON.stringify(s_todos)); //목록을 제이슨으로 바꿔서 로컬스토리지에 저장
+    }
+
+    function toggleComplete(id) {
+      s_todos = s_todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo);
+      setTodos();
+      renderTodos();
+    }
+
+    function deleteTodo(id) {
+      s_todos = s_todos.filter(todo => todo.id !== id);
+      setTodos();
+      renderTodos();
+    }
+
+    function editTodo(index) {
+      const todoList = getTodos();
+      const todoItem = document.querySelector(`.s_todo_item[data-index='${index}']`);
+      const todoTextElement = todoItem.querySelector('.todo-text');
+      const editInput = document.createElement('input');
+      editInput.type = 'text';
+      editInput.classList.add('edit-input');
+      editInput.value = todoList[index].text;
+
+      todoTextElement.replaceWith(editInput);
+
+      editInput.focus();//사용자가 인풋 필드에 텍스트를 바로 입력할 수 있도록 커서를 활성화
+      editInput.addEventListener('blur', () => { //blur 이벤트는 인풋 필드가 포커스를 잃을 때(즉, 사용자가 인풋 필드 밖을 클릭할 때) 발생합니다. 이 이벤트가 발생하면 지정된 콜백 함수가 실행됩니다.
+        todoList[index].text = editInput.value;
+        //인풋 필드의 현재 값을 todoList 배열의 해당 할 일 항목의 텍스트로 업데이트합니다. index는 현재 편집 중인 할 일 항목의 인덱스를 나타냅니다.      
+        // 즉, 사용자가 인풋 필드에 입력한 텍스트가 해당 할 일 항목의 새로운 텍스트로 저장됩니다.
+
+        setTodos(todoList);//저장
+        renderTodos();//업데이트한 내역을 다시 읽어들임
+      });
+
+      editInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          editInput.blur();
+        }
+      });
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
