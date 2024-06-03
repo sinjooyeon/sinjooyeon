@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="input-group">
+      <form class="add-todo-form">
+        <input type="text" name="add" class="add" placeholder="할 일을 입력하세요">
+        <button type='submit' class='add-todo'>추가</button>
+      </form>
+    </div>
+    <ul class="todos">
+      <li></li>
+    </ul>
+  </div>
+
+
+
+  <script>
+    const submitForm = document.querySelector('.add-todo-form');
+    const addButton = document.querySelector('.add-todo');
+    const todoList = document.querySelector('.todos');
+    let listLength = todoList.querySelectorAll('li').length;
+
+    const generateTemplate = (todo) => {
+      const html = `<li>
+                    <input type="checkbox" id="todo_${listLength}" />
+                    <label for="todo_${listLength}">
+                        <span class="check"></span>${todo}
+                    </label>
+                  <button class="delete">XXXXX</button>
+                  </li>`;
+      todoList.innerHTML += html;
+    };
+
+    function addTodos(e) {
+      e.preventDefault();
+      const todo = submitForm.add.value.trim(); // trim extra space in input
+      if (todo.length) { // to check whether the input is empty
+        listLength = listLength + 1; // to update the checkbox id when we add a new list item
+        generateTemplate(todo);
+        submitForm.reset();
+      }
+    }
+
+    // Add todos
+    submitForm.addEventListener('submit', addTodos);
+    addButton.addEventListener('click', addTodos);
+
+    function deleteTodos(e) {
+      if (e.target.classList.contains('delete')) {
+        e.target.parentElement.remove();
+      }
+    }
+
+    // Delete todos
+    todoList.addEventListener('click', deleteTodos);
+  </script>
+
+</html>
