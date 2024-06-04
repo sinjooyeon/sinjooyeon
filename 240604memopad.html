@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .notepad {
+      width: 500px;
+      height: 700px;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      cursor: move;
+    }
+
+    .notepad textarea {
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 10px;
+      box-sizing: border-box;
+      resize: none;
+
+    }
+
+    .notepad textarea:hover {
+      background-color: rgb(255, 232, 155);
+      /* 마우스를 갖다댔을 때의 배경색 */
+      color: rgb(0, 0, 0);
+      /* 마우스를 갖다댔을 때의 글자색 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="notepad" class="notepad">
+    <textarea></textarea>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const notepad = document.getElementById('notepad');
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      notepad.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - notepad.offsetLeft;
+        offsetY = e.clientY - notepad.offsetTop;
+        notepad.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          notepad.style.left = `${e.clientX - offsetX}px`;
+          notepad.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+        notepad.style.cursor = 'move';
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>
