@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Buttons Example</title>
+</head>
+
+<body>
+  <form id="toDoForm">
+    <input type="text" class="inputtext1" placeholder="내용을 적어보실까요?" />
+    <input type="text" class="inputtext2" placeholder="좋아하는 과일" />
+    <input type="text" class="inputtext3" placeholder="좋아하는생선" />
+
+
+    <button type="submit" class="button" data-action="action1">Action 1</button>
+    <button type="submit" class="button" data-action="action2">Action 2</button>
+    <button type="submit" class="button" data-action="action3">Action 3</button>
+    <!-- 필요한 만큼 버튼 추가 -->
+  </form>
+  <div class="content"></div>
+
+  <script>
+    // 폼과 입력 필드 요소 선택
+    const toDoForm = document.getElementById('toDoForm');
+    const todoText1 = document.querySelector('.inputtext1');
+    const todoText2 = document.querySelector('.inputtext2');
+    const todoText3 = document.querySelector('.inputtext3');
+
+
+    let lastClickedButton = null;
+
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        lastClickedButton = button;
+      });
+    });
+
+
+
+
+    // const buttons = document.querySelectorAll('.button');
+
+    // // 각 버튼에 이벤트 핸들러 추가
+    // buttons.forEach(button => {
+    //         button.addEventListener('click', (event) => {
+    //     const action = button.getAttribute('data-action');
+    //     handleAction(action);
+    //   });
+    // });
+
+    // 폼 제출 이벤트 핸들러
+    toDoForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (lastClickedButton) {
+        const action = lastClickedButton.getAttribute('data-action');
+        handleAction(action);
+        lastClickedButton = null; // 마지막 클릭된 버튼 초기화
+      } else {
+        console.log('Enter key pressed with no button click.');
+      }
+    });
+
+
+    // 버튼 동작을 처리하는 함수
+    function handleAction(action) {
+
+      switch (action) {
+        case 'action1':
+          console.log('Action1:', todoText1.value);
+          break;
+        case 'action2':
+          console.log('Action2:', todoText2.value);
+          break;
+        case 'action3':
+          console.log('Action3:', todoText3.value);
+          break;
+        // 필요한 만큼 케이스 추가
+        default:
+          console.log('Unknown action');
+      }
+    }
+  </script>
+</body>
+
+</html>
