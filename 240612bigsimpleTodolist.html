@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  color: #474747;
+}
+
+body {
+  padding: 5rem 0;
+  background: #b9f085;
+  min-height: 100vh;
+}
+body .container {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background: #e4f38f;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0px 10px 30px 0px #3f3f3f;
+}
+body h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  font-size: 2.35rem;
+}
+body form {
+  margin: 2rem 0;
+}
+body form input {
+  width: 250px;
+  height: 50px;
+  border-radius: 50px;
+  padding: 0 1rem;
+  border: 2px solid #325535;
+  font-size: 1.3rem;
+  background: #ffffff 100%;
+  color: #353535;
+
+  transition: 0.7s;
+}
+body form input::placeholder {
+  color: #000000;
+}
+body form input:focus {
+  border: 5px solid #019b15;
+}
+body ul {
+  text-align: left;
+}
+body ul li {
+  list-style: none;
+  padding: 0.7rem;
+  position: relative;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+body ul li:before {
+  content: "*";
+  padding: 0.6rem;
+  font-size: 1.3rem;
+  color: #fd4a1d;
+}
+body ul li:after {
+  opacity: 0;
+}
+body ul li:hover:after {
+  content: " (완료했니?)";
+  opacity: 0;
+  font-size: 1.1rem;
+  color: #fd4a1d;
+  font-style: italic;
+  animation: pseudoClassAnim 1s forwards;
+}
+body ul .checked:before {
+  content: "✔";
+  padding: 10px 10px;
+  font-size: 1.1rem;
+  color: #fd4a1d;
+}
+body ul .checked:hover:after {
+  content: " (지울까?)";
+  font-size: 1.1rem;
+  color: #0fa541;
+  opacity: 0;
+}
+
+@keyframes pseudoClassAnim {
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>오늘의 할일</h1>
+    <form>
+      <input type="text" id="item" placeholder="할일 적고 엔터 눌럿" autocomplete="off" minlength="2" />
+    </form>
+    <ul id="list">
+      <li>Task 1</li>
+      <li>Task 2</li>
+      <li>Task 3</li>
+    </ul>
+  </div>
+
+
+  <script>
+  const list = document.getElementById('list');
+  const form = document.querySelector('form');
+  const item = document.getElementById('item');
+
+  function addItem(event) {
+    event.preventDefault();
+    const li = document.createElement('li');
+    li.textContent = item.value;
+    list.appendChild(li);
+    item.value = "";
+    //storage(); // 스토리지 기능이 필요하다면 여기에 추가
+  }
+
+  // 아이템 클릭 핸들러
+  function handleItemClick(event) {
+    if (event.target.tagName === 'LI') {
+      if (event.target.classList.contains('checked')) {
+        event.target.remove();
+      } else {
+        event.target.classList.add('checked');
+      }
+    }
+  }
+
+  // 이벤트 리스너 추가
+  form.addEventListener('submit', addItem);
+  list.addEventListener('click', handleItemClick);
+
+
+
+  </script>
+</body>
+</html>
