@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Todo List</title>
+  <style>
+    body {
+      background-color: #e7e7e7;
+    }
+.title{
+    display: flex;
+      justify-content: center;
+      font-size: 100px;
+      padding: 50px;
+}
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .day-box {
+      background-color: #fff;
+      width: 200px;
+      height: 500px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      box-shadow: 1px 2px 5px gray
+    }
+
+    .day-box li {
+      list-style-type: none;
+      padding-left: 0;
+      margin-left: 5px;
+    }
+
+
+    .day-box ul {
+      padding-left: 0;
+    }
+
+    .day-box h3 {
+      text-align: center;
+    }
+
+    .checked {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+
+
+<div class="title">
+  <hi>Weekly todolist</hi>
+  </div>
+  <div class="container">
+    <div class="day-box" id="monday">
+      <h3>Monday</h3>
+      <form id="monday-form">
+        <input type="text" id="monday-item" placeholder="오늘의 할일">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="monday-list"></ul>
+    </div>
+    <div class="day-box" id="tuesday">
+      <h3>Tuesday</h3>
+      <form id="tuesday-form">
+        <input type="text" id="tuesday-item" placeholder="오늘의 할일">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="tuesday-list"></ul>
+    </div>
+    <div class="day-box" id="wednesday">
+      <h3>Wednesday</h3>
+      <form id="wednesday-form">
+        <input type="text" id="wednesday-item" placeholder="오늘의 할일">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="wednesday-list"></ul>
+    </div>
+    <div class="day-box" id="thursday">
+      <h3>Thursday</h3>
+      <form id="thursday-form">
+        <input type="text" id="thursday-item" placeholder="오늘의 할일">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="thursday-list"></ul>
+    </div>
+    <div class="day-box" id="friday">
+      <h3>Friday</h3>
+      <form id="friday-form">
+        <input type="text" id="friday-item" placeholder="오늘의 할일">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="friday-list"></ul>
+    </div>
+    <div class="day-box" id="saturday">
+      <h3>Saturday</h3>
+      <form id="saturday-form">
+        <input type="text" id="saturday-item" placeholder="오늘의 할일">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="saturday-list"></ul>
+    </div>
+    <div class="day-box" id="sunday">
+      <h3>Sunday</h3>
+      <form id="sunday-form">
+        <input type="text" id="sunday-item" placeholder="Add item...">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="sunday-list"></ul>
+    </div>
+  </div>
+  <script>
+    const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
+    days.forEach(day => {
+      const list = document.getElementById(`${day}-list`);
+      const form = document.getElementById(`${day}-form`);
+      const item = document.getElementById(`${day}-item`);
+
+      // 아이템 추가 함수
+      function addItem(event) {
+        event.preventDefault();
+        if (item.value.trim() !== "") {
+          const li = document.createElement('li');
+          li.textContent = item.value;
+          list.appendChild(li);
+          item.value = "";
+        }
+      }
+
+      // 아이템 클릭 핸들러
+      function handleItemClick(event) {
+        if (event.target.tagName === 'LI') {
+          if (event.target.classList.contains('checked')) {
+            event.target.remove();
+          } else {
+            event.target.classList.add('checked');
+          }
+        }
+      }
+
+      // 이벤트 리스너 추가
+      form.addEventListener('submit', addItem);
+      list.addEventListener('click', handleItemClick);
+    });
+  </script>
+</body>
+
+</html>
