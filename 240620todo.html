@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simpletodo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: gray;
+   
+      margin: 0%;
+      padding: 0%;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      color: white;
+      font-size: 60px;
+      margin: 0 20px;
+    }
+
+    .todolist {
+      width: 500px;
+      min-height: 300px;
+      border: 2px solid white;
+    
+      padding: 20px 20px 100px 20px;
+      margin-top: 30px;
+      background-image: gray;
+    }
+
+    .todolist li {
+      color: white;
+      font-size: 24px;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+
+      border-bottom: 1px solid white;
+      word-break: break-word;
+    }
+
+    li button {
+      float: right;
+      color: gray;
+      margin-left: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: 0px solid transparent;
+      border: 1px solid white;
+      transition: 0.2s all ease-in-out;
+    }
+
+    li button:hover {
+      background-color: gray;
+      color: white;
+    }
+
+    #inputtask {
+      min-width: 300px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: 0px solid transparent;
+      font-size: 24px;
+      margin-right: 10px;
+      color: gray;
+    }
+
+    #inputtask:focus {
+      outline: none;
+    }
+
+    #addbutton,
+    .clear {
+      color: gray;
+      font-weight: 500;
+      font-size: 24px;
+      border-radius: 5px;
+      border: 0px solid transparent;
+      padding: 10px 15px;
+      cursor: pointer;
+      border: 1px solid rgb(255, 255, 255);
+      transition: 0.3s all ease-in-out;
+    }
+
+    #addbutton:hover,
+    .clear:hover {
+      background-color: gray;
+      color: white;
+      transform: scale(0.97);
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    li span:focus {
+      background-color: white;
+      color: black;
+      outline: none;
+      padding: 0 5px;
+      display: inline-block;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .link {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .link a {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <h1>TO DO LIST</h1>
+
+    <form class="form">
+      <input id="inputtask" type="text" placeholder="Enter your task here" />
+      <input id="addbutton" value="Add Task" type="submit" />
+    </form>
+    <ol class="todolist"></ol>
+    <button class="clear d-none">Clear All</button>
+  </div>
+  <div class="link"><a href="https://radialcode.com">Visit RadialCode.com for more<a></div>
+
+
+  <script>
+
+    const inputTask = document.querySelector("#inputtask");
+    const form = document.querySelector(".form");
+    const addButton = document.querySelector("#addbutton");
+    const toDoList = document.querySelector(".todolist");
+    const clear = document.querySelector(".clear");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (inputTask.value == "") {
+        alert("please add Some Text");
+      } else {
+        const newTask = createNewItem(inputTask.value);
+        toDoList.appendChild(newTask);
+        inputTask.value = "";
+        inputTask.focus();
+        clear.classList.remove("d-none");
+      }
+
+      clear.addEventListener("click", function () {
+        toDoList.innerHTML = "";
+      });
+    });
+
+    function createNewItem(inputValue) {
+      const task = document.createElement("li");
+      const span = document.createElement("span");
+      const delBtn = document.createElement("button");
+      const editBtn = document.createElement("button");
+      span.textContent = inputValue;
+      delBtn.textContent = "Delete";
+      editBtn.textContent = "Edit";
+      task.appendChild(span);
+      task.appendChild(delBtn);
+      task.appendChild(editBtn);
+
+      delBtn.addEventListener("click", function () {
+        task.parentNode.removeChild(task);
+      });
+      editBtn.addEventListener("click", function () {
+        span.contentEditable = true;
+        span.focus();
+      });
+
+      return task;
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
