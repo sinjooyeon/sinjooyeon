@@ -12,7 +12,7 @@
 
     body {
       background-color: gray;
-   
+
       margin: 0%;
       padding: 0%;
       font-family: "Poppins", sans-serif;
@@ -35,7 +35,7 @@
       width: 500px;
       min-height: 300px;
       border: 2px solid white;
-    
+
       padding: 20px 20px 100px 20px;
       margin-top: 30px;
       background-image: gray;
@@ -54,7 +54,7 @@
 
     li button {
       float: right;
-      color: gray;
+      color: rgb(187, 187, 187);
       margin-left: 5px;
       font-size: 20px;
       border-radius: 5px;
@@ -138,7 +138,7 @@
     <ol class="todolist"></ol>
     <button class="clear d-none">Clear All</button>
   </div>
-  <div class="link"><a href="https://radialcode.com">Visit RadialCode.com for more<a></div>
+
 
 
   <script>
@@ -149,22 +149,26 @@
     const toDoList = document.querySelector(".todolist");
     const clear = document.querySelector(".clear");
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (inputTask.value == "") {
-        alert("please add Some Text");
-      } else {
-        const newTask = createNewItem(inputTask.value);
+
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      tasks.forEach(task => {
+        const newTask = createNewItem(task);
         toDoList.appendChild(newTask);
-        inputTask.value = "";
-        inputTask.focus();
+      });
+      if (tasks.length > 0) {
         clear.classList.remove("d-none");
       }
+    }
 
-      clear.addEventListener("click", function () {
-        toDoList.innerHTML = "";
+    function saveTasks() {
+      const tasks = [];
+      toDoList.querySelectorAll("li span").forEach(span => {
+        tasks.push(span.textContent);
       });
-    });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
 
     function createNewItem(inputValue) {
       const task = document.createElement("li");
@@ -180,15 +184,43 @@
 
       delBtn.addEventListener("click", function () {
         task.parentNode.removeChild(task);
+        saveTasks();
       });
+
       editBtn.addEventListener("click", function () {
         span.contentEditable = true;
         span.focus();
+        span.addEventListener("blur", function () {
+          span.contentEditable = false;
+          saveTasks();
+        });
       });
 
       return task;
     }
 
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (inputTask.value == "") {
+        alert("please add Some Text");
+      } else {
+        const newTask = createNewItem(inputTask.value);
+        toDoList.appendChild(newTask);
+        inputTask.value = "";
+        inputTask.focus();
+        clear.classList.remove("d-none");
+        saveTasks();
+      }
+    });
+
+    clear.addEventListener("click", function () {
+      toDoList.innerHTML = "";
+      localStorage.removeItem('tasks');
+      clear.classList.add("d-none");
+    });
+
+
+    loadTasks();
 
   </script>
 
