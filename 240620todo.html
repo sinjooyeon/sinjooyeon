@@ -124,22 +124,97 @@
     .link a {
       color: white;
     }
+
+    #one {
+      display: flex;
+      justify-content: center;
+    }
+
+    .popover {
+      position: absolute;
+      z-index: 1000;
+      display: none;
+      width: 200px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .popover-arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .popover-arrow[data-placement="left"] {
+      top: 50%;
+      left: 100%;
+      margin-top: -5px;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent #ccc;
+    }
+
+    .popover-arrow[data-placement="top"] {
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px 5px 0 5px;
+      border-color: #ccc transparent transparent transparent;
+    }
+
+    .popover-arrow[data-placement="bottom"] {
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent #ccc transparent;
+    }
+
+    .popover-arrow[data-placement="right"] {
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      border-width: 5px 5px 5px 0;
+      border-color: transparent #ccc transparent transparent;
+    }
   </style>
 </head>
 
 <body>
   <div class="main">
-    <h1>TO DO LIST</h1>
+    <h1 tabIndex="0">TO DO LIST</h1>
 
     <form class="form">
-      <input id="inputtask" type="text" placeholder="Enter your task here" />
+      <input id="inputtask" type="text" placeholder="Enter your task here" autofocus />
       <input id="addbutton" value="Add Task" type="submit" />
     </form>
     <ol class="todolist"></ol>
     <button class="clear d-none">Clear All</button>
   </div>
+  <section id="one" class="i-row i-row-odd">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 class="section-title">Popover 1</h2>
+          <div class="section-body">
+            <button type="button" class="btn btn-success" data-toggle="popover" data-placement="left" data-content="오징어순대머글래?">아줌마</button>
+            <button type="button" class="btn btn-success" data-toggle="popover" data-placement="top" data-content="싫엇~~~~!!!!!!!!">아저씨</button>
+            <button type="button" class="btn btn-success" data-toggle="popover" data-placement="bottom" data-content="난 안 좋아함">꼬맹이</button>
+            <button type="button" class="btn btn-success" data-toggle="popover" data-placement="right" data-content="나도 안먹엇!!!!">몽총이</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
+  <div id="popover" class="popover">
+    <div class="popover-arrow"></div>
+    <div class="popover-content"></div>
+  </div>
 
   <script>
 
@@ -221,7 +296,44 @@
 
 
     loadTasks();
+    document.addEventListener('DOMContentLoaded', function () {
+      var popover = document.getElementById('popover');
+      var popoverContent = popover.querySelector('.popover-content');
+      var popoverArrow = popover.querySelector('.popover-arrow');
 
+      document.querySelectorAll('[data-toggle="popover"]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var content = button.getAttribute('data-content');
+          var placement = button.getAttribute('data-placement');
+          popoverContent.innerHTML = content;
+          popoverArrow.setAttribute('data-placement', placement);
+          popover.style.display = 'block';
+
+          var rect = button.getBoundingClientRect();
+          var popoverRect = popover.getBoundingClientRect();
+
+          if (placement === 'left') {
+            popover.style.top = rect.top + window.scrollY + (rect.height / 2) - (popoverRect.height / 2) + 'px';
+            popover.style.left = rect.left + window.scrollX - popoverRect.width - 10 + 'px';
+          } else if (placement === 'top') {
+            popover.style.top = rect.top + window.scrollY - popoverRect.height - 10 + 'px';
+            popover.style.left = rect.left + window.scrollX + (rect.width / 2) - (popoverRect.width / 2) + 'px';
+          } else if (placement === 'bottom') {
+            popover.style.top = rect.top + window.scrollY + rect.height + 10 + 'px';
+            popover.style.left = rect.left + window.scrollX + (rect.width / 2) - (popoverRect.width / 2) + 'px';
+          } else if (placement === 'right') {
+            popover.style.top = rect.top + window.scrollY + (rect.height / 2) - (popoverRect.height / 2) + 'px';
+            popover.style.left = rect.left + window.scrollX + rect.width + 10 + 'px';
+          }
+        });
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!event.target.matches('[data-toggle="popover"]')) {
+          popover.style.display = 'none';
+        }
+      });
+    });
   </script>
 
 
