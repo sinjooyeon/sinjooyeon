@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playing Cards</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card-row {
+      display: flex;
+      margin: 5px 0;
+    }
+
+    .card {
+      width: 50px;
+      height: 100px;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .clubs {
+      color: black;
+    }
+
+    .hearts {
+      color: red;
+    }
+
+    .spades {
+      color: black;
+    }
+
+    .diamonds {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cards-container"></div>
+
+  <script>
+    class Card {
+      constructor(suit, number) {
+        this.suit = suit;
+        this.number = number;
+      }
+
+      render() {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = `card ${this.suit}`;
+        cardDiv.innerHTML = `${this.getSuitSymbol()}${this.number}`;
+        return cardDiv;
+      }
+
+      getSuitSymbol() {
+        switch (this.suit) {
+          case 'clubs':
+            return '♣';
+          case 'hearts':
+            return '♥';
+          case 'spades':
+            return '♠';
+          case 'diamonds':
+            return '◆';
+        }
+      }
+    }
+
+    const suits = ['clubs', 'hearts', 'spades', 'diamonds'];
+    const container = document.getElementById('cards-container');
+
+    suits.forEach(suit => {
+      const row = document.createElement('div');
+      row.className = 'card-row';
+      for (let i = 1; i <= 13; i++) {
+        const card = new Card(suit, i);
+        row.appendChild(card.render());
+      }
+      container.appendChild(row);
+    });
+  </script>
+</body>
+
+</html>
