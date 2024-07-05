@@ -63,7 +63,7 @@
       render() {
         const cardDiv = document.createElement('div');
         cardDiv.className = `card ${this.suit}`;
-        cardDiv.innerHTML = `${this.getSuitSymbol()}${this.number}`;
+        cardDiv.textContent = `${this.getSuitSymbol()}${this.number}`;
         return cardDiv;
       }
 
