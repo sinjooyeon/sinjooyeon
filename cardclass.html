@@ -63,11 +63,11 @@
       render() {
         const cardDiv = document.createElement('div');
         cardDiv.className = `card ${this.suit}`;
-        cardDiv.textContent = `${this.getSuitSymbol()}${this.number}`;
+        cardDiv.textContent = `${this.pattern()}${this.number}`;
         return cardDiv;
       }
 
-      getSuitSymbol() {
+      pattern() {
         switch (this.suit) {
           case 'clubs':
             return '♣';
@@ -83,16 +83,45 @@
 
     const suits = ['clubs', 'hearts', 'spades', 'diamonds'];
     const container = document.getElementById('cards-container');
+  class Card {
+    constructor(suit, number) {
+      this.suit = suit;
+      this.number = number;
+    }
 
-    suits.forEach(suit => {
-      const row = document.createElement('div');
-      row.className = 'card-row';
-      for (let i = 1; i <= 13; i++) {
-        const card = new Card(suit, i);
-        row.appendChild(card.render());
+    render() {
+      const cardDiv = document.createElement('div');
+      cardDiv.className = `card ${this.suit}`;
+      cardDiv.textContent = `${this.pattern()}${this.number}`;
+      return cardDiv;
+    }
+
+    pattern() {
+      switch (this.suit) {
+        case 'clubs':
+          return '♣';
+        case 'hearts':
+          return '♥';
+        case 'spades':
+          return '♠';
+        case 'diamonds':
+          return '◆';
       }
-      container.appendChild(row);
-    });
+    }
+  }
+
+  const suits = ['clubs', 'hearts', 'spades', 'diamonds'];
+  const container = document.getElementById('cards-container');
+
+  suits.forEach(suit => {
+    const row = document.createElement('div');
+    row.className = 'card-row';
+    for (let i = 1; i <= 13; i++) {
+      const card = new Card(suit, i);
+      row.appendChild(card.render());
+    }
+    container.appendChild(row);
+  });
   </script>
 </body>
 
