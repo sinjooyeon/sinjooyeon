@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    #todoList ul {
+      list-style-type: none;
+    }
+
+    #todoList li {
+      padding: 8px;
+      margin: 5px;
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+    }
+
+    #trash {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      margin-top: 20px;
+    }
+
+    .emptySpace {
+      border: 2px dashed #ccc;
+      height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="todoList">
+    <ul>
+      <li class="listTitle">Todo List</li>
+      <li class="addItem"><input type="text" placeholder="Add new item"></li>
+    </ul>
+  </div>
+
+<span>
+
+</span>
+
+  <div id="trash">Trash</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const todoList = document.querySelector('#todoList ul');
+      const trash = document.getElementById('trash');
+      let draggedItem = null;
+
+      // Make list items draggable
+      todoList.addEventListener('dragstart', function (e) {
+        if (e.target.tagName === 'LI' && !e.target.classList.contains('listTitle') && !e.target.classList.contains('addItem')) {
+          draggedItem = e.target;
+          e.dataTransfer.effectAllowed = 'move';
+        }
+      });
+
+      todoList.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        if (e.target.tagName === 'LI' && e.target !== draggedItem) {
+          const bounding = e.target.getBoundingClientRect();
+          const offset = bounding.y + bounding.height / 2;
+          if (e.clientY - offset > 0) {
+            e.target.style['border-bottom'] = 'solid 2px #ccc';
+            e.target.style['border-top'] = '';
+          } else {
+            e.target.style['border-top'] = 'solid 2px #ccc';
+            e.target.style['border-bottom'] = '';
+          }
+        }
+      });
+
+      todoList.addEventListener('dragleave', function (e) {
+        e.target.style['border-bottom'] = '';
+        e.target.style['border-top'] = '';
+      });
+
+      todoList.addEventListener('drop', function (e) {
+        e.preventDefault();
+        if (e.target.tagName === 'LI' && e.target !== draggedItem) {
+          e.target.style['border-bottom'] = '';
+          e.target.style['border-top'] = '';
+          const bounding = e.target.getBoundingClientRect();
+          const offset = bounding.y + bounding.height / 2;
+          if (e.clientY - offset > 0) {
+            e.target.insertAdjacentElement('afterend', draggedItem);
+          } else {
+            e.target.insertAdjacentElement('beforebegin', draggedItem);
+          }
+        }
+      });
+
+      // Handle adding new items
+      const input = document.querySelector('#todoList .addItem input');
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          const item = input.value;
+          if (item) {
+            const li = document.createElement('li');
+            li.textContent = item;
+            li.setAttribute('draggable', true);
+            todoList.appendChild(li);
+            input.value = '';
+          }
+        }
+      });
+
+      // Handle trash drop
+      trash.addEventListener('dragover', function (e) {
+        e.preventDefault();
+      });
+
+      trash.addEventListener('drop', function (e) {
+        e.preventDefault();
+        if (draggedItem) {
+          draggedItem.remove();
+          draggedItem = null;
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
