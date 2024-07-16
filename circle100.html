@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>circle</title>
+  <style>
+    html {
+      width: 100%;
+      height: inherit;
+      background: #ddd;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    button {
+      position: relative;
+      top: 500px;
+      left: 50px;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      /* 부모 요소의 아래에 위치합니다 */
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <button data-tooltip="버튼 요소 길이보다 툴팁 길이가 훨씬 기네요.">짧은 버튼</button>
+  <button data-tooltip="두 줄짜리<br>툴팁">...또 다른 버튼...</button>
+
+  <button>Update</button>
+
+  <canvas></canvas>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('button[data-tooltip]');
+
+    buttons.forEach(button => {
+      const tooltipText = button.getAttribute('data-tooltip');
+      const tooltip = document.createElement('span');
+      tooltip.className = 'tooltiptext';
+      tooltip.innerHTML = tooltipText;
+      button.classList.add('tooltip');
+      button.appendChild(tooltip);
+    });
+  });
+
+
+    const btn = document.querySelector("button");
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+
+    let WIDTH = document.documentElement.clientWidth;
+    let HEIGHT = document.documentElement.clientHeight;
+
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+
+    function random(number) {
+      return Math.floor(Math.random() * number);
+    }
+
+
+    function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+
+    btn.onclick = function color() {
+      const rndCol =
+        "rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
+      document.body.style.backgroundColor = rndCol;
+    };
+
+
+
+
+
+    function generateHexColor() {
+      // 16진수 숫자와 문자를 포함한 문자열
+      const hexChars = '0123456789ABCDEF';
+      let color = '#';
+
+      // 6자리 16진수 생성
+      for (let i = 0; i < 6; i++) {
+        // hexChars에서 랜덤하게 한 문자를 선택해서 color에 추가
+        color += hexChars[Math.floor(Math.random() * 16)];
+      }
+
+      return color;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      for (let i = 0; i < 100; i++) {
+        ctx.beginPath();
+        ctx.fillStyle = generateHexColor();
+        ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+
+    btn.addEventListener("click", draw);
+
+  </script>
+</body>
+
+</html>
